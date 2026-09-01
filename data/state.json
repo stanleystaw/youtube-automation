@@ -51,7 +51,33 @@
       "youtubeId": "gYgQEPBbA9g",
       "youtubeUrl": "https://www.youtube.com/watch?v=gYgQEPBbA9g",
       "publishedAt": "2026-09-01T05:12:39.653Z"
+    },
+    {
+      "taskId": "fv_630baa549b4b990007395950",
+      "ideaId": "idea-002",
+      "idea": "Une petite lampe à huile oubliée dans un phare africain s'allume toute seule et guide un bateau perdu.",
+      "status": "published",
+      "startedAt": "2026-09-01T11:44:11.913Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_630baa549b4b990007395950",
+        "idea": "Une petite lampe à huile oubliée dans un phare africain s'allume toute seule et guide un bateau perdu.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_630baa549b4b990007395950",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_630baa549b4b990007395950"
+      },
+      "createdAt": "2026-09-01T11:44:11.913Z",
+      "updatedAt": "2026-09-01T11:55:30.297Z",
+      "title": "Une petite lampe à huile oubliée dans un phare africain s'allume toute seule et guide un batea…",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_630baa549b4b990007395950",
+      "driveFileId": "1JGCof8KMGeXZaB2eeAbE9zvYrGF4YhQV",
+      "driveUrl": "https://drive.google.com/file/d/1JGCof8KMGeXZaB2eeAbE9zvYrGF4YhQV/view?usp=drivesdk",
+      "youtubeId": "WjRODjc-5mk",
+      "youtubeUrl": "https://www.youtube.com/watch?v=WjRODjc-5mk",
+      "publishedAt": "2026-09-01T11:55:30.297Z"
     }
   ],
-  "lastStartAt": "2026-09-01T04:58:49.821Z"
+  "lastStartAt": "2026-09-01T11:44:11.913Z"
 }
