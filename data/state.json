@@ -1,4 +1,24 @@
 {
-  "videos": [],
-  "lastStartAt": null
+  "videos": [
+    {
+      "taskId": "fv_e0df1e9c21f505458ce5d0f0",
+      "ideaId": "idea-001",
+      "idea": "Un renard bleu découvre une ville flottante au-dessus des nuages et apprend à parler le langage du vent.",
+      "status": "queued",
+      "startedAt": "2026-09-01T04:55:57.917Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_e0df1e9c21f505458ce5d0f0",
+        "idea": "Un renard bleu découvre une ville flottante au-dessus des nuages et apprend à parler le langage du vent.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_e0df1e9c21f505458ce5d0f0",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_e0df1e9c21f505458ce5d0f0"
+      },
+      "createdAt": "2026-09-01T04:55:57.917Z",
+      "updatedAt": "2026-09-01T04:55:57.917Z"
+    }
+  ],
+  "lastStartAt": "2026-09-01T04:55:57.917Z"
 }
