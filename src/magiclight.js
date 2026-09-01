@@ -104,7 +104,8 @@ export function extractTaskId(data) {
     pick(data, [
       "task_id",
       "taskId",
-      "id",
+      "task.task_id",
+      "task.taskId",
       "current.task_id",
       "current.taskId",
       "job.task_id",
@@ -116,12 +117,12 @@ export function extractTaskId(data) {
 
 export function extractStatus(data) {
   return String(
-    pick(data, ["status", "state", "current.status", "data.status"]) || ""
+    pick(data, ["status", "state", "task.status", "current.status", "data.status"]) || ""
   ).toLowerCase();
 }
 
 export function extractProgress(data) {
-  const n = Number(pick(data, ["progress", "percent", "current.progress"]));
+  const n = Number(pick(data, ["progress", "percent", "task.progress", "current.progress"]));
   return Number.isFinite(n) ? n : null;
 }
 
@@ -130,7 +131,9 @@ export function extractVideoUrl(data) {
     pick(data, [
       "video_url",
       "videoUrl",
-      "url",
+      "download_url",
+      "task.video_url",
+      "task.download_url",
       "mp4",
       "file_url",
       "result.video_url",
@@ -149,6 +152,7 @@ export function extractTitle(data, fallback) {
 export function normalizeHistory(data) {
   const list =
     (Array.isArray(data) && data) ||
+    data?.tasks ||
     data?.items ||
     data?.videos ||
     data?.history ||

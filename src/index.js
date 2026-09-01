@@ -84,7 +84,7 @@ async function main() {
     info(
       `Tâche ${current.taskId} — statut=${current.status || "?"} progress=${current.progress ?? "?"}%`
     );
-    if (settings.maxWaitMs > 0 && !isDone(current.status) && !isFailed(current.status)) {
+    if (!isDone(current.status) && !isFailed(current.status)) {
       current = await waitFor(ml, current.taskId, settings);
     }
   } else {
@@ -106,16 +106,22 @@ async function main() {
   }
 
   for (const item of queue) {
-    if (!item.videoUrl && item.taskId) {
-      try {
-        const fresh = await ml.status(item.taskId);
-        item.videoUrl = extractVideoUrl(fresh) || item.videoUrl;
-        item.title = extractTitle(fresh, item.title);
-        item.status = extractStatus(fresh) || item.status;
-        item.idea = item.idea || fresh.idea || fresh.prompt;
-      } catch (error) {
-        warn(`Statut ${item.taskId} : ${error.message}`);
+    if (!item.taskId) continue;
+    try {
+      let fresh = await ml.status(item.taskId);
+      let status = extractStatus(fresh) || item.status;
+      if (!isDone(status) && !isFailed(status) && !extractVideoUrl(fresh)) {
+        info(`Attente de ${item.taskId}…`);
+        const waited = await waitFor(ml, item.taskId, settings);
+        fresh = waited.data || fresh;
+        status = waited.status || status;
       }
+      item.videoUrl = extractVideoUrl(fresh) || item.videoUrl;
+      item.title = extractTitle(fresh, item.title);
+      item.status = status;
+      item.idea = item.idea || fresh.idea || fresh.prompt;
+    } catch (error) {
+      warn(`Statut ${item.taskId} : ${error.message}`);
     }
   }
 
@@ -183,18 +189,19 @@ async function main() {
     state.lastStartAt = new Date().toISOString();
     await persist();
     ok(`Génération lancée (${taskId || "task_id manquant"}) — 12 crédits débités.`);
-    info("Le serveur continue tout seul. Le prochain run GitHub Actions publiera la vidéo.");
+    info("On attend que MagicLight termine (ça peut prendre plusieurs minutes)…");
 
-    if (settings.maxWaitMs > 0 && taskId) {
+    if (taskId) {
       const done = await waitFor(ml, taskId, settings);
-      if (isDone(done.status) && extractVideoUrl(done.data)) {
+      const videoUrl = extractVideoUrl(done.data);
+      if (isDone(done.status) && videoUrl) {
         await publishItem({
           item: {
             taskId,
             idea: idea.text,
             ideaId: idea.id,
             title: extractTitle(done.data, titleFromIdea(idea.text)),
-            videoUrl: extractVideoUrl(done.data),
+            videoUrl,
             status: "done",
           },
           state,
@@ -204,6 +211,8 @@ async function main() {
           settings,
         });
         await persist();
+      } else {
+        warn("Génération pas encore livrable — le prochain run reprendra.");
       }
     }
   } catch (error) {
@@ -264,7 +273,8 @@ async function readCurrent(ml) {
 }
 
 async function waitFor(ml, taskId, settings) {
-  const deadline = Date.now() + settings.maxWaitMs;
+  const maxWait = settings.maxWaitMs > 0 ? settings.maxWaitMs : 3_000_000;
+  const deadline = Date.now() + maxWait;
   let last = -1;
   while (Date.now() < deadline) {
     const data = await ml.status(taskId);
@@ -293,7 +303,6 @@ function collectPublishQueue({ current, history, state }) {
     if (known?.youtubeId && known?.driveFileId) return;
     const status = row.status || known?.status || "";
     const videoUrl = row.videoUrl || known?.videoUrl;
-    if (!videoUrl && !isDone(status)) return;
     if (isFailed(status)) return;
     map.set(row.taskId, {
       taskId: row.taskId,

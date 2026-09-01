@@ -20,6 +20,6 @@
     ]
   },
   "descriptionTemplate": "{{title}}\n\n{{idea}}\n\n---\n🎬 Vidéo générée par intelligence artificielle.\nCette vidéo contient du contenu synthétique / généré par IA.\n\n#shorts #ia #histoire #animation #conte",
-  "pollIntervalMs": 20000,
-  "maxWaitMs": 0
+  "pollIntervalMs": 15000,
+  "maxWaitMs": 3000000
 }
