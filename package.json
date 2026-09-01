@@ -1,0 +1,25 @@
+{
+  "name": "youtube-automation",
+  "version": "1.0.0",
+  "description": "Génère 3 vidéos IA par jour (MagicLight), les publie sur YouTube et les sauvegarde sur Google Drive — via GitHub Actions.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "auth": "node scripts/google-auth.js",
+    "check": "node src/check-env.js"
+  },
+  "keywords": [
+    "youtube",
+    "automation",
+    "magiclight",
+    "github-actions"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "googleapis": "^144.0.0"
+  }
+}

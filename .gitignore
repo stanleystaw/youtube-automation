@@ -1,0 +1,10 @@
+node_modules/
+.env
+.tmp/
+tmp/
+*.mp4
+*.mp3
+*.log
+.DS_Store
+google-tokens.json
+auth-code.txt

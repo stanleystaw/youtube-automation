@@ -1,0 +1,71 @@
+name: YouTube Automation
+
+on:
+  schedule:
+    # Toutes les heures, 07:20 → 23:20 (Cotonou, UTC+1)
+    - cron: "20 6-22 * * *"
+  workflow_dispatch:
+    inputs:
+      idea:
+        description: "Idée personnalisée (vide = prochaine idée de config/ideas.json)"
+        required: false
+        type: string
+
+concurrency:
+  group: youtube-automation
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  produce:
+    name: Créer et publier
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Vérifier les secrets
+        env:
+          MAGICLIGHT_API_KEY: ${{ secrets.MAGICLIGHT_API_KEY }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+        run: node src/check-env.js
+
+      - name: Générer / publier
+        env:
+          MAGICLIGHT_API_KEY: ${{ secrets.MAGICLIGHT_API_KEY }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          DRIVE_FOLDER_ID: ${{ secrets.DRIVE_FOLDER_ID }}
+          YOUTUBE_PRIVACY: ${{ secrets.YOUTUBE_PRIVACY }}
+          IDEA: ${{ github.event.inputs.idea }}
+          SCHEDULE_CRON: ${{ github.event.schedule }}
+          TZ: Africa/Porto-Novo
+        run: node src/index.js
+
+      - name: Sauvegarder l'état
+        if: always()
+        run: |
+          git config user.name "youtube-automation[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/state.json
+          if git diff --staged --quiet; then
+            echo "Pas de changement d'état"
+          else
+            git commit -m "chore: mise à jour de l'état de publication"
+            git push
+          fi
