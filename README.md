@@ -53,24 +53,64 @@ Compte Développeur conseillé si tu branches ce bot en continu.
 ## 3. Google Cloud — YouTube + Drive
 
 Fais-le **une fois**, sur le compte Google de la chaîne.
+Interface 2025–2026 : **Google Auth Platform** (Brand / Audience / Accès aux données / Clients).
 
-### 3.1 Projet et APIs
+### 3.1 Activer les APIs (sinon les scopes n’apparaissent pas)
 
-1. [Google Cloud Console](https://console.cloud.google.com/) → nouveau projet (`youtube-automation`).
-2. **APIs & Services → Library** → active :
-   - **YouTube Data API v3**
-   - **Google Drive API**
-3. **OAuth consent screen**
-   - Type : **External**
-   - Nom de l’appli, email de support
-   - Scopes : `youtube.upload`, `youtube`, `drive.file`
-   - **Test users** : ajoute l’adresse Gmail de la chaîne (obligatoire tant que l’appli n’est pas « en production »)
-4. **Credentials → Create credentials → OAuth client ID**
-   - Type : **Application de bureau** (Desktop)
-   - URI de redirection : `http://127.0.0.1:53682/callback`
-   - Télécharge le JSON, copie `client_id` et `client_secret`
+1. [Google Cloud Console](https://console.cloud.google.com/) → crée un projet (`youtube-automation`).
+2. Menu ☰ → **APIs & Services** (APIs et services) → **Library** (Bibliothèque).
+3. Active **YouTube Data API v3** puis **Google Drive API** (bouton Enable / Activer).
 
-### 3.2 Refresh token (en local)
+### 3.2 Écran de consentement + scopes + utilisateurs test
+
+Ouvre [Google Auth Platform](https://console.cloud.google.com/auth/overview) (ou cherche « OAuth » en haut).
+
+**A. Premier lancement** → **Get started** / Commencer :
+
+1. Nom de l’appli + email de support
+2. Public : **External** / Externe (pas Internal)
+3. Email de contact → Create
+
+**B. Scopes — onglet Data access / Accès aux données**  
+(ce n’est **pas** dans le formulaire du client OAuth)
+
+Lien direct : [console.cloud.google.com/auth/scopes](https://console.cloud.google.com/auth/scopes)
+
+1. **Add or remove scopes** / Ajouter ou supprimer des champs d’application
+2. Filtre ou colle **manuellement** (un par ligne) :
+
+```
+https://www.googleapis.com/auth/youtube.upload
+https://www.googleapis.com/auth/youtube
+https://www.googleapis.com/auth/drive.file
+```
+
+3. **Update** puis **Save**
+
+YouTube / Drive sont des scopes *sensibles*. En mode **Testing**, pas besoin de vérification Google : seuls tes utilisateurs test peuvent autoriser l’appli.
+
+**C. Utilisateur test — onglet Audience / Public**  
+[console.cloud.google.com/auth/audience](https://console.cloud.google.com/auth/audience) → **Add users** → le Gmail de la chaîne YouTube.
+
+### 3.3 Client OAuth « Application de bureau »
+
+[Créer un client](https://console.cloud.google.com/auth/clients/create) :
+
+| Champ | Valeur |
+|---|---|
+| Type d’application | **Desktop app** / **Application de bureau** / **Ordinateur** |
+| Nom | `youtube-automation-local` |
+
+**Il n’y a PAS de champ « URI de redirection »** pour ce type : c’est normal.  
+Google autorise tout seul `http://127.0.0.1` (n’importe quel port). Notre script utilise `http://127.0.0.1:53682/callback`.
+
+Clique **Create**, copie `Client ID` et `Client secret`.
+
+> Si tu as choisi **Application Web** par erreur : ouvre le client → **Authorized redirect URIs** → ajoute exactement  
+> `http://127.0.0.1:53682/callback`  
+> (sans slash à la fin). Ou supprime-le et recrée un client **Desktop**.
+
+### 3.4 Refresh token (en local)
 
 ```bash
 cp .env.example .env
