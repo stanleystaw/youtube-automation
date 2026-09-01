@@ -135,7 +135,8 @@ Repo → **Settings → Secrets and variables → Actions → New repository sec
 | `MAGICLIGHT_API_KEY` | oui | Clé API MagicLight |
 | `GOOGLE_CLIENT_ID` | oui | OAuth client |
 | `GOOGLE_CLIENT_SECRET` | oui | OAuth secret |
-| `GOOGLE_REFRESH_TOKEN` | oui | Sortie de `npm run auth` |
+| `GOOGLE_REFRESH_TOKEN_YOUTUBE` | oui | 1ʳᵉ autorisation (`npm run auth`) |
+| `GOOGLE_REFRESH_TOKEN_DRIVE` | oui | 2ᵉ autorisation (`npm run auth`) |
 | `DRIVE_FOLDER_ID` | non | ID du dossier Drive (sinon création auto « YouTube Automation ») |
 | `YOUTUBE_PRIVACY` | non | `public` (défaut), `unlisted` ou `private` |
 

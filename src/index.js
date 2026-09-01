@@ -25,8 +25,17 @@ async function main() {
   const settings = loadSettings();
   const cfg = env();
   const ml = new MagicLight(cfg.magiclightKey);
-  const auth = googleAuth(cfg);
-  const drive = await driveClient(auth);
+  const youtubeAuthClient = googleAuth({
+    clientId: cfg.googleClientId,
+    clientSecret: cfg.googleClientSecret,
+    refreshToken: cfg.youtubeRefreshToken,
+  });
+  const driveAuthClient = googleAuth({
+    clientId: cfg.googleClientId,
+    clientSecret: cfg.googleClientSecret,
+    refreshToken: cfg.driveRefreshToken,
+  });
+  const drive = await driveClient(driveAuthClient);
 
   step("Connexion Google Drive");
   const folderId = await ensureFolder(drive, cfg.driveFolderId || settings.driveFolderId);
@@ -75,7 +84,7 @@ async function main() {
     info(
       `Tâche ${current.taskId} — statut=${current.status || "?"} progress=${current.progress ?? "?"}%`
     );
-    if (settings.maxWaitMs > 0 && isRunning(current.status)) {
+    if (settings.maxWaitMs > 0 && !isDone(current.status) && !isFailed(current.status)) {
       current = await waitFor(ml, current.taskId, settings);
     }
   } else {
@@ -116,7 +125,7 @@ async function main() {
       continue;
     }
     try {
-      await publishItem({ item, state, drive, folderId, auth, settings });
+      await publishItem({ item, state, drive, folderId, youtubeAuth: youtubeAuthClient, settings });
       await persist();
     } catch (error) {
       fail(`Publication ${item.taskId} : ${error.message}`);
@@ -191,7 +200,7 @@ async function main() {
           state,
           drive,
           folderId,
-          auth,
+          youtubeAuth: youtubeAuthClient,
           settings,
         });
         await persist();
@@ -309,7 +318,7 @@ function collectPublishQueue({ current, history, state }) {
   return [...map.values()];
 }
 
-async function publishItem({ item, state, drive, folderId, auth, settings }) {
+async function publishItem({ item, state, drive, folderId, youtubeAuth, settings }) {
   banner(`Publication ${item.taskId}`);
   const idea = item.idea || "Vidéo IA";
   const title = item.title || titleFromIdea(idea);
@@ -355,7 +364,7 @@ async function publishItem({ item, state, drive, folderId, auth, settings }) {
   if (!item.youtubeId) {
     step("Upload YouTube");
     const yt = await uploadToYoutube({
-      auth,
+      auth: youtubeAuth,
       filePath,
       idea,
       title,

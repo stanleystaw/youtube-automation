@@ -6,8 +6,20 @@ export function googleAuth({ clientId, clientSecret, refreshToken }) {
   return auth;
 }
 
-export const SCOPES = [
+export const YOUTUBE_SCOPES = [
   "https://www.googleapis.com/auth/youtube.upload",
   "https://www.googleapis.com/auth/youtube",
-  "https://www.googleapis.com/auth/drive.file",
 ];
+
+export const DRIVE_SCOPES = ["https://www.googleapis.com/auth/drive.file"];
+
+export const REDIRECT_URI = "http://127.0.0.1:53682/callback";
+
+export function authUrl({ clientId, clientSecret, scopes }) {
+  const oauth2 = new google.auth.OAuth2(clientId, clientSecret, REDIRECT_URI);
+  return oauth2.generateAuthUrl({
+    access_type: "offline",
+    prompt: "consent",
+    scope: scopes,
+  });
+}

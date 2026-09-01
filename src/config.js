@@ -24,7 +24,8 @@ export function env() {
     magiclightKey: required("MAGICLIGHT_API_KEY"),
     googleClientId: required("GOOGLE_CLIENT_ID"),
     googleClientSecret: required("GOOGLE_CLIENT_SECRET"),
-    googleRefreshToken: required("GOOGLE_REFRESH_TOKEN"),
+    youtubeRefreshToken: required("GOOGLE_REFRESH_TOKEN_YOUTUBE"),
+    driveRefreshToken: required("GOOGLE_REFRESH_TOKEN_DRIVE"),
     driveFolderId: (process.env.DRIVE_FOLDER_ID || "").trim(),
     ideaOverride: (process.env.IDEA || process.env.INPUT_IDEA || "").trim(),
     eventName: process.env.GITHUB_EVENT_NAME || "local",
@@ -47,7 +48,8 @@ export function missingEnv() {
     "MAGICLIGHT_API_KEY",
     "GOOGLE_CLIENT_ID",
     "GOOGLE_CLIENT_SECRET",
-    "GOOGLE_REFRESH_TOKEN",
+    "GOOGLE_REFRESH_TOKEN_YOUTUBE",
+    "GOOGLE_REFRESH_TOKEN_DRIVE",
   ];
   return names.filter((name) => !(process.env[name] || "").trim());
 }
