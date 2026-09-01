@@ -18,7 +18,26 @@
       },
       "createdAt": "2026-09-01T04:55:57.917Z",
       "updatedAt": "2026-09-01T04:55:57.917Z"
+    },
+    {
+      "taskId": "fv_ae2126fdf111e53639d1c7ec",
+      "ideaId": "custom-1788238729572",
+      "idea": "Un chat",
+      "status": "queued",
+      "startedAt": "2026-09-01T04:58:49.821Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_ae2126fdf111e53639d1c7ec",
+        "idea": "Un chat",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_ae2126fdf111e53639d1c7ec",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_ae2126fdf111e53639d1c7ec"
+      },
+      "createdAt": "2026-09-01T04:58:49.821Z",
+      "updatedAt": "2026-09-01T04:58:49.821Z"
     }
   ],
-  "lastStartAt": "2026-09-01T04:55:57.917Z"
+  "lastStartAt": "2026-09-01T04:58:49.821Z"
 }
