@@ -4,7 +4,7 @@
       "taskId": "fv_e0df1e9c21f505458ce5d0f0",
       "ideaId": "idea-001",
       "idea": "Un renard bleu découvre une ville flottante au-dessus des nuages et apprend à parler le langage du vent.",
-      "status": "queued",
+      "status": "published",
       "startedAt": "2026-09-01T04:55:57.917Z",
       "magiclight": {
         "status": "queued",
@@ -17,13 +17,20 @@
         "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_e0df1e9c21f505458ce5d0f0"
       },
       "createdAt": "2026-09-01T04:55:57.917Z",
-      "updatedAt": "2026-09-01T04:55:57.917Z"
+      "updatedAt": "2026-09-01T05:12:45.128Z",
+      "title": "Un renard bleu découvre une ville flottante au-dessus des nuages et apprend à parler le langag…",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_e0df1e9c21f505458ce5d0f0",
+      "driveFileId": "1eV0QzU3WqZcKbl6FIz5W14mOUKGqpQ0g",
+      "driveUrl": "https://drive.google.com/file/d/1eV0QzU3WqZcKbl6FIz5W14mOUKGqpQ0g/view?usp=drivesdk",
+      "youtubeId": "9BVDSf12GzU",
+      "youtubeUrl": "https://www.youtube.com/watch?v=9BVDSf12GzU",
+      "publishedAt": "2026-09-01T05:12:45.128Z"
     },
     {
       "taskId": "fv_ae2126fdf111e53639d1c7ec",
       "ideaId": "custom-1788238729572",
       "idea": "Un chat",
-      "status": "queued",
+      "status": "published",
       "startedAt": "2026-09-01T04:58:49.821Z",
       "magiclight": {
         "status": "queued",
@@ -36,7 +43,14 @@
         "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_ae2126fdf111e53639d1c7ec"
       },
       "createdAt": "2026-09-01T04:58:49.821Z",
-      "updatedAt": "2026-09-01T04:58:49.821Z"
+      "updatedAt": "2026-09-01T05:12:39.654Z",
+      "title": "Un chat",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_ae2126fdf111e53639d1c7ec",
+      "driveFileId": "1Bdfip1vqPyxiCgfwiJv_Qteaa-V98HSX",
+      "driveUrl": "https://drive.google.com/file/d/1Bdfip1vqPyxiCgfwiJv_Qteaa-V98HSX/view?usp=drivesdk",
+      "youtubeId": "gYgQEPBbA9g",
+      "youtubeUrl": "https://www.youtube.com/watch?v=gYgQEPBbA9g",
+      "publishedAt": "2026-09-01T05:12:39.653Z"
     }
   ],
   "lastStartAt": "2026-09-01T04:58:49.821Z"
