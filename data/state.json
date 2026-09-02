@@ -103,7 +103,33 @@
       "youtubeId": "qxfVoXLTngc",
       "youtubeUrl": "https://www.youtube.com/watch?v=qxfVoXLTngc",
       "publishedAt": "2026-09-02T12:30:29.841Z"
+    },
+    {
+      "taskId": "fv_0b228cea4bf0e74b8c96f576",
+      "ideaId": "idea-004",
+      "idea": "Une tortue millénaire traverse un désert de verre pour ramener la pluie à son oasis.",
+      "status": "published",
+      "startedAt": "2026-09-02T19:49:56.643Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_0b228cea4bf0e74b8c96f576",
+        "idea": "Une tortue millénaire traverse un désert de verre pour ramener la pluie à son oasis.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_0b228cea4bf0e74b8c96f576",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_0b228cea4bf0e74b8c96f576"
+      },
+      "createdAt": "2026-09-02T19:49:56.644Z",
+      "updatedAt": "2026-09-02T19:55:15.581Z",
+      "title": "Une tortue millénaire traverse un désert de verre pour ramener la pluie à son oasis",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_0b228cea4bf0e74b8c96f576&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "178HtVMpEgvMxlEx2k5puZfCaSUjFVNtP",
+      "driveUrl": "https://drive.google.com/file/d/178HtVMpEgvMxlEx2k5puZfCaSUjFVNtP/view?usp=drivesdk",
+      "youtubeId": "UzuMimxpGoE",
+      "youtubeUrl": "https://www.youtube.com/watch?v=UzuMimxpGoE",
+      "publishedAt": "2026-09-02T19:55:15.581Z"
     }
   ],
-  "lastStartAt": "2026-09-02T12:23:17.836Z"
+  "lastStartAt": "2026-09-02T19:49:56.644Z"
 }
