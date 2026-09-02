@@ -77,7 +77,33 @@
       "youtubeId": "WjRODjc-5mk",
       "youtubeUrl": "https://www.youtube.com/watch?v=WjRODjc-5mk",
       "publishedAt": "2026-09-01T11:55:30.297Z"
+    },
+    {
+      "taskId": "fv_def7a4a84486c133ab6badce",
+      "ideaId": "idea-003",
+      "idea": "Un enfant jardinier plante une graine d'étoile : au matin, un arbre de lumière pousse au milieu du village.",
+      "status": "published",
+      "startedAt": "2026-09-02T12:23:17.835Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_def7a4a84486c133ab6badce",
+        "idea": "Un enfant jardinier plante une graine d'étoile : au matin, un arbre de lumière pousse au milieu du village.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_def7a4a84486c133ab6badce",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_def7a4a84486c133ab6badce"
+      },
+      "createdAt": "2026-09-02T12:23:17.836Z",
+      "updatedAt": "2026-09-02T12:30:29.841Z",
+      "title": "Un enfant jardinier plante une graine d'étoile : au matin, un arbre de lumière pousse au milie…",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_def7a4a84486c133ab6badce&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1WPmAt0BBIz8GacKwZEhQ9DjmPzADRHYF",
+      "driveUrl": "https://drive.google.com/file/d/1WPmAt0BBIz8GacKwZEhQ9DjmPzADRHYF/view?usp=drivesdk",
+      "youtubeId": "qxfVoXLTngc",
+      "youtubeUrl": "https://www.youtube.com/watch?v=qxfVoXLTngc",
+      "publishedAt": "2026-09-02T12:30:29.841Z"
     }
   ],
-  "lastStartAt": "2026-09-01T11:44:11.913Z"
+  "lastStartAt": "2026-09-02T12:23:17.836Z"
 }
