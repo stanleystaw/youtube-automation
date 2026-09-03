@@ -129,7 +129,33 @@
       "youtubeId": "UzuMimxpGoE",
       "youtubeUrl": "https://www.youtube.com/watch?v=UzuMimxpGoE",
       "publishedAt": "2026-09-02T19:55:15.581Z"
+    },
+    {
+      "taskId": "fv_9b3bc8b50c550a5199341c87",
+      "ideaId": "idea-005",
+      "idea": "Un horloger répare une montre qui remonte le temps de cinq minutes : il s'en sert pour sauver un oiseau.",
+      "status": "published",
+      "startedAt": "2026-09-03T11:20:54.420Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_9b3bc8b50c550a5199341c87",
+        "idea": "Un horloger répare une montre qui remonte le temps de cinq minutes : il s'en sert pour sauver un oiseau.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_9b3bc8b50c550a5199341c87",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_9b3bc8b50c550a5199341c87"
+      },
+      "createdAt": "2026-09-03T11:20:54.420Z",
+      "updatedAt": "2026-09-03T11:25:56.306Z",
+      "title": "Un horloger répare une montre qui remonte le temps de cinq minutes : il s'en sert pour sauver…",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_9b3bc8b50c550a5199341c87&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1BeBp-4tJucurQbqJI6nAr-JsFX9G0Rez",
+      "driveUrl": "https://drive.google.com/file/d/1BeBp-4tJucurQbqJI6nAr-JsFX9G0Rez/view?usp=drivesdk",
+      "youtubeId": "3omPBRoeF9M",
+      "youtubeUrl": "https://www.youtube.com/watch?v=3omPBRoeF9M",
+      "publishedAt": "2026-09-03T11:25:56.306Z"
     }
   ],
-  "lastStartAt": "2026-09-02T19:49:56.644Z"
+  "lastStartAt": "2026-09-03T11:20:54.420Z"
 }
