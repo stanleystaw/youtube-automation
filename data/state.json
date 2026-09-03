@@ -155,7 +155,33 @@
       "youtubeId": "3omPBRoeF9M",
       "youtubeUrl": "https://www.youtube.com/watch?v=3omPBRoeF9M",
       "publishedAt": "2026-09-03T11:25:56.306Z"
+    },
+    {
+      "taskId": "fv_98fd31ad03148e77813be733",
+      "ideaId": "idea-006",
+      "idea": "Dans un marché nocturne de Cotonou magique, une vendeuse d'épices découvre qu'un sachet fait danser les étoiles.",
+      "status": "published",
+      "startedAt": "2026-09-03T19:53:10.671Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_98fd31ad03148e77813be733",
+        "idea": "Dans un marché nocturne de Cotonou magique, une vendeuse d'épices découvre qu'un sachet fait danser les étoiles.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_98fd31ad03148e77813be733",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_98fd31ad03148e77813be733"
+      },
+      "createdAt": "2026-09-03T19:53:10.672Z",
+      "updatedAt": "2026-09-03T19:59:01.878Z",
+      "title": "Dans un marché nocturne de Cotonou magique, une vendeuse d'épices découvre qu'un sachet fait d…",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_98fd31ad03148e77813be733&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1_-lE_9pLzgs8auelsWVv8ZDFXQZQFxfp",
+      "driveUrl": "https://drive.google.com/file/d/1_-lE_9pLzgs8auelsWVv8ZDFXQZQFxfp/view?usp=drivesdk",
+      "youtubeId": "EYQYYRTGWR4",
+      "youtubeUrl": "https://www.youtube.com/watch?v=EYQYYRTGWR4",
+      "publishedAt": "2026-09-03T19:59:01.878Z"
     }
   ],
-  "lastStartAt": "2026-09-03T11:20:54.420Z"
+  "lastStartAt": "2026-09-03T19:53:10.672Z"
 }
