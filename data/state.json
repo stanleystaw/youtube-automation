@@ -207,7 +207,33 @@
       "youtubeId": "khRffj7y5wY",
       "youtubeUrl": "https://www.youtube.com/watch?v=khRffj7y5wY",
       "publishedAt": "2026-09-04T11:32:43.604Z"
+    },
+    {
+      "taskId": "fv_4edadfd1bb213bb19707e3ed",
+      "ideaId": "idea-008",
+      "idea": "Deux sœurs jumelles, l'une faite de feu et l'autre de glace, apprennent à peindre ensemble un arc-en-ciel.",
+      "status": "published",
+      "startedAt": "2026-09-04T19:39:24.400Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_4edadfd1bb213bb19707e3ed",
+        "idea": "Deux sœurs jumelles, l'une faite de feu et l'autre de glace, apprennent à peindre ensemble un arc-en-ciel.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_4edadfd1bb213bb19707e3ed",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_4edadfd1bb213bb19707e3ed"
+      },
+      "createdAt": "2026-09-04T19:39:24.400Z",
+      "updatedAt": "2026-09-04T19:46:15.152Z",
+      "title": "Deux sœurs jumelles, l'une faite de feu et l'autre de glace, apprennent à peindre ensemble un…",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_4edadfd1bb213bb19707e3ed&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1XGhwwr6X3anQsPgzggLUjjDG2YU3wNDp",
+      "driveUrl": "https://drive.google.com/file/d/1XGhwwr6X3anQsPgzggLUjjDG2YU3wNDp/view?usp=drivesdk",
+      "youtubeId": "3OLyXk2rwwQ",
+      "youtubeUrl": "https://www.youtube.com/watch?v=3OLyXk2rwwQ",
+      "publishedAt": "2026-09-04T19:46:15.152Z"
     }
   ],
-  "lastStartAt": "2026-09-04T11:27:07.468Z"
+  "lastStartAt": "2026-09-04T19:39:24.400Z"
 }
