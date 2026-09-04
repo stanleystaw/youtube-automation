@@ -181,7 +181,33 @@
       "youtubeId": "EYQYYRTGWR4",
       "youtubeUrl": "https://www.youtube.com/watch?v=EYQYYRTGWR4",
       "publishedAt": "2026-09-03T19:59:01.878Z"
+    },
+    {
+      "taskId": "fv_75b9878f6468408abb88fa75",
+      "ideaId": "idea-007",
+      "idea": "Un chat noir à lunettes devient bibliothécaire d'une bibliothèque sous-marine.",
+      "status": "published",
+      "startedAt": "2026-09-04T11:27:07.468Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_75b9878f6468408abb88fa75",
+        "idea": "Un chat noir à lunettes devient bibliothécaire d'une bibliothèque sous-marine.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_75b9878f6468408abb88fa75",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_75b9878f6468408abb88fa75"
+      },
+      "createdAt": "2026-09-04T11:27:07.468Z",
+      "updatedAt": "2026-09-04T11:32:43.604Z",
+      "title": "Un chat noir à lunettes devient bibliothécaire d'une bibliothèque sous-marine",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_75b9878f6468408abb88fa75&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "16NS6epFQRhm0B9ySQyiBKOwV1L_GZ-1m",
+      "driveUrl": "https://drive.google.com/file/d/16NS6epFQRhm0B9ySQyiBKOwV1L_GZ-1m/view?usp=drivesdk",
+      "youtubeId": "khRffj7y5wY",
+      "youtubeUrl": "https://www.youtube.com/watch?v=khRffj7y5wY",
+      "publishedAt": "2026-09-04T11:32:43.604Z"
     }
   ],
-  "lastStartAt": "2026-09-03T19:53:10.672Z"
+  "lastStartAt": "2026-09-04T11:27:07.468Z"
 }
