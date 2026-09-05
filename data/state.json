@@ -285,7 +285,33 @@
       "youtubeId": "UnpEgNhQO-c",
       "youtubeUrl": "https://www.youtube.com/watch?v=UnpEgNhQO-c",
       "publishedAt": "2026-09-05T16:55:52.475Z"
+    },
+    {
+      "taskId": "fv_bd6e6e47177a27797447d951",
+      "ideaId": "idea-011",
+      "idea": "Un pêcheur de lune attrape un croissant d'argent et doit le rendre avant l'aube.",
+      "status": "published",
+      "startedAt": "2026-09-05T22:59:19.911Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_bd6e6e47177a27797447d951",
+        "idea": "Un pêcheur de lune attrape un croissant d'argent et doit le rendre avant l'aube.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_bd6e6e47177a27797447d951",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_bd6e6e47177a27797447d951"
+      },
+      "createdAt": "2026-09-05T22:59:19.911Z",
+      "updatedAt": "2026-09-05T23:02:56.358Z",
+      "title": "Un pêcheur de lune attrape un croissant d'argent et doit le rendre avant l'aube",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_bd6e6e47177a27797447d951&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "10r-c_xbBSuwYuG9QXAs-eWsxcvWV2Zr9",
+      "driveUrl": "https://drive.google.com/file/d/10r-c_xbBSuwYuG9QXAs-eWsxcvWV2Zr9/view?usp=drivesdk",
+      "youtubeId": "znWjMLUuLuA",
+      "youtubeUrl": "https://www.youtube.com/watch?v=znWjMLUuLuA",
+      "publishedAt": "2026-09-05T23:02:56.358Z"
     }
   ],
-  "lastStartAt": "2026-09-05T16:50:59.782Z"
+  "lastStartAt": "2026-09-05T22:59:19.911Z"
 }
