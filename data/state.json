@@ -259,7 +259,33 @@
       "youtubeId": "AK9ApV0KbO4",
       "youtubeUrl": "https://www.youtube.com/watch?v=AK9ApV0KbO4",
       "publishedAt": "2026-09-05T10:46:44.932Z"
+    },
+    {
+      "taskId": "fv_cd5a83e3adcb77c9d6e7b769",
+      "ideaId": "idea-010",
+      "idea": "Une violoncelliste joue dans une forêt et les arbres se mettent à danser, révélant un sentier secret.",
+      "status": "published",
+      "startedAt": "2026-09-05T16:50:59.782Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_cd5a83e3adcb77c9d6e7b769",
+        "idea": "Une violoncelliste joue dans une forêt et les arbres se mettent à danser, révélant un sentier secret.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_cd5a83e3adcb77c9d6e7b769",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_cd5a83e3adcb77c9d6e7b769"
+      },
+      "createdAt": "2026-09-05T16:50:59.782Z",
+      "updatedAt": "2026-09-05T16:55:52.475Z",
+      "title": "Une violoncelliste joue dans une forêt et les arbres se mettent à danser, révélant un sentier…",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_cd5a83e3adcb77c9d6e7b769&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1izEGdaIohHTQbBKIbRNc297DGTyjqUZl",
+      "driveUrl": "https://drive.google.com/file/d/1izEGdaIohHTQbBKIbRNc297DGTyjqUZl/view?usp=drivesdk",
+      "youtubeId": "UnpEgNhQO-c",
+      "youtubeUrl": "https://www.youtube.com/watch?v=UnpEgNhQO-c",
+      "publishedAt": "2026-09-05T16:55:52.475Z"
     }
   ],
-  "lastStartAt": "2026-09-05T10:41:10.845Z"
+  "lastStartAt": "2026-09-05T16:50:59.782Z"
 }
