@@ -233,7 +233,33 @@
       "youtubeId": "3OLyXk2rwwQ",
       "youtubeUrl": "https://www.youtube.com/watch?v=3OLyXk2rwwQ",
       "publishedAt": "2026-09-04T19:46:15.152Z"
+    },
+    {
+      "taskId": "fv_d06a26f15e582bfcd9f05685",
+      "ideaId": "idea-009",
+      "idea": "Un robot ramasseur de déchets sur une plage trouve une bouteille contenant une carte vers une île de corail vivant.",
+      "status": "published",
+      "startedAt": "2026-09-05T10:41:10.845Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_d06a26f15e582bfcd9f05685",
+        "idea": "Un robot ramasseur de déchets sur une plage trouve une bouteille contenant une carte vers une île de corail vivant.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_d06a26f15e582bfcd9f05685",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_d06a26f15e582bfcd9f05685"
+      },
+      "createdAt": "2026-09-05T10:41:10.845Z",
+      "updatedAt": "2026-09-05T10:46:44.932Z",
+      "title": "Un robot ramasseur de déchets sur une plage trouve une bouteille contenant une carte vers une…",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_d06a26f15e582bfcd9f05685&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1fS9_vM0V2wJfKsXj1i7D4OJGL8G9qNHp",
+      "driveUrl": "https://drive.google.com/file/d/1fS9_vM0V2wJfKsXj1i7D4OJGL8G9qNHp/view?usp=drivesdk",
+      "youtubeId": "AK9ApV0KbO4",
+      "youtubeUrl": "https://www.youtube.com/watch?v=AK9ApV0KbO4",
+      "publishedAt": "2026-09-05T10:46:44.932Z"
     }
   ],
-  "lastStartAt": "2026-09-04T19:39:24.400Z"
+  "lastStartAt": "2026-09-05T10:41:10.845Z"
 }
