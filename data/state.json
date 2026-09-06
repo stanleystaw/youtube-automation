@@ -311,7 +311,33 @@
       "youtubeId": "znWjMLUuLuA",
       "youtubeUrl": "https://www.youtube.com/watch?v=znWjMLUuLuA",
       "publishedAt": "2026-09-05T23:02:56.358Z"
+    },
+    {
+      "taskId": "fv_c4d83b4bc049556a24d22828",
+      "ideaId": "idea-012",
+      "idea": "Une dragonne miniature cache des trésors dans les poches d'un tailleur bienveillant.",
+      "status": "published",
+      "startedAt": "2026-09-06T11:02:40.309Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_c4d83b4bc049556a24d22828",
+        "idea": "Une dragonne miniature cache des trésors dans les poches d'un tailleur bienveillant.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_c4d83b4bc049556a24d22828",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_c4d83b4bc049556a24d22828"
+      },
+      "createdAt": "2026-09-06T11:02:40.309Z",
+      "updatedAt": "2026-09-06T11:07:45.391Z",
+      "title": "Une dragonne miniature cache des trésors dans les poches d'un tailleur bienveillant",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_c4d83b4bc049556a24d22828&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1hZ2hJXsDCAUljh6eF_OLcivf1586rcuJ",
+      "driveUrl": "https://drive.google.com/file/d/1hZ2hJXsDCAUljh6eF_OLcivf1586rcuJ/view?usp=drivesdk",
+      "youtubeId": "OlStG_TNIKU",
+      "youtubeUrl": "https://www.youtube.com/watch?v=OlStG_TNIKU",
+      "publishedAt": "2026-09-06T11:07:45.391Z"
     }
   ],
-  "lastStartAt": "2026-09-05T22:59:19.911Z"
+  "lastStartAt": "2026-09-06T11:02:40.309Z"
 }
