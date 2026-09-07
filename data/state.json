@@ -389,7 +389,33 @@
       "youtubeId": "KIrUMf8YiUE",
       "youtubeUrl": "https://www.youtube.com/watch?v=KIrUMf8YiUE",
       "publishedAt": "2026-09-07T00:02:02.641Z"
+    },
+    {
+      "taskId": "fv_9df7abe02670381eb332adaf",
+      "ideaId": "idea-015",
+      "idea": "Un papillon de verre transporte les rêves des enfants d'un village jusqu'à la lune.",
+      "status": "published",
+      "startedAt": "2026-09-07T12:41:13.058Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_9df7abe02670381eb332adaf",
+        "idea": "Un papillon de verre transporte les rêves des enfants d'un village jusqu'à la lune.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_9df7abe02670381eb332adaf",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_9df7abe02670381eb332adaf"
+      },
+      "createdAt": "2026-09-07T12:41:13.058Z",
+      "updatedAt": "2026-09-07T12:46:03.570Z",
+      "title": "Un papillon de verre transporte les rêves des enfants d'un village jusqu'à la lune",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_9df7abe02670381eb332adaf&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1zZoZ5en8JdylxAjday1wKF8f8UBuQtWT",
+      "driveUrl": "https://drive.google.com/file/d/1zZoZ5en8JdylxAjday1wKF8f8UBuQtWT/view?usp=drivesdk",
+      "youtubeId": "x6SZu7NvIMQ",
+      "youtubeUrl": "https://www.youtube.com/watch?v=x6SZu7NvIMQ",
+      "publishedAt": "2026-09-07T12:46:03.570Z"
     }
   ],
-  "lastStartAt": "2026-09-06T23:58:29.372Z"
+  "lastStartAt": "2026-09-07T12:41:13.058Z"
 }
