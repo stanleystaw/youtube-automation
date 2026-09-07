@@ -363,7 +363,33 @@
       "youtubeId": "4VDZRUU5T3c",
       "youtubeUrl": "https://www.youtube.com/watch?v=4VDZRUU5T3c",
       "publishedAt": "2026-09-06T17:11:45.621Z"
+    },
+    {
+      "taskId": "fv_dee7609932d4b8d287fff577",
+      "ideaId": "idea-014",
+      "idea": "Une botaniste parle aux plantes d'un jardin vertical et apprend qu'une fougère connaît le chemin d'une cité perdue.",
+      "status": "published",
+      "startedAt": "2026-09-06T23:58:29.371Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_dee7609932d4b8d287fff577",
+        "idea": "Une botaniste parle aux plantes d'un jardin vertical et apprend qu'une fougère connaît le chemin d'une cité perdue.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_dee7609932d4b8d287fff577",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_dee7609932d4b8d287fff577"
+      },
+      "createdAt": "2026-09-06T23:58:29.372Z",
+      "updatedAt": "2026-09-07T00:02:02.641Z",
+      "title": "Une botaniste parle aux plantes d'un jardin vertical et apprend qu'une fougère connaît le chem…",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_dee7609932d4b8d287fff577&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1sRpVpYQzguF9EKUh1lSExmr-FfnnbKEi",
+      "driveUrl": "https://drive.google.com/file/d/1sRpVpYQzguF9EKUh1lSExmr-FfnnbKEi/view?usp=drivesdk",
+      "youtubeId": "KIrUMf8YiUE",
+      "youtubeUrl": "https://www.youtube.com/watch?v=KIrUMf8YiUE",
+      "publishedAt": "2026-09-07T00:02:02.641Z"
     }
   ],
-  "lastStartAt": "2026-09-06T17:06:51.964Z"
+  "lastStartAt": "2026-09-06T23:58:29.372Z"
 }
