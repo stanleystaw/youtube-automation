@@ -132,7 +132,7 @@ Repo → **Settings → Secrets and variables → Actions → New repository sec
 
 | Secret | Obligatoire | Description |
 |---|---|---|
-| `MAGICLIGHT_API_KEY` | oui | Clé API MagicLight |
+| `MAGICLIGHT_API_KEY` | oui | Clé API MagicLight https://magiclight-api-gamma.vercel.app/ |
 | `GOOGLE_CLIENT_ID` | oui | OAuth client |
 | `GOOGLE_CLIENT_SECRET` | oui | OAuth secret |
 | `GOOGLE_REFRESH_TOKEN_YOUTUBE` | oui | 1ʳᵉ autorisation (`npm run auth`) |
