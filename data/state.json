@@ -415,7 +415,33 @@
       "youtubeId": "x6SZu7NvIMQ",
       "youtubeUrl": "https://www.youtube.com/watch?v=x6SZu7NvIMQ",
       "publishedAt": "2026-09-07T12:46:03.570Z"
+    },
+    {
+      "taskId": "fv_e1955cec891ace63f7a5dffb",
+      "ideaId": "idea-016",
+      "idea": "Un vieux taxi-brousse enchanté emmène ses passagers exactement là où leur cœur veut aller.",
+      "status": "published",
+      "startedAt": "2026-09-07T21:34:55.930Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_e1955cec891ace63f7a5dffb",
+        "idea": "Un vieux taxi-brousse enchanté emmène ses passagers exactement là où leur cœur veut aller.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_e1955cec891ace63f7a5dffb",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_e1955cec891ace63f7a5dffb"
+      },
+      "createdAt": "2026-09-07T21:34:55.931Z",
+      "updatedAt": "2026-09-07T21:38:35.497Z",
+      "title": "Un vieux taxi-brousse enchanté emmène ses passagers exactement là où leur cœur veut aller",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_e1955cec891ace63f7a5dffb&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "15zgaaYgCO5Hev5BcyJpk_qGKEDRvlv4l",
+      "driveUrl": "https://drive.google.com/file/d/15zgaaYgCO5Hev5BcyJpk_qGKEDRvlv4l/view?usp=drivesdk",
+      "youtubeId": "9oONEjNJaaA",
+      "youtubeUrl": "https://www.youtube.com/watch?v=9oONEjNJaaA",
+      "publishedAt": "2026-09-07T21:38:35.497Z"
     }
   ],
-  "lastStartAt": "2026-09-07T12:41:13.058Z"
+  "lastStartAt": "2026-09-07T21:34:55.931Z"
 }
