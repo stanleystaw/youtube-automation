@@ -441,7 +441,33 @@
       "youtubeId": "9oONEjNJaaA",
       "youtubeUrl": "https://www.youtube.com/watch?v=9oONEjNJaaA",
       "publishedAt": "2026-09-07T21:38:35.497Z"
+    },
+    {
+      "taskId": "fv_95a969139b31460a9c7dbbdf",
+      "ideaId": "idea-017",
+      "idea": "Une astronaute solitaire cultive un jardin de tournesols dans sa station et voit naître une abeille d'or.",
+      "status": "published",
+      "startedAt": "2026-09-08T18:34:12.735Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_95a969139b31460a9c7dbbdf",
+        "idea": "Une astronaute solitaire cultive un jardin de tournesols dans sa station et voit naître une abeille d'or.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_95a969139b31460a9c7dbbdf",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_95a969139b31460a9c7dbbdf"
+      },
+      "createdAt": "2026-09-08T18:34:12.735Z",
+      "updatedAt": "2026-09-08T18:38:48.947Z",
+      "title": "Une astronaute solitaire cultive un jardin de tournesols dans sa station et voit naître une ab…",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_95a969139b31460a9c7dbbdf&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1S3Tk9MpTozgsX6rm2G69Hluh_eO6BOA3",
+      "driveUrl": "https://drive.google.com/file/d/1S3Tk9MpTozgsX6rm2G69Hluh_eO6BOA3/view?usp=drivesdk",
+      "youtubeId": "ZugC4EaRIAQ",
+      "youtubeUrl": "https://www.youtube.com/watch?v=ZugC4EaRIAQ",
+      "publishedAt": "2026-09-08T18:38:48.947Z"
     }
   ],
-  "lastStartAt": "2026-09-07T21:34:55.931Z"
+  "lastStartAt": "2026-09-08T18:34:12.735Z"
 }
