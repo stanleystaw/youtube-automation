@@ -467,7 +467,33 @@
       "youtubeId": "ZugC4EaRIAQ",
       "youtubeUrl": "https://www.youtube.com/watch?v=ZugC4EaRIAQ",
       "publishedAt": "2026-09-08T18:38:48.947Z"
+    },
+    {
+      "taskId": "fv_26028095bd778a76647b8e75",
+      "ideaId": "idea-018",
+      "idea": "Un forgeron de village façonne une clé qui ouvre les portes des souvenirs oubliés.",
+      "status": "published",
+      "startedAt": "2026-09-09T11:29:45.423Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_26028095bd778a76647b8e75",
+        "idea": "Un forgeron de village façonne une clé qui ouvre les portes des souvenirs oubliés.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_26028095bd778a76647b8e75",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_26028095bd778a76647b8e75"
+      },
+      "createdAt": "2026-09-09T11:29:45.423Z",
+      "updatedAt": "2026-09-09T11:38:55.955Z",
+      "title": "Un forgeron de village façonne une clé qui ouvre les portes des souvenirs oubliés",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_26028095bd778a76647b8e75&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1uRMfU54j4oYDUHuWs_K8qvFG4g7uFw1p",
+      "driveUrl": "https://drive.google.com/file/d/1uRMfU54j4oYDUHuWs_K8qvFG4g7uFw1p/view?usp=drivesdk",
+      "youtubeId": "SGPO5A137NQ",
+      "youtubeUrl": "https://www.youtube.com/watch?v=SGPO5A137NQ",
+      "publishedAt": "2026-09-09T11:38:55.955Z"
     }
   ],
-  "lastStartAt": "2026-09-08T18:34:12.735Z"
+  "lastStartAt": "2026-09-09T11:29:45.423Z"
 }
