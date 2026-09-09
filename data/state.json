@@ -493,7 +493,33 @@
       "youtubeId": "SGPO5A137NQ",
       "youtubeUrl": "https://www.youtube.com/watch?v=SGPO5A137NQ",
       "publishedAt": "2026-09-09T11:38:55.955Z"
+    },
+    {
+      "taskId": "fv_3aca0b606f514cac113d1d0f",
+      "ideaId": "idea-019",
+      "idea": "Une baleine lumineuse guide un kayak à travers une mer d'étoiles filantes.",
+      "status": "published",
+      "startedAt": "2026-09-09T19:49:02.428Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_3aca0b606f514cac113d1d0f",
+        "idea": "Une baleine lumineuse guide un kayak à travers une mer d'étoiles filantes.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_3aca0b606f514cac113d1d0f",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_3aca0b606f514cac113d1d0f"
+      },
+      "createdAt": "2026-09-09T19:49:02.429Z",
+      "updatedAt": "2026-09-09T19:53:28.558Z",
+      "title": "Une baleine lumineuse guide un kayak à travers une mer d'étoiles filantes",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_3aca0b606f514cac113d1d0f&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1YMY4jsCarqX2q8gQKGvySH0Gaik4UJGz",
+      "driveUrl": "https://drive.google.com/file/d/1YMY4jsCarqX2q8gQKGvySH0Gaik4UJGz/view?usp=drivesdk",
+      "youtubeId": "dcEPInTq3XM",
+      "youtubeUrl": "https://www.youtube.com/watch?v=dcEPInTq3XM",
+      "publishedAt": "2026-09-09T19:53:28.558Z"
     }
   ],
-  "lastStartAt": "2026-09-09T11:29:45.423Z"
+  "lastStartAt": "2026-09-09T19:49:02.429Z"
 }
