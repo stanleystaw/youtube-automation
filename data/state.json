@@ -519,7 +519,33 @@
       "youtubeId": "dcEPInTq3XM",
       "youtubeUrl": "https://www.youtube.com/watch?v=dcEPInTq3XM",
       "publishedAt": "2026-09-09T19:53:28.558Z"
+    },
+    {
+      "taskId": "fv_05dbc76e1c3d0467afa86a70",
+      "ideaId": "idea-020",
+      "idea": "Un petit Griot du futur raconte l'histoire d'une ville qui chante chaque soir pour faire pousser le mil.",
+      "status": "published",
+      "startedAt": "2026-09-10T11:26:22.539Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_05dbc76e1c3d0467afa86a70",
+        "idea": "Un petit Griot du futur raconte l'histoire d'une ville qui chante chaque soir pour faire pousser le mil.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_05dbc76e1c3d0467afa86a70",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_05dbc76e1c3d0467afa86a70"
+      },
+      "createdAt": "2026-09-10T11:26:22.539Z",
+      "updatedAt": "2026-09-10T11:32:14.238Z",
+      "title": "Un petit Griot du futur raconte l'histoire d'une ville qui chante chaque soir pour faire pouss…",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_05dbc76e1c3d0467afa86a70&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1ogTDgZ_-Rx5d6FTUpt3uY1DgxRyDpwHo",
+      "driveUrl": "https://drive.google.com/file/d/1ogTDgZ_-Rx5d6FTUpt3uY1DgxRyDpwHo/view?usp=drivesdk",
+      "youtubeId": "4slfi2ZrqcQ",
+      "youtubeUrl": "https://www.youtube.com/watch?v=4slfi2ZrqcQ",
+      "publishedAt": "2026-09-10T11:32:14.238Z"
     }
   ],
-  "lastStartAt": "2026-09-09T19:49:02.429Z"
+  "lastStartAt": "2026-09-10T11:26:22.539Z"
 }
