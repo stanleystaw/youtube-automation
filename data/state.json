@@ -545,7 +545,33 @@
       "youtubeId": "4slfi2ZrqcQ",
       "youtubeUrl": "https://www.youtube.com/watch?v=4slfi2ZrqcQ",
       "publishedAt": "2026-09-10T11:32:14.238Z"
+    },
+    {
+      "taskId": "fv_a3626d34944e219193b00782",
+      "ideaId": "idea-021",
+      "idea": "Une horloge florale au milieu d'un désert sonne midi et fait jaillir une source.",
+      "status": "published",
+      "startedAt": "2026-09-10T19:45:37.952Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_a3626d34944e219193b00782",
+        "idea": "Une horloge florale au milieu d'un désert sonne midi et fait jaillir une source.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_a3626d34944e219193b00782",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_a3626d34944e219193b00782"
+      },
+      "createdAt": "2026-09-10T19:45:37.952Z",
+      "updatedAt": "2026-09-10T19:49:46.422Z",
+      "title": "Une horloge florale au milieu d'un désert sonne midi et fait jaillir une source",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_a3626d34944e219193b00782&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1hmspgeGuNgi_WzWEiSALbiUBlkgNkrkF",
+      "driveUrl": "https://drive.google.com/file/d/1hmspgeGuNgi_WzWEiSALbiUBlkgNkrkF/view?usp=drivesdk",
+      "youtubeId": "NzsJDFCmOXA",
+      "youtubeUrl": "https://www.youtube.com/watch?v=NzsJDFCmOXA",
+      "publishedAt": "2026-09-10T19:49:46.422Z"
     }
   ],
-  "lastStartAt": "2026-09-10T11:26:22.539Z"
+  "lastStartAt": "2026-09-10T19:45:37.952Z"
 }
