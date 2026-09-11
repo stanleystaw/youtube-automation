@@ -571,7 +571,33 @@
       "youtubeId": "NzsJDFCmOXA",
       "youtubeUrl": "https://www.youtube.com/watch?v=NzsJDFCmOXA",
       "publishedAt": "2026-09-10T19:49:46.422Z"
+    },
+    {
+      "taskId": "fv_45acc4b73d1faabd61f22fb5",
+      "ideaId": "idea-022",
+      "idea": "Un écureuil facteur distribue des lettres d'amour entre les animaux d'une canopée magique.",
+      "status": "published",
+      "startedAt": "2026-09-11T11:28:10.082Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_45acc4b73d1faabd61f22fb5",
+        "idea": "Un écureuil facteur distribue des lettres d'amour entre les animaux d'une canopée magique.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_45acc4b73d1faabd61f22fb5",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_45acc4b73d1faabd61f22fb5"
+      },
+      "createdAt": "2026-09-11T11:28:10.082Z",
+      "updatedAt": "2026-09-11T11:33:15.882Z",
+      "title": "Un écureuil facteur distribue des lettres d'amour entre les animaux d'une canopée magique",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_45acc4b73d1faabd61f22fb5&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "112HXGLeuRcxicRu46YeSNrOctQptxj7n",
+      "driveUrl": "https://drive.google.com/file/d/112HXGLeuRcxicRu46YeSNrOctQptxj7n/view?usp=drivesdk",
+      "youtubeId": "yRpuvjMnARA",
+      "youtubeUrl": "https://www.youtube.com/watch?v=yRpuvjMnARA",
+      "publishedAt": "2026-09-11T11:33:15.882Z"
     }
   ],
-  "lastStartAt": "2026-09-10T19:45:37.952Z"
+  "lastStartAt": "2026-09-11T11:28:10.082Z"
 }
