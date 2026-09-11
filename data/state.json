@@ -597,7 +597,33 @@
       "youtubeId": "yRpuvjMnARA",
       "youtubeUrl": "https://www.youtube.com/watch?v=yRpuvjMnARA",
       "publishedAt": "2026-09-11T11:33:15.882Z"
+    },
+    {
+      "taskId": "fv_62b3b7666b87af5aa6481466",
+      "ideaId": "idea-023",
+      "idea": "Une peintre aveugle découvre que ses pinceaux voient pour elle et créent des paysages réels.",
+      "status": "published",
+      "startedAt": "2026-09-11T19:46:35.182Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_62b3b7666b87af5aa6481466",
+        "idea": "Une peintre aveugle découvre que ses pinceaux voient pour elle et créent des paysages réels.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_62b3b7666b87af5aa6481466",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_62b3b7666b87af5aa6481466"
+      },
+      "createdAt": "2026-09-11T19:46:35.182Z",
+      "updatedAt": "2026-09-11T19:51:22.257Z",
+      "title": "Une peintre aveugle découvre que ses pinceaux voient pour elle et créent des paysages réels",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_62b3b7666b87af5aa6481466&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1VQOGjuI3DghLKo5WtD-mDiBZM34zX6_A",
+      "driveUrl": "https://drive.google.com/file/d/1VQOGjuI3DghLKo5WtD-mDiBZM34zX6_A/view?usp=drivesdk",
+      "youtubeId": "DapJBKfx5E4",
+      "youtubeUrl": "https://www.youtube.com/watch?v=DapJBKfx5E4",
+      "publishedAt": "2026-09-11T19:51:22.257Z"
     }
   ],
-  "lastStartAt": "2026-09-11T11:28:10.082Z"
+  "lastStartAt": "2026-09-11T19:46:35.182Z"
 }
