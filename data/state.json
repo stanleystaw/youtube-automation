@@ -649,7 +649,33 @@
       "youtubeId": "7z6vybrYx1k",
       "youtubeUrl": "https://www.youtube.com/watch?v=7z6vybrYx1k",
       "publishedAt": "2026-09-12T11:00:16.578Z"
+    },
+    {
+      "taskId": "fv_7cdf0a2270ec0aed9fb51f15",
+      "ideaId": "idea-025",
+      "idea": "Un train de bois flotté traverse une mangrove et s'arrête seulement pour ceux qui disent merci.",
+      "status": "published",
+      "startedAt": "2026-09-12T17:14:25.733Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_7cdf0a2270ec0aed9fb51f15",
+        "idea": "Un train de bois flotté traverse une mangrove et s'arrête seulement pour ceux qui disent merci.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_7cdf0a2270ec0aed9fb51f15",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_7cdf0a2270ec0aed9fb51f15"
+      },
+      "createdAt": "2026-09-12T17:14:25.733Z",
+      "updatedAt": "2026-09-12T17:19:32.162Z",
+      "title": "Un train de bois flotté traverse une mangrove et s'arrête seulement pour ceux qui disent merci",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_7cdf0a2270ec0aed9fb51f15&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1CjOA6r7w7iB7p9HGXBEMWaA1Qxi4ihEn",
+      "driveUrl": "https://drive.google.com/file/d/1CjOA6r7w7iB7p9HGXBEMWaA1Qxi4ihEn/view?usp=drivesdk",
+      "youtubeId": "y8SegzNJn1o",
+      "youtubeUrl": "https://www.youtube.com/watch?v=y8SegzNJn1o",
+      "publishedAt": "2026-09-12T17:19:32.162Z"
     }
   ],
-  "lastStartAt": "2026-09-12T10:53:00.442Z"
+  "lastStartAt": "2026-09-12T17:14:25.733Z"
 }
