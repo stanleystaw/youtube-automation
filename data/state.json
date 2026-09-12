@@ -623,7 +623,33 @@
       "youtubeId": "DapJBKfx5E4",
       "youtubeUrl": "https://www.youtube.com/watch?v=DapJBKfx5E4",
       "publishedAt": "2026-09-11T19:51:22.257Z"
+    },
+    {
+      "taskId": "fv_99c29eabe364a4fac04308a9",
+      "ideaId": "idea-024",
+      "idea": "Dans les rues de Porto-Novo, un masque traditionnel s'anime et enseigne la danse de la pluie à un enfant.",
+      "status": "published",
+      "startedAt": "2026-09-12T10:53:00.442Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_99c29eabe364a4fac04308a9",
+        "idea": "Dans les rues de Porto-Novo, un masque traditionnel s'anime et enseigne la danse de la pluie à un enfant.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_99c29eabe364a4fac04308a9",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_99c29eabe364a4fac04308a9"
+      },
+      "createdAt": "2026-09-12T10:53:00.442Z",
+      "updatedAt": "2026-09-12T11:00:16.578Z",
+      "title": "Dans les rues de Porto-Novo, un masque traditionnel s'anime et enseigne la danse de la pluie à…",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_99c29eabe364a4fac04308a9&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1To8keApGOPI_4FK2R78EBzScNd7vez7J",
+      "driveUrl": "https://drive.google.com/file/d/1To8keApGOPI_4FK2R78EBzScNd7vez7J/view?usp=drivesdk",
+      "youtubeId": "7z6vybrYx1k",
+      "youtubeUrl": "https://www.youtube.com/watch?v=7z6vybrYx1k",
+      "publishedAt": "2026-09-12T11:00:16.578Z"
     }
   ],
-  "lastStartAt": "2026-09-11T19:46:35.182Z"
+  "lastStartAt": "2026-09-12T10:53:00.442Z"
 }
