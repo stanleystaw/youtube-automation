@@ -701,7 +701,33 @@
       "youtubeId": "0RZvcqKwth0",
       "youtubeUrl": "https://www.youtube.com/watch?v=0RZvcqKwth0",
       "publishedAt": "2026-09-13T12:03:03.069Z"
+    },
+    {
+      "taskId": "fv_97732b2d72b7f00a7efb6b13",
+      "ideaId": "idea-027",
+      "idea": "Un inventeur construit un cerf-volant capable de ramener les nuages d'orage trop violents.",
+      "status": "published",
+      "startedAt": "2026-09-13T19:30:11.691Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_97732b2d72b7f00a7efb6b13",
+        "idea": "Un inventeur construit un cerf-volant capable de ramener les nuages d'orage trop violents.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_97732b2d72b7f00a7efb6b13",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_97732b2d72b7f00a7efb6b13"
+      },
+      "createdAt": "2026-09-13T19:30:11.691Z",
+      "updatedAt": "2026-09-13T19:34:59.448Z",
+      "title": "Un inventeur construit un cerf-volant capable de ramener les nuages d'orage trop violents",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_97732b2d72b7f00a7efb6b13&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "14OaMtmfzLTxS_Q0PKEwNV_k2lXlQPQhy",
+      "driveUrl": "https://drive.google.com/file/d/14OaMtmfzLTxS_Q0PKEwNV_k2lXlQPQhy/view?usp=drivesdk",
+      "youtubeId": "4TJ6vnGvGYY",
+      "youtubeUrl": "https://www.youtube.com/watch?v=4TJ6vnGvGYY",
+      "publishedAt": "2026-09-13T19:34:59.448Z"
     }
   ],
-  "lastStartAt": "2026-09-13T11:58:13.513Z"
+  "lastStartAt": "2026-09-13T19:30:11.691Z"
 }
