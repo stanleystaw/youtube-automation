@@ -753,7 +753,33 @@
       "youtubeId": "fpsMlEgFl2E",
       "youtubeUrl": "https://www.youtube.com/watch?v=fpsMlEgFl2E",
       "publishedAt": "2026-09-14T13:01:01.985Z"
+    },
+    {
+      "taskId": "fv_4d93059a6a86f361315a0c58",
+      "ideaId": "idea-029",
+      "idea": "Un phare au milieu du Sahel allume un océan imaginaire pour les caravanes égarées.",
+      "status": "published",
+      "startedAt": "2026-09-14T22:32:48.191Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_4d93059a6a86f361315a0c58",
+        "idea": "Un phare au milieu du Sahel allume un océan imaginaire pour les caravanes égarées.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_4d93059a6a86f361315a0c58",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_4d93059a6a86f361315a0c58"
+      },
+      "createdAt": "2026-09-14T22:32:48.191Z",
+      "updatedAt": "2026-09-14T22:37:38.222Z",
+      "title": "Un phare au milieu du Sahel allume un océan imaginaire pour les caravanes égarées",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_4d93059a6a86f361315a0c58&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "1mroEXxHWM86tqtfcRS9DUDls1sB8vxkb",
+      "driveUrl": "https://drive.google.com/file/d/1mroEXxHWM86tqtfcRS9DUDls1sB8vxkb/view?usp=drivesdk",
+      "youtubeId": "4f2FVhyywJY",
+      "youtubeUrl": "https://www.youtube.com/watch?v=4f2FVhyywJY",
+      "publishedAt": "2026-09-14T22:37:38.222Z"
     }
   ],
-  "lastStartAt": "2026-09-14T12:56:01.084Z"
+  "lastStartAt": "2026-09-14T22:32:48.191Z"
 }
