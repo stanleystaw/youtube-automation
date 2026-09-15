@@ -779,7 +779,33 @@
       "youtubeId": "4f2FVhyywJY",
       "youtubeUrl": "https://www.youtube.com/watch?v=4f2FVhyywJY",
       "publishedAt": "2026-09-14T22:37:38.222Z"
+    },
+    {
+      "taskId": "fv_56888469837e68a6a8a669f4",
+      "ideaId": "idea-030",
+      "idea": "Deux oiseaux-messagers livrent un secret entre une montagne de neige et une lagune tropicale.",
+      "status": "published",
+      "startedAt": "2026-09-15T11:50:19.592Z",
+      "magiclight": {
+        "status": "queued",
+        "task_id": "fv_56888469837e68a6a8a669f4",
+        "idea": "Deux oiseaux-messagers livrent un secret entre une montagne de neige et une lagune tropicale.",
+        "language": "french",
+        "ratio": 1,
+        "credits_deducted": 0,
+        "check_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_56888469837e68a6a8a669f4",
+        "download_url": "https://magiclight-api-gamma.vercel.app/stanleystawa/fullvideo?task_id=fv_56888469837e68a6a8a669f4"
+      },
+      "createdAt": "2026-09-15T11:50:19.592Z",
+      "updatedAt": "2026-09-15T11:54:55.970Z",
+      "title": "Deux oiseaux-messagers livrent un secret entre une montagne de neige et une lagune tropicale",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_56888469837e68a6a8a669f4&key=stanleystawa_usr_02c4ef9494e8214f11edfa0c558f749b66ae2eb0e0b778cb4fde343f4f0a6ba7",
+      "driveFileId": "15imvgzjFX8wBybc2BruFJ1sz2FAtF3Uj",
+      "driveUrl": "https://drive.google.com/file/d/15imvgzjFX8wBybc2BruFJ1sz2FAtF3Uj/view?usp=drivesdk",
+      "youtubeId": "dnkOxFMK3QE",
+      "youtubeUrl": "https://www.youtube.com/watch?v=dnkOxFMK3QE",
+      "publishedAt": "2026-09-15T11:54:55.970Z"
     }
   ],
-  "lastStartAt": "2026-09-14T22:32:48.191Z"
+  "lastStartAt": "2026-09-15T11:50:19.592Z"
 }
