@@ -364,13 +364,7 @@ async function maybePublishQuote({
     clip = await produceQuoteClip({
       ml,
       quote,
-      settings: {
-        ...settings,
-        quotes: {
-          ...q,
-          maxCharsFor10s: credits != null && credits < 14 ? 9999 : q.maxCharsFor10s || 140,
-        },
-      },
+      settings,
       drive,
       folderId,
       state,
@@ -481,7 +475,7 @@ async function readCurrent(ml) {
 }
 
 async function waitFor(ml, taskId, settings) {
-  const maxWait = settings.maxWaitMs > 0 ? settings.maxWaitMs : 3_000_000;
+  const maxWait = settings.maxWaitMs > 0 ? Math.min(settings.maxWaitMs, 600_000) : 600_000;
   const deadline = Date.now() + maxWait;
   let last = -1;
   while (Date.now() < deadline) {
