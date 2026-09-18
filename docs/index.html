@@ -5,34 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>youtube-automation</title>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; line-height: 1.55; color: #111; }
-    h1 { font-size: 1.6rem; }
-    a { color: #0b57d0; }
-    ul { padding-left: 1.2rem; }
-    footer { margin-top: 48px; font-size: 0.9rem; color: #555; }
+    :root {
+      --bg: #100e0c;
+      --bg2: #1a1612;
+      --ink: #f3ece3;
+      --muted: #b7aa9a;
+      --gold: #d4b483;
+      --line: rgba(212, 180, 131, 0.28);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at 10% -10%, rgba(212,180,131,.12), transparent 50%),
+        radial-gradient(900px 400px at 110% 10%, rgba(180,90,60,.08), transparent 45%),
+        var(--bg);
+      line-height: 1.65;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 28px 22px 72px; }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding-bottom: 22px; border-bottom: 1px solid var(--line);
+    }
+    .brand { font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+    nav { display: flex; gap: 18px; font-size: 0.92rem; }
+    nav a { color: var(--muted); }
+    nav a.active { color: var(--ink); }
+    h1 {
+      font-weight: 500; font-size: clamp(2rem, 5vw, 3.1rem);
+      line-height: 1.15; margin: 42px 0 18px; letter-spacing: -0.02em;
+    }
+    .rule { width: 72px; height: 2px; background: var(--gold); margin: 0 0 28px; border: 0; }
+    p, li { font-family: system-ui, sans-serif; color: var(--muted); font-size: 1.02rem; }
+    p strong, li strong { color: var(--ink); font-weight: 600; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid var(--line); border-radius: 18px; padding: 22px 24px; margin: 28px 0;
+    }
+    ul { padding-left: 1.15rem; margin: 0; }
+    li { margin: 10px 0; }
+    footer {
+      margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
+      font-family: system-ui, sans-serif; font-size: 0.85rem; color: #8a7d70;
+    }
   </style>
 </head>
 <body>
-  <h1>youtube-automation</h1>
-  <p>
-    Logiciel open source : chaque personne l’installe sur <strong>son</strong> compte Google
-    et sa <strong>propre</strong> chaîne YouTube. Il génère des vidéos (actualité et conseils)
-    avec une IA, publie sur YouTube, et enregistre les clips conseils sur Google Drive.
-  </p>
-  <h2>Ce que fait l’application (sur le compte qui l’autorise)</h2>
-  <ul>
-    <li>Génère des YouTube Shorts (actualité mondiale + conseils).</li>
-    <li>Publie sur la chaîne YouTube liée au compte autorisé.</li>
-    <li>Enregistre uniquement les vidéos « conseils » dans un dossier Drive dédié.</li>
-  </ul>
-  <p>Les clés API restent dans les secrets GitHub de <em>ton</em> dépôt, jamais dans le code.</p>
-  <h2>Documents</h2>
-  <ul>
-    <li><a href="privacy.html">Règles de confidentialité</a></li>
-    <li><a href="terms.html">Conditions d’utilisation</a></li>
-  </ul>
-  <footer>
-    Contact : ouvre une issue sur le dépôt GitHub du projet.
-  </footer>
+  <div class="wrap">
+    <header>
+      <div class="brand">youtube-automation</div>
+      <nav>
+        <a class="active" href="index.html">Accueil</a>
+        <a href="privacy.html">Confidentialité</a>
+        <a href="terms.html">Conditions</a>
+      </nav>
+    </header>
+    <h1>Des Shorts IA,<br>sur ta chaîne.</h1>
+    <hr class="rule" />
+    <p>
+      Logiciel open source : chacun l’installe sur <strong>son</strong> compte Google
+      et sa <strong>propre</strong> chaîne YouTube. Il génère des vidéos (actualité et conseils)
+      avec une IA, publie sur YouTube, et enregistre les clips conseils sur Drive.
+    </p>
+    <div class="card">
+      <ul>
+        <li>Génère des YouTube Shorts (actualité mondiale + conseils).</li>
+        <li>Publie sur la chaîne YouTube liée au compte autorisé.</li>
+        <li>Enregistre uniquement les vidéos « conseils » dans un dossier Drive dédié.</li>
+      </ul>
+    </div>
+    <p>Les clés API restent dans les secrets GitHub de <em>ton</em> dépôt, jamais dans le code.</p>
+    <footer>Contact : ouvre une issue sur le dépôt GitHub du projet.</footer>
+  </div>
 </body>
 </html>

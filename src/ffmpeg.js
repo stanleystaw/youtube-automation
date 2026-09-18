@@ -59,7 +59,6 @@ export async function concatVideos(inputs, outPath) {
     try {
       fs.unlinkSync(list);
     } catch {
-      /* ignore */
     }
   }
 }
@@ -100,7 +99,6 @@ export async function kenBurnsWithAudio(jpgPath, audioPath, outPath, seconds = 1
   try {
     fs.unlinkSync(silent);
   } catch {
-    /* ignore */
   }
 }
 

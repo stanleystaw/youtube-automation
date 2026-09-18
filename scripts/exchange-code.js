@@ -24,7 +24,6 @@ try {
     code = new URLSearchParams(raw.includes("?") ? raw.split("?")[1] : raw).get("code") || "";
   }
 } catch {
-  /* keep raw */
 }
 
 if (!code) {

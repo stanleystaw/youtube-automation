@@ -22,7 +22,6 @@ export async function ensureConseilsFolder(drive, existingId, folderName = DEFAU
       });
       if (got.data?.id && !got.data.trashed) return got.data.id;
     } catch {
-      /* recreate */
     }
   }
 

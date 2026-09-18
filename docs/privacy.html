@@ -5,48 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Confidentialité — youtube-automation</title>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; line-height: 1.55; color: #111; }
-    h1 { font-size: 1.6rem; }
-    a { color: #0b57d0; }
+    :root {
+      --bg: #100e0c;
+      --ink: #f3ece3;
+      --muted: #b7aa9a;
+      --gold: #d4b483;
+      --line: rgba(212, 180, 131, 0.28);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at 10% -10%, rgba(212,180,131,.12), transparent 50%),
+        var(--bg);
+      line-height: 1.65;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 28px 22px 72px; }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding-bottom: 22px; border-bottom: 1px solid var(--line);
+    }
+    .brand { font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+    nav { display: flex; gap: 18px; font-size: 0.92rem; }
+    nav a { color: var(--muted); }
+    nav a.active { color: var(--ink); }
+    h1 { font-weight: 500; font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 42px 0 8px; }
+    .meta { font-family: system-ui, sans-serif; color: #8a7d70; font-size: 0.9rem; margin-bottom: 28px; }
+    .rule { width: 72px; height: 2px; background: var(--gold); margin: 0 0 28px; border: 0; }
+    h2 { font-size: 1.15rem; font-weight: 500; margin: 32px 0 10px; color: var(--gold); }
+    p, li { font-family: system-ui, sans-serif; color: var(--muted); font-size: 1.02rem; }
+    p strong, li strong { color: var(--ink); }
+    code { color: var(--ink); font-size: 0.92em; }
+    ul { padding-left: 1.15rem; }
+    footer {
+      margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
+      font-family: system-ui, sans-serif; font-size: 0.85rem; color: #8a7d70;
+    }
   </style>
 </head>
 <body>
-  <p><a href="index.html">← Accueil</a></p>
-  <h1>Règles de confidentialité</h1>
-  <p>Dernière mise à jour : 18 septembre 2026.</p>
-
-  <h2>Qui</h2>
-  <p>
-    <strong>youtube-automation</strong> est un logiciel open source. Chaque utilisateur
-    l’héberge lui-même (souvent via GitHub Actions) et autorise <em>son</em> compte Google.
-    L’auteur du code n’a pas accès à tes données.
-  </p>
-
-  <h2>Données Google utilisées</h2>
-  <p>Uniquement après ton consentement, et seulement sur <strong>ton</strong> compte :</p>
-  <ul>
-    <li><strong>YouTube</strong> (<code>youtube.upload</code>, <code>youtube</code>) : publier une vidéo sur ta chaîne, lire les stats de tes propres vidéos.</li>
-    <li><strong>Google Drive</strong> (<code>drive.file</code>) : créer un dossier « Conseils » et y déposer les MP4 des clips conseils. Pas d’accès au reste de ton Drive.</li>
-  </ul>
-  <p>Pas d’accès Gmail, Contacts, Photos, ni Drive complet.</p>
-
-  <h2>Autres traitements (sur ton instance)</h2>
-  <ul>
-    <li>Textes : Google Gemini (si tu fournis une clé).</li>
-    <li>Génération vidéo : MagicLight (si tu fournis une clé).</li>
-  </ul>
-
-  <h2>Stockage</h2>
-  <p>
-    Les jetons OAuth et clés API restent dans les secrets de <em>ton</em> dépôt GitHub
-    (ou un fichier <code>.env</code> local), jamais dans le code public.
-    Aucune donnée n’est vendue ni utilisée pour de la publicité.
-  </p>
-
-  <h2>Révocation</h2>
-  <p>
-    <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>
-    → l’application OAuth → Supprimer l’accès.
-  </p>
+  <div class="wrap">
+    <header>
+      <div class="brand">youtube-automation</div>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a class="active" href="privacy.html">Confidentialité</a>
+        <a href="terms.html">Conditions</a>
+      </nav>
+    </header>
+    <h1>Règles de confidentialité</h1>
+    <p class="meta">Dernière mise à jour : 18 septembre 2026</p>
+    <hr class="rule" />
+    <h2>Qui</h2>
+    <p>
+      <strong>youtube-automation</strong> est un logiciel open source. Chaque utilisateur
+      l’héberge lui-même (souvent via GitHub Actions) et autorise <em>son</em> compte Google.
+      L’auteur du code n’a pas accès à tes données.
+    </p>
+    <h2>Données Google utilisées</h2>
+    <p>Uniquement après ton consentement, et seulement sur <strong>ton</strong> compte :</p>
+    <ul>
+      <li><strong>YouTube</strong> (<code>youtube.upload</code>, <code>youtube</code>) : publier une vidéo sur ta chaîne, lire les stats de tes propres vidéos.</li>
+      <li><strong>Google Drive</strong> (<code>drive.file</code>) : créer un dossier « Conseils » et y déposer les MP4 des clips conseils. Pas d’accès au reste de ton Drive.</li>
+    </ul>
+    <p>Pas d’accès Gmail, Contacts, Photos, ni Drive complet.</p>
+    <h2>Autres traitements (sur ton instance)</h2>
+    <ul>
+      <li>Textes : Google Gemini (si tu fournis une clé).</li>
+      <li>Génération vidéo : MagicLight (si tu fournis une clé).</li>
+    </ul>
+    <h2>Stockage</h2>
+    <p>
+      Les jetons OAuth et clés API restent dans les secrets de <em>ton</em> dépôt GitHub
+      (ou un fichier <code>.env</code> local), jamais dans le code public.
+      Aucune donnée n’est vendue ni utilisée pour de la publicité.
+    </p>
+    <h2>Révocation</h2>
+    <p>
+      <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>
+      → l’application OAuth → Supprimer l’accès.
+    </p>
+    <footer>Contact : ouvre une issue sur le dépôt GitHub du projet.</footer>
+  </div>
 </body>
 </html>

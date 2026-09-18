@@ -281,7 +281,7 @@ async function main() {
       throw error;
     }
   }
-  } // fin actu
+  }
 
   await maybePublishQuote({
     ml,
@@ -648,7 +648,6 @@ async function publishItem({ item, state, drive, folderId, youtubeAuth, settings
   try {
     fs.unlinkSync(filePath);
   } catch {
-    /* ignore */
   }
 }
 

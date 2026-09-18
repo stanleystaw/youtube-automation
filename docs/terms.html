@@ -5,25 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Conditions — youtube-automation</title>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; line-height: 1.55; color: #111; }
-    h1 { font-size: 1.6rem; }
-    a { color: #0b57d0; }
+    :root {
+      --bg: #100e0c;
+      --ink: #f3ece3;
+      --muted: #b7aa9a;
+      --gold: #d4b483;
+      --line: rgba(212, 180, 131, 0.28);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at 90% -10%, rgba(212,180,131,.12), transparent 50%),
+        var(--bg);
+      line-height: 1.65;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 28px 22px 72px; }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding-bottom: 22px; border-bottom: 1px solid var(--line);
+    }
+    .brand { font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+    nav { display: flex; gap: 18px; font-size: 0.92rem; }
+    nav a { color: var(--muted); }
+    nav a.active { color: var(--ink); }
+    h1 { font-weight: 500; font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 42px 0 8px; }
+    .meta { font-family: system-ui, sans-serif; color: #8a7d70; font-size: 0.9rem; margin-bottom: 28px; }
+    .rule { width: 72px; height: 2px; background: var(--gold); margin: 0 0 28px; border: 0; }
+    p, li { font-family: system-ui, sans-serif; color: var(--muted); font-size: 1.02rem; }
+    p strong { color: var(--ink); }
+    ul { padding-left: 1.15rem; }
+    li { margin: 10px 0; }
+    footer {
+      margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
+      font-family: system-ui, sans-serif; font-size: 0.85rem; color: #8a7d70;
+    }
   </style>
 </head>
 <body>
-  <p><a href="index.html">← Accueil</a></p>
-  <h1>Conditions d’utilisation</h1>
-  <p>Dernière mise à jour : 18 septembre 2026.</p>
-  <p>
-    En autorisant l’application, tu confirmes être le propriétaire (ou un gestionnaire autorisé)
-    de la chaîne YouTube concernée, et tu l’utilises sur <strong>ton</strong> infrastructure.
-  </p>
-  <ul>
-    <li>Les vidéos générées par IA doivent être déclarées comme telles sur YouTube.</li>
-    <li>L’outil peut échouer (quota API, crédits MagicLight, jeton Google révoqué).</li>
-    <li>Tu peux retirer l’accès à tout moment via
-      <a href="https://myaccount.google.com/permissions">les autorisations Google</a>.</li>
-  </ul>
-  <p>Logiciel fourni « tel quel », sans garantie — voir la licence MIT du dépôt.</p>
+  <div class="wrap">
+    <header>
+      <div class="brand">youtube-automation</div>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="privacy.html">Confidentialité</a>
+        <a class="active" href="terms.html">Conditions</a>
+      </nav>
+    </header>
+    <h1>Conditions d’utilisation</h1>
+    <p class="meta">Dernière mise à jour : 18 septembre 2026</p>
+    <hr class="rule" />
+    <p>
+      En autorisant l’application, tu confirmes être le propriétaire (ou un gestionnaire autorisé)
+      de la chaîne YouTube concernée, et tu l’utilises sur <strong>ton</strong> infrastructure.
+    </p>
+    <ul>
+      <li>Les vidéos générées par IA doivent être déclarées comme telles sur YouTube.</li>
+      <li>L’outil peut échouer (quota API, crédits MagicLight, jeton Google révoqué).</li>
+      <li>Tu peux retirer l’accès à tout moment via
+        <a href="https://myaccount.google.com/permissions">les autorisations Google</a>.</li>
+    </ul>
+    <p>Logiciel fourni « tel quel », sans garantie — voir la licence MIT du dépôt.</p>
+    <footer>Contact : ouvre une issue sur le dépôt GitHub du projet.</footer>
+  </div>
 </body>
 </html>
