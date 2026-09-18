@@ -2,13 +2,18 @@ import fs from "node:fs";
 import { google } from "googleapis";
 
 const MIME_FOLDER = "application/vnd.google-apps.folder";
-const CONSEILS_FOLDER = "Conseils Histoire Ai";
+export const DEFAULT_CONSEILS_FOLDER = "Conseils";
 
 export async function driveClient(auth) {
   return google.drive({ version: "v3", auth });
 }
 
-export async function ensureConseilsFolder(drive, existingId) {
+function escapeQuery(name) {
+  return String(name).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+}
+
+export async function ensureConseilsFolder(drive, existingId, folderName = DEFAULT_CONSEILS_FOLDER) {
+  const name = folderName || DEFAULT_CONSEILS_FOLDER;
   if (existingId) {
     try {
       const got = await drive.files.get({
@@ -22,7 +27,7 @@ export async function ensureConseilsFolder(drive, existingId) {
   }
 
   const found = await drive.files.list({
-    q: `name='${CONSEILS_FOLDER}' and mimeType='${MIME_FOLDER}' and trashed=false`,
+    q: `name='${escapeQuery(name)}' and mimeType='${MIME_FOLDER}' and trashed=false`,
     fields: "files(id, name)",
     pageSize: 5,
     spaces: "drive",
@@ -30,7 +35,7 @@ export async function ensureConseilsFolder(drive, existingId) {
   if (found.data.files?.length) return found.data.files[0].id;
 
   const created = await drive.files.create({
-    requestBody: { name: CONSEILS_FOLDER, mimeType: MIME_FOLDER },
+    requestBody: { name, mimeType: MIME_FOLDER },
     fields: "id",
   });
   return created.data.id;
@@ -51,5 +56,3 @@ export async function uploadVideo({ drive, folderId, filePath, name, description
   });
   return res.data;
 }
-
-export { CONSEILS_FOLDER };

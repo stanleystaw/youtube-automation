@@ -20,15 +20,15 @@
     "maxCharsFor10s": 140,
     "duration": 10,
     "quality": "high",
-    "presenterImage": "assets/presenter.jpg",
-    "presenterImageUrl": "https://raw.githubusercontent.com/stanleystaw/youtube-automation/main/assets/presenter.jpg"
+    "driveFolderName": "Conseils",
+    "presenterImage": "assets/presenter.jpg"
   },
   "youtube": {
     "privacyStatus": "public",
     "categoryId": "25",
     "madeForKids": false,
     "defaultLanguage": "fr",
-    "tags": ["actu", "faits", "Afrique", "shorts", "explicatif", "IA", "conseil"]
+    "tags": ["actu", "faits", "shorts", "explicatif", "IA", "conseil"]
   },
   "descriptionTemplate": "{{title}}\n\n{{idea}}\n\n---\n🎬 Vidéo générée par intelligence artificielle.\nCette vidéo contient du contenu synthétique / généré par IA.\n\n#shorts #actu #faits",
   "pollIntervalMs": 15000,

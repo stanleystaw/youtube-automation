@@ -11,7 +11,7 @@ import { packForYoutube } from "./agents/seo.js";
 import { pickQuote } from "./agents/quotes.js";
 import { runLearningLoop } from "./agents/learn.js";
 import { produceQuoteClip } from "./clips.js";
-import { driveClient, ensureConseilsFolder, uploadVideo, CONSEILS_FOLDER } from "./drive.js";
+import { driveClient, ensureConseilsFolder, uploadVideo, DEFAULT_CONSEILS_FOLDER } from "./drive.js";
 import { downloadVideo, tmpPath } from "./download.js";
 import { banner, info, ok, warn, fail, step } from "./logger.js";
 import { hoursSince, slugify, stamp, sleep, titleFromIdea, zonedClock, isCronRun } from "./utils.js";
@@ -43,11 +43,12 @@ async function main() {
   });
   const drive = await driveClient(driveAuthClient);
 
+  const conseilsFolderName = settings.quotes?.driveFolderName || DEFAULT_CONSEILS_FOLDER;
   step("Google Drive — dossier conseils uniquement");
   let folderId;
   try {
-    folderId = await ensureConseilsFolder(drive, stateFolderHint());
-    ok(`Dossier Drive « ${CONSEILS_FOLDER} » (${folderId})`);
+    folderId = await ensureConseilsFolder(drive, stateFolderHint(), conseilsFolderName);
+    ok(`Dossier Drive « ${conseilsFolderName} » (${folderId})`);
   } catch (error) {
     throw googleAuthError(error);
   }
@@ -573,7 +574,7 @@ async function publishItem({ item, state, drive, folderId, youtubeAuth, settings
   let driveFileId = item.driveFileId || known.driveFileId;
   let driveUrl = item.driveUrl || known.driveUrl;
   if (isConseil && !driveFileId) {
-    step(`Upload Drive « ${CONSEILS_FOLDER} »`);
+    step(`Upload Drive « ${settings.quotes?.driveFolderName || DEFAULT_CONSEILS_FOLDER} »`);
     const uploaded = await uploadVideo({
       drive,
       folderId,

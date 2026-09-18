@@ -26,7 +26,7 @@ export async function produceQuoteClip({
       ? [spokenFull]
       : parts.map((p, i) => (i === parts.length - 1 && quote.author ? `${p} — ${quote.author}` : p));
 
-  const presenterUrl = await ensurePresenterUrl({ drive, folderId, settings, state });
+  const presenterUrl = resolvePresenterUrl(settings);
   if (presenterUrl) info(`Présentatrice (référence) : ${presenterUrl}`);
   else warn("Pas de photo présentatrice — MagicLight improvisera le visage.");
 
@@ -95,8 +95,14 @@ export async function produceQuoteClip({
   };
 }
 
-async function ensurePresenterUrl({ settings }) {
-  return String(settings.quotes?.presenterImageUrl || "").trim() || null;
+export function resolvePresenterUrl(settings) {
+  const explicit = String(settings.quotes?.presenterImageUrl || "").trim();
+  if (explicit) return explicit;
+  const img = settings.quotes?.presenterImage || "assets/presenter.jpg";
+  const repo = (process.env.GITHUB_REPOSITORY || "").trim();
+  const branch = (process.env.GITHUB_REF_NAME || "main").replace(/^refs\/heads\//, "");
+  if (repo) return `https://raw.githubusercontent.com/${repo}/${branch}/${img}`;
+  return null;
 }
 
 async function waitClip(ml, taskId, settings) {

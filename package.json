@@ -1,7 +1,7 @@
 {
   "name": "youtube-automation",
   "version": "1.0.0",
-  "description": "Génère 3 vidéos IA par jour (MagicLight), les publie sur YouTube et les sauvegarde sur Google Drive — via GitHub Actions.",
+  "description": "Génère des Shorts IA (actu + conseils), publie sur YouTube, enregistre les conseils sur Drive — via GitHub Actions.",
   "type": "module",
   "engines": {
     "node": ">=20"

@@ -13,41 +13,40 @@
 <body>
   <p><a href="index.html">← Accueil</a></p>
   <h1>Règles de confidentialité</h1>
-  <p>Dernière mise à jour : 18 septembre 2026. Contact : ipoppolive6@gmail.com</p>
+  <p>Dernière mise à jour : 18 septembre 2026.</p>
 
   <h2>Qui</h2>
   <p>
-    <strong>youtube-automation</strong> est un outil personnel du propriétaire de la chaîne YouTube Histoire Ai.
-    Il n’est pas proposé au public.
+    <strong>youtube-automation</strong> est un logiciel open source. Chaque utilisateur
+    l’héberge lui-même (souvent via GitHub Actions) et autorise <em>son</em> compte Google.
+    L’auteur du code n’a pas accès à tes données.
   </p>
 
   <h2>Données Google utilisées</h2>
-  <p>Après autorisation explicite du compte Google de la chaîne, l’application accède uniquement à :</p>
+  <p>Uniquement après ton consentement, et seulement sur <strong>ton</strong> compte :</p>
   <ul>
-    <li><strong>YouTube</strong> (<code>youtube.upload</code>, <code>youtube</code>) : envoyer une vidéo, lire le titre / les stats de nos propres vidéos pour améliorer les prochains sujets.</li>
-    <li><strong>Google Drive</strong> (<code>drive.file</code>) : créer et enregistrer des fichiers MP4 et un fichier d’état <em>dans un dossier créé par l’appli</em>. Elle ne lit pas le reste de votre Drive.</li>
+    <li><strong>YouTube</strong> (<code>youtube.upload</code>, <code>youtube</code>) : publier une vidéo sur ta chaîne, lire les stats de tes propres vidéos.</li>
+    <li><strong>Google Drive</strong> (<code>drive.file</code>) : créer un dossier « Conseils » et y déposer les MP4 des clips conseils. Pas d’accès au reste de ton Drive.</li>
   </ul>
   <p>Pas d’accès Gmail, Contacts, Photos, ni Drive complet.</p>
 
-  <h2>Autres traitements</h2>
+  <h2>Autres traitements (sur ton instance)</h2>
   <ul>
-    <li>Textes d’idées / titres : envoyés à Google Gemini pour rédiger le contenu.</li>
-    <li>Idées de vidéo : envoyées à MagicLight pour générer le MP4.</li>
+    <li>Textes : Google Gemini (si tu fournis une clé).</li>
+    <li>Génération vidéo : MagicLight (si tu fournis une clé).</li>
   </ul>
 
   <h2>Stockage</h2>
   <p>
-    Les jetons d’accès (refresh tokens) sont stockés comme secrets GitHub, pas dans le code public.
-    Un journal technique (titre, identifiant YouTube, date) est sauvegardé dans Drive.
+    Les jetons OAuth et clés API restent dans les secrets de <em>ton</em> dépôt GitHub
+    (ou un fichier <code>.env</code> local), jamais dans le code public.
     Aucune donnée n’est vendue ni utilisée pour de la publicité.
   </p>
 
-  <h2>Conservation et révocation</h2>
+  <h2>Révocation</h2>
   <p>
-    Les données restent tant que l’automatisation tourne.
-    Tu peux couper l’accès à tout moment :
     <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>
-    → youtube-automation → Supprimer l’accès.
+    → l’application OAuth → Supprimer l’accès.
   </p>
 </body>
 </html>
