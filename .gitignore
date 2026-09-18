@@ -1,5 +1,7 @@
 node_modules/
 .env
+.env.*
+!.env.example
 .tmp/
 tmp/
 *.mp4
@@ -8,3 +10,7 @@ tmp/
 .DS_Store
 google-tokens.json
 auth-code.txt
+client_secret*.json
+**/credentials.json
+*.pem
+*.p12

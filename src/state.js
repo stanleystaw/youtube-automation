@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { ROOT } from "./config.js";
 import { todayKey } from "./utils.js";
+import { stripSecrets, stripKeyFromUrl } from "./secrets.js";
 
 const FILE = path.join(ROOT, "data", "state.json");
 
@@ -12,8 +13,7 @@ export function loadState() {
       videos: Array.isArray(raw.videos) ? raw.videos : [],
       lastStartAt: raw.lastStartAt || null,
       lastQuoteAt: raw.lastQuoteAt || null,
-      presenterDriveId: raw.presenterDriveId || null,
-      presenterUrl: raw.presenterUrl || null,
+      conseilsFolderId: raw.conseilsFolderId || null,
     };
   } catch {
     return { videos: [], lastStartAt: null, lastQuoteAt: null };
@@ -22,7 +22,23 @@ export function loadState() {
 
 export function saveState(state) {
   fs.mkdirSync(path.dirname(FILE), { recursive: true });
-  fs.writeFileSync(FILE, `${JSON.stringify(state, null, 2)}\n`, "utf8");
+  fs.writeFileSync(FILE, `${JSON.stringify(sanitizeState(state), null, 2)}\n`, "utf8");
+}
+
+export function sanitizeState(state) {
+  const videos = (state.videos || []).map((v) => {
+    const row = stripSecrets({ ...v });
+    delete row.magiclight;
+    delete row.raw;
+    if (row.videoUrl) row.videoUrl = stripKeyFromUrl(row.videoUrl);
+    return row;
+  });
+  return {
+    videos,
+    lastStartAt: state.lastStartAt || null,
+    lastQuoteAt: state.lastQuoteAt || null,
+    conseilsFolderId: state.conseilsFolderId || null,
+  };
 }
 
 export function findByTask(state, taskId) {

@@ -40,6 +40,10 @@ function withDownloadFlag(url) {
   try {
     const u = new URL(url);
     if (!u.searchParams.has("dl")) u.searchParams.set("dl", "1");
+    const key = (process.env.MAGICLIGHT_API_KEY || "").trim();
+    if (key && /magiclight/i.test(u.hostname) && !u.searchParams.get("key")) {
+      u.searchParams.set("key", key);
+    }
     return u.toString();
   } catch {
     return url.includes("?") ? `${url}&dl=1` : `${url}?dl=1`;

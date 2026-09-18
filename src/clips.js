@@ -1,9 +1,7 @@
 import fs from "node:fs";
-import path from "node:path";
-import { ROOT } from "./config.js";
 import { extractTaskId, extractStatus, extractVideoUrl, isDone, isFailed } from "./magiclight.js";
 import { downloadVideo, tmpPath } from "./download.js";
-import { extractLastFrame, concatVideos, kenBurnsWithAudio } from "./ffmpeg.js";
+import { concatVideos } from "./ffmpeg.js";
 import { splitQuote, clipPrompt } from "./agents/quotes.js";
 import { info, ok, step, warn } from "./logger.js";
 import { sleep } from "./utils.js";
@@ -58,7 +56,7 @@ export async function produceQuoteClip({
       imageUrl: i > 0 ? lastFrame?.url || presenterUrl : presenterUrl || undefined,
     });
     const taskId = extractTaskId(started);
-    if (!taskId) throw new Error(`Clip sans task_id : ${JSON.stringify(started).slice(0, 300)}`);
+    if (!taskId) throw new Error("Clip sans task_id");
     taskIds.push(taskId);
     const done = await waitClip(ml, taskId, settings);
     const url = extractVideoUrl(done.data) || ml.clipDownloadUrl(taskId);
@@ -68,15 +66,7 @@ export async function produceQuoteClip({
     files.push(file);
 
     if (i < spokenParts.length - 1) {
-      const jpg = tmpPath(`quote-${taskId}-last.jpg`);
-      try {
-        await extractLastFrame(file, jpg);
-        lastFrame = await publishFrame(drive, folderId, jpg);
-        ok(`Dernière frame → ${lastFrame.url}`);
-      } catch (error) {
-        warn(`Frame/imageUrl : ${error.message} — clip suivant sans image de continuité`);
-        lastFrame = null;
-      }
+      lastFrame = presenterUrl ? { url: presenterUrl } : null;
     }
   }
 
@@ -105,25 +95,8 @@ export async function produceQuoteClip({
   };
 }
 
-async function ensurePresenterUrl({ drive, folderId, settings, state }) {
-  if (state?.presenterUrl) return state.presenterUrl;
-  const configured = String(settings.quotes?.presenterImageUrl || "").trim();
-  const local = path.join(ROOT, settings.quotes?.presenterImage || "assets/presenter.jpg");
-
-  if (drive && fs.existsSync(local)) {
-    try {
-      const published = await publishFrame(drive, folderId, local);
-      if (state) {
-        state.presenterDriveId = published.id;
-        state.presenterUrl = published.url;
-      }
-      ok(`Photo présentatrice → Drive ${published.url}`);
-      return published.url;
-    } catch (error) {
-      warn(`Upload présentatrice Drive : ${error.message}`);
-    }
-  }
-  return configured || null;
+async function ensurePresenterUrl({ settings }) {
+  return String(settings.quotes?.presenterImageUrl || "").trim() || null;
 }
 
 async function waitClip(ml, taskId, settings) {
@@ -145,32 +118,4 @@ async function waitClip(ml, taskId, settings) {
   throw new Error(`Délai dépassé pour le clip ${taskId}`);
 }
 
-async function publishFrame(drive, folderId, jpgPath) {
-  const { google } = await import("googleapis");
-  const res = await drive.files.create({
-    requestBody: {
-      name: path.basename(jpgPath),
-      parents: folderId ? [folderId] : undefined,
-    },
-    media: {
-      mimeType: "image/jpeg",
-      body: fs.createReadStream(jpgPath),
-    },
-    fields: "id",
-  });
-  const id = res.data.id;
-  try {
-    await drive.permissions.create({
-      fileId: id,
-      requestBody: { type: "anyone", role: "reader" },
-    });
-  } catch {
-    /* drive.file may still allow link */
-  }
-  return {
-    id,
-    url: `https://drive.google.com/uc?export=view&id=${id}`,
-  };
-}
 
-export { kenBurnsWithAudio };

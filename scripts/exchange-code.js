@@ -59,7 +59,7 @@ if (!data.refresh_token) {
 
 const key = which === "youtube" ? "GOOGLE_REFRESH_TOKEN_YOUTUBE" : "GOOGLE_REFRESH_TOKEN_DRIVE";
 upsertEnv(path.join(root, ".env"), key, data.refresh_token);
-console.log(data.refresh_token);
+console.log(`Refresh token enregistré dans .env (${key}). Ne le commite jamais.`);
 
 function upsertEnv(file, envKey, value) {
   let text = fs.readFileSync(file, "utf8");

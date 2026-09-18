@@ -11,7 +11,7 @@ import { packForYoutube } from "./agents/seo.js";
 import { pickQuote } from "./agents/quotes.js";
 import { runLearningLoop } from "./agents/learn.js";
 import { produceQuoteClip } from "./clips.js";
-import { driveClient, ensureFolder, uploadVideo, pullRemoteState, pushRemoteState, mergeStates } from "./drive.js";
+import { driveClient, ensureConseilsFolder, uploadVideo, CONSEILS_FOLDER } from "./drive.js";
 import { downloadVideo, tmpPath } from "./download.js";
 import { banner, info, ok, warn, fail, step } from "./logger.js";
 import { hoursSince, slugify, stamp, sleep, titleFromIdea, zonedClock, isCronRun } from "./utils.js";
@@ -43,44 +43,28 @@ async function main() {
   });
   const drive = await driveClient(driveAuthClient);
 
-  step("Connexion Google Drive");
+  step("Google Drive — dossier conseils uniquement");
   let folderId;
   try {
-    folderId = await ensureFolder(drive, cfg.driveFolderId || settings.driveFolderId);
-    ok(`Dossier Drive prêt (${folderId})`);
+    folderId = await ensureConseilsFolder(drive, stateFolderHint());
+    ok(`Dossier Drive « ${CONSEILS_FOLDER} » (${folderId})`);
   } catch (error) {
     throw googleAuthError(error);
   }
 
   let state = loadState();
-  try {
-    const remote = await pullRemoteState(drive, folderId);
-    state = mergeStates(state, remote.state);
-    state._driveStateId = remote.fileId;
-  } catch (error) {
-    warn(`État Drive illisible (${error.message}) — on continue avec l'état local.`);
-  }
+  if (folderId) state.conseilsFolderId = folderId;
 
   const persist = async () => {
-    const snap = {
+    saveState({
       videos: state.videos,
       lastStartAt: state.lastStartAt,
       lastQuoteAt: state.lastQuoteAt,
-      presenterDriveId: state.presenterDriveId || null,
-      presenterUrl: state.presenterUrl || null,
-    };
-    saveState(snap);
-    try {
-      state._driveStateId = await pushRemoteState(
-        drive,
-        folderId,
-        state._driveStateId || null,
-        snap
-      );
-    } catch (error) {
-      warn(`Sauvegarde Drive de l'état : ${error.message}`);
-    }
+      conseilsFolderId: state.conseilsFolderId || folderId || null,
+    });
   };
+
+  await persist();
 
   try {
     await runLearningLoop({
@@ -239,7 +223,7 @@ async function main() {
     });
     const taskId = extractTaskId(started);
     if (!taskId) {
-      warn(`Réponse inattendue : ${JSON.stringify(started).slice(0, 500)}`);
+      warn("Réponse inattendue : task_id manquant.");
     }
     upsertVideo(state, {
       taskId: taskId || `unknown-${Date.now()}`,
@@ -250,7 +234,6 @@ async function main() {
       kind: "news",
       status: extractStatus(started) || "queued",
       startedAt: new Date().toISOString(),
-      magiclight: started,
     });
     state.lastStartAt = new Date().toISOString();
     await persist();
@@ -517,7 +500,9 @@ function collectPublishQueue({ current, history, state }) {
   const consider = (row) => {
     if (!row?.taskId) return;
     const known = findByTask(state, row.taskId);
-    if (known?.youtubeId && known?.driveFileId) return;
+    const kind = row.kind || known?.kind || "news";
+    const needDrive = kind === "conseil" || kind === "quote";
+    if (known?.youtubeId && (!needDrive || known?.driveFileId)) return;
     const status = row.status || known?.status || "";
     const videoUrl = row.videoUrl || known?.videoUrl;
     if (isFailed(status)) return;
@@ -584,10 +569,11 @@ async function publishItem({ item, state, drive, folderId, youtubeAuth, settings
   }
   ok(`Fichier : ${filePath} (${fs.statSync(filePath).size} octets)`);
 
-  let driveFileId = item.driveFileId;
-  let driveUrl = item.driveUrl;
-  if (!driveFileId) {
-    step("Upload Google Drive");
+  const isConseil = kind === "conseil" || kind === "quote";
+  let driveFileId = item.driveFileId || known.driveFileId;
+  let driveUrl = item.driveUrl || known.driveUrl;
+  if (isConseil && !driveFileId) {
+    step(`Upload Drive « ${CONSEILS_FOLDER} »`);
     const uploaded = await uploadVideo({
       drive,
       folderId,
@@ -612,6 +598,8 @@ async function publishItem({ item, state, drive, folderId, youtubeAuth, settings
       driveUrl,
       status: "uploaded_drive",
     });
+  } else if (!isConseil) {
+    info("Actu : YouTube uniquement — pas de copie sur Drive.");
   } else {
     info("Déjà présent sur Drive.");
   }
@@ -663,11 +651,19 @@ async function publishItem({ item, state, drive, folderId, youtubeAuth, settings
   }
 }
 
+function stateFolderHint() {
+  try {
+    return loadState().conseilsFolderId || null;
+  } catch {
+    return null;
+  }
+}
+
 function googleAuthError(error) {
   const msg = String(error.message || error);
   if (/invalid_grant/i.test(msg)) {
     const wrapped = new Error(
-      "invalid_grant : les tokens Google ont expiré (appli OAuth en Test ≈ 7 jours). Relance YouTube puis Drive (npm run auth) et mets à jour les secrets GOOGLE_REFRESH_TOKEN_*."
+      "invalid_grant : relance YouTube puis Drive (npm run auth) et mets à jour les secrets GOOGLE_REFRESH_TOKEN_*."
     );
     wrapped.cause = error;
     return wrapped;
