@@ -7,6 +7,15 @@ on:
     - cron: "20 21 * * *"
   workflow_dispatch:
     inputs:
+      category:
+        description: "Catégorie à produire"
+        required: false
+        type: choice
+        options:
+          - auto
+          - conseil
+          - news
+        default: auto
       idea:
         description: "Idée personnalisée (vide = prochaine idée de config/ideas.json)"
         required: false
@@ -58,6 +67,7 @@ jobs:
           DRIVE_FOLDER_ID: ${{ secrets.DRIVE_FOLDER_ID }}
           YOUTUBE_PRIVACY: ${{ secrets.YOUTUBE_PRIVACY }}
           IDEA: ${{ github.event.inputs.idea }}
+          CATEGORY: ${{ github.event.inputs.category }}
           SCHEDULE_CRON: ${{ github.event.schedule }}
           TZ: Africa/Porto-Novo
         run: node src/index.js

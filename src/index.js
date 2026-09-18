@@ -311,21 +311,24 @@ async function maybePublishQuote({
 }) {
   const q = settings.quotes || {};
   if (q.enabled === false) return;
+  const category = (process.env.CATEGORY || "auto").trim().toLowerCase();
+  if (category === "news") return;
+  const forced = category === "conseil";
   const quoteToday =
     publishedToday(state, settings.timezone, "quote").length +
     publishedToday(state, settings.timezone, "conseil").length;
   const cap = Number(q.perDay || 2);
   const clock = zonedClock(settings.timezone);
   const days = Array.isArray(q.days) && q.days.length ? q.days : null;
-  if (isCronRun() && days && !days.includes(clock.weekday)) {
+  if (!forced && isCronRun() && days && !days.includes(clock.weekday)) {
     info(`Conseils : seulement ${daysLabel(days)} (aujourd'hui ${clock.dayName}).`);
     return;
   }
-  if (quoteToday >= cap) {
+  if (!forced && quoteToday >= cap) {
     info(`Conseils : quota du jour atteint (${cap}).`);
     return;
   }
-  if (hoursSince(state.lastQuoteAt) < Number(q.minHoursBetween || 4)) {
+  if (!forced && hoursSince(state.lastQuoteAt) < Number(q.minHoursBetween || 4)) {
     info("Conseils : espacement pas encore écoulé.");
     return;
   }
