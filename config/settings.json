@@ -15,12 +15,13 @@
   "quotes": {
     "enabled": true,
     "style": "conseil",
-    "perDay": 1,
-    "days": [2, 4],
-    "minHoursBetween": 12,
+    "perDay": 2,
+    "minHoursBetween": 4,
     "maxCharsFor10s": 140,
     "duration": 10,
-    "quality": "high"
+    "quality": "high",
+    "presenterImage": "assets/presenter.jpg",
+    "presenterImageUrl": "https://raw.githubusercontent.com/stanleystaw/youtube-automation/main/assets/presenter.jpg"
   },
   "youtube": {
     "privacyStatus": "public",

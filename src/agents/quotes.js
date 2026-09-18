@@ -1,6 +1,9 @@
 import { geminiJson } from "../gemini.js";
 import { loadLearnings } from "./memory.js";
 
+export const PRESENTER_LOCK =
+  "TOUJOURS la même présentatrice (photo de référence) : jeune femme, cheveux noirs relevés en chignon haut un peu défait, mèches autour du visage, peau mate, sourcils marqués, boucles d'oreilles cadenas or, colliers superposés (rang de perles + chaînes or avec pendentif), top blanc côtelé manches longues encolure en V, elle parle dans un micro podcast noir, studio beige crème, appareils photo Canon sur trépieds en fond, étagères, lumière douce. Ne change PAS son visage, ses vêtements ni le décor.";
+
 export function splitQuote(text, maxChars) {
   const clean = String(text || "").replace(/\s+/g, " ").trim();
   if (clean.length <= maxChars) return [clean];
@@ -32,15 +35,15 @@ export async function pickQuote({ apiKey, settings, state, dayName }) {
   const jour = dayName || "aujourd'hui";
   const hookJour =
     jour === "mardi" || jour === "jeudi"
-      ? `Accroche naturelle avec le jour (« C'est ${jour}. » / « ${jour[0].toUpperCase()}${jour.slice(1)}. ») comme une coach qui parle à sa communauté.`
-      : `Pas besoin de citer le jour.`;
+      ? `Accroche naturelle avec le jour (« C'est ${jour}. ») comme elle le fait souvent.`
+      : `Tu PEUX citer le jour (« C'est ${jour}. ») si ça sonne naturel, sans forcer.`;
 
   const data = await geminiJson({
     apiKey,
     search: false,
     model: settings.strategy?.geminiModel,
     system: `Tu écris des CONSEILS pratiques (pas des citations célèbres) pour YouTube Shorts francophones.
-Ton : jeune femme qui parle à la caméra, tutoiement, directe, chaleureuse, comme une grande sœur.
+Ton : la présentatrice (jeune femme, micro studio) parle à sa communauté, tutoiement, directe, chaleureuse, comme une grande sœur.
 Un vrai conseil actionnable — pas un slogan vide, pas de politique, pas de religion agressive, pas de citation d'auteur connu.
 Réponds UNIQUEMENT en JSON.`,
     prompt: `Crée UN conseil à DIRE à voix haute. Aujourd'hui on est ${jour}.
@@ -57,7 +60,7 @@ Contraintes :
 - text : français, tutoiement, 1 à 3 phrases, max 260 caractères, rythme oral
 - Ce n'est PAS une citation. C'est UN conseil (travail, argent, discipline, confiance, focus, relations respectueuses)
 - author : toujours vide
-- visualPrompt : jeune femme francophone, 25-30 ans, plan poitrine, parle à la caméra, lumière naturelle, fond simple et chaleureux, vertical 9:16
+- visualPrompt : uniquement un mouvement de caméra (lent push-in, plan poitrine). Ne décris PAS une autre personne.
 
 JSON :
 {
@@ -65,7 +68,7 @@ JSON :
   "author": "",
   "theme": "discipline|argent|confiance|focus|relations|énergie",
   "title": "titre Short max 70 car",
-  "visualPrompt": "décor + caméra + ambiance"
+  "visualPrompt": "mouvement de caméra"
 }`,
   });
 
@@ -78,23 +81,21 @@ JSON :
     author: "",
     theme: data.theme || "conseil",
     title: String(data.title || text.slice(0, 70)).trim(),
-    visualPrompt: String(
-      data.visualPrompt ||
-        "Jeune femme francophone, plan poitrine, parle à la caméra, lumière naturelle, fond chaleureux, 9:16"
-    ).trim(),
+    visualPrompt: String(data.visualPrompt || "Plan poitrine, lent push-in, 9:16").trim(),
   };
 }
 
 export function clipPrompt({ visualPrompt, spoken, part, total }) {
   const n = total > 1 ? ` Partie ${part}/${total}.` : "";
   return [
-    "YouTube Short vertical 9:16, 10 secondes, cinématique, haute qualité.",
-    "Jeune femme francophone, 25-30 ans, parle DIRECTEMENT à la caméra (plan poitrine), lumière naturelle, fond simple et chaleureux.",
+    "YouTube Short vertical 9:16, 10 secondes, haute qualité.",
+    "Anime la femme de la photo de référence : elle parle, lèvres synchronisées, micro devant elle.",
+    PRESENTER_LOCK,
     visualPrompt,
     n,
     "Ton complice, direct, comme une grande sœur qui donne un conseil.",
     "Elle dit EXACTEMENT ce texte, sans rien ajouter :",
     `« ${spoken} »`,
-    "Pas de sous-titres inventés. Pas de citation célèbre à l'écran.",
+    "Pas de sous-titres inventés. Pas d'autre visage. Pas de changement de tenue.",
   ].join(" ");
 }

@@ -62,13 +62,20 @@ async function main() {
   }
 
   const persist = async () => {
-    saveState({ videos: state.videos, lastStartAt: state.lastStartAt, lastQuoteAt: state.lastQuoteAt });
+    const snap = {
+      videos: state.videos,
+      lastStartAt: state.lastStartAt,
+      lastQuoteAt: state.lastQuoteAt,
+      presenterDriveId: state.presenterDriveId || null,
+      presenterUrl: state.presenterUrl || null,
+    };
+    saveState(snap);
     try {
       state._driveStateId = await pushRemoteState(
         drive,
         folderId,
         state._driveStateId || null,
-        { videos: state.videos, lastStartAt: state.lastStartAt, lastQuoteAt: state.lastQuoteAt }
+        snap
       );
     } catch (error) {
       warn(`Sauvegarde Drive de l'état : ${error.message}`);
@@ -185,7 +192,7 @@ async function main() {
     publishedToday(state, settings.timezone, "conseil").length;
   const clock = zonedClock(settings.timezone);
   info(
-    `Aujourd'hui (${settings.timezone}) ${clock.dayName} ${String(clock.hour).padStart(2, "0")}h — actu ${newsToday}/${settings.videosPerDay} · conseils ${quoteToday}/${settings.quotes?.perDay || 1}`
+    `Aujourd'hui (${settings.timezone}) ${clock.dayName} ${String(clock.hour).padStart(2, "0")}h — actu ${newsToday}/${settings.videosPerDay} · conseils ${quoteToday}/${settings.quotes?.perDay || 2}`
   );
 
   const shouldStart = canStart({
@@ -323,10 +330,10 @@ async function maybePublishQuote({
   const quoteToday =
     publishedToday(state, settings.timezone, "quote").length +
     publishedToday(state, settings.timezone, "conseil").length;
-  const cap = Number(q.perDay || 1);
+  const cap = Number(q.perDay || 2);
   const clock = zonedClock(settings.timezone);
-  const days = Array.isArray(q.days) && q.days.length ? q.days : [2, 4];
-  if (isCronRun() && !days.includes(clock.weekday)) {
+  const days = Array.isArray(q.days) && q.days.length ? q.days : null;
+  if (isCronRun() && days && !days.includes(clock.weekday)) {
     info(`Conseils : seulement ${daysLabel(days)} (aujourd'hui ${clock.dayName}).`);
     return;
   }
@@ -334,7 +341,7 @@ async function maybePublishQuote({
     info(`Conseils : quota du jour atteint (${cap}).`);
     return;
   }
-  if (hoursSince(state.lastQuoteAt) < Number(q.minHoursBetween || 12)) {
+  if (hoursSince(state.lastQuoteAt) < Number(q.minHoursBetween || 4)) {
     info("Conseils : espacement pas encore écoulé.");
     return;
   }
@@ -364,18 +371,19 @@ async function maybePublishQuote({
   let clip;
   try {
     clip = await produceQuoteClip({
-    ml,
-    quote,
-    settings: {
-      ...settings,
-      quotes: {
-        ...q,
-        maxCharsFor10s: credits != null && credits < 14 ? 9999 : q.maxCharsFor10s || 140,
+      ml,
+      quote,
+      settings: {
+        ...settings,
+        quotes: {
+          ...q,
+          maxCharsFor10s: credits != null && credits < 14 ? 9999 : q.maxCharsFor10s || 140,
+        },
       },
-    },
-    drive,
-    folderId,
-  });
+      drive,
+      folderId,
+      state,
+    });
   } catch (error) {
     fail(`Clip conseil : ${error.message}`);
     return;

@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { ROOT } from "./config.js";
 import { extractTaskId, extractStatus, extractVideoUrl, isDone, isFailed } from "./magiclight.js";
 import { downloadVideo, tmpPath } from "./download.js";
 import { extractLastFrame, concatVideos, kenBurnsWithAudio } from "./ffmpeg.js";
@@ -15,6 +16,7 @@ export async function produceQuoteClip({
   settings,
   drive,
   folderId,
+  state,
 }) {
   const maxChars = Number(settings.quotes?.maxCharsFor10s || 140);
   const duration = Number(settings.quotes?.duration || 10);
@@ -26,10 +28,14 @@ export async function produceQuoteClip({
       ? [spokenFull]
       : parts.map((p, i) => (i === parts.length - 1 && quote.author ? `${p} — ${quote.author}` : p));
 
+  const presenterUrl = await ensurePresenterUrl({ drive, folderId, settings, state });
+  if (presenterUrl) info(`Présentatrice (référence) : ${presenterUrl}`);
+  else warn("Pas de photo présentatrice — MagicLight improvisera le visage.");
+
   info(
     parts.length === 1
-      ? `Citation courte (${spokenFull.length} car.) → 1×${duration}s`
-      : `Citation longue (${spokenFull.length} car.) → ${parts.length}×${duration}s (dernière frame animée)`
+      ? `Conseil court (${spokenFull.length} car.) → 1×${duration}s`
+      : `Conseil long (${spokenFull.length} car.) → ${parts.length}×${duration}s (dernière frame animée)`
   );
 
   const files = [];
@@ -49,7 +55,7 @@ export async function produceQuoteClip({
       prompt,
       duration,
       quality,
-      imageUrl: i > 0 ? lastFrame?.url : undefined,
+      imageUrl: i > 0 ? lastFrame?.url || presenterUrl : presenterUrl || undefined,
     });
     const taskId = extractTaskId(started);
     if (!taskId) throw new Error(`Clip sans task_id : ${JSON.stringify(started).slice(0, 300)}`);
@@ -97,6 +103,27 @@ export async function produceQuoteClip({
     credits: CLIP_COST * spokenParts.length,
     durationSec: duration * spokenParts.length,
   };
+}
+
+async function ensurePresenterUrl({ drive, folderId, settings, state }) {
+  if (state?.presenterUrl) return state.presenterUrl;
+  const configured = String(settings.quotes?.presenterImageUrl || "").trim();
+  const local = path.join(ROOT, settings.quotes?.presenterImage || "assets/presenter.jpg");
+
+  if (drive && fs.existsSync(local)) {
+    try {
+      const published = await publishFrame(drive, folderId, local);
+      if (state) {
+        state.presenterDriveId = published.id;
+        state.presenterUrl = published.url;
+      }
+      ok(`Photo présentatrice → Drive ${published.url}`);
+      return published.url;
+    } catch (error) {
+      warn(`Upload présentatrice Drive : ${error.message}`);
+    }
+  }
+  return configured || null;
 }
 
 async function waitClip(ml, taskId, settings) {

@@ -1,9 +1,9 @@
-# YouTube Automation — actu du soir + conseils mardi/jeudi
+# YouTube Automation — 1 actu du soir + 2 conseils / jour
 
 Pipeline **Node.js + GitHub Actions** :
 
 1. **Actu mondiale** (1× / jour vers 19h–20h Cotonou) → vidéo complète MagicLight (`/stanleystawa/fullvideo`)
-2. **Conseils** (mardi et jeudi) → clip 10 s (ou 20 s) MagicLight (`/stanleystawa/video`), jeune femme à la caméra, plus conseil que citation
+2. **Conseils** (2× / jour) → clip 10 s (ou 20 s) MagicLight (`/stanleystawa/video`), **la présentatrice de `assets/presenter.jpg`**, plus conseil que citation
 3. Sauvegarde le MP4 sur **Google Drive**
 4. Publie sur **YouTube** (titre, hashtags, mention IA)
 
@@ -13,8 +13,8 @@ Pipeline **Node.js + GitHub Actions** :
 
 ```
 GitHub Actions
+  12:20 / 16:20 Cotonou  →  2 conseils (même présentatrice)
   19:20 / 20:20 Cotonou  →  1 actu mondiale (Gemini + Search)
-  mardi & jeudi 12:20    →  1 conseil (clip 10s / 20s)
   22:20                  →  filet si une génération n’était pas encore prête
         │
         ├─ Vidéo MagicLight prête  → Drive + YouTube
@@ -135,6 +135,7 @@ Repo → **Settings → Secrets and variables → Actions → New repository sec
 | `GOOGLE_REFRESH_TOKEN_YOUTUBE` | oui | 1ʳᵉ autorisation (`npm run auth`) |
 | `GOOGLE_REFRESH_TOKEN_DRIVE` | oui | 2ᵉ autorisation (`npm run auth`) |
 | `DRIVE_FOLDER_ID` | non | ID du dossier Drive (sinon création auto « YouTube Automation ») |
+| `GEMINI_API_KEY` | oui (actu + conseils) | Clé [Google AI Studio](https://aistudio.google.com/apikey) |
 | `YOUTUBE_PRIVACY` | non | `public` (défaut), `unlisted` ou `private` |
 
 ---
@@ -144,8 +145,8 @@ Repo → **Settings → Secrets and variables → Actions → New repository sec
 1. Onglet **Actions** du repo → autorise les workflows.
 2. **YouTube Automation → Run workflow** pour un test manuel.
 3. Le cron tourne ensuite tout seul :
+   - `20 11,15 * * *` UTC → 12:20 et 16:20 Cotonou (2 conseils / jour)
    - `20 18,19 * * *` UTC → 19:20 et 20:20 Cotonou (actu)
-   - `20 11 * * 2,4` UTC → mardi/jeudi 12:20 Cotonou (conseil)
    - `20 21 * * *` UTC → 22:20 Cotonou (filet publication)
 
 ---
@@ -160,9 +161,10 @@ Repo → **Settings → Secrets and variables → Actions → New repository sec
 Réglages utiles :
 
 ```json
-"language": "french",   // french | english | spanish | portuguese | german | arabic
-"ratio": 1,             // 1 = vertical 9:16 (Shorts) · 2 = horizontal 16:9
-"videosPerDay": 3,
+"language": "french",
+"ratio": 1,
+"videosPerDay": 1,
+"quotes.perDay": 2,
 "youtube.privacyStatus": "public"
 ```
 

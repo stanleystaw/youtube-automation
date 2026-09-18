@@ -12,9 +12,11 @@ export function loadState() {
       videos: Array.isArray(raw.videos) ? raw.videos : [],
       lastStartAt: raw.lastStartAt || null,
       lastQuoteAt: raw.lastQuoteAt || null,
+      presenterDriveId: raw.presenterDriveId || null,
+      presenterUrl: raw.presenterUrl || null,
     };
   } catch {
-    return { videos: [], lastStartAt: null };
+    return { videos: [], lastStartAt: null, lastQuoteAt: null };
   }
 }
 
