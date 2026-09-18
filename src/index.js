@@ -377,7 +377,7 @@ async function maybePublishQuote({
     });
   } catch (error) {
     fail(`Clip conseil : ${error.message}`);
-    return;
+    throw error;
   }
   const taskId = clip.taskIds[0];
   upsertVideo(state, {

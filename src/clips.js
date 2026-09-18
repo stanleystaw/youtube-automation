@@ -106,7 +106,7 @@ export function resolvePresenterUrl(settings) {
 }
 
 async function waitClip(ml, taskId, settings) {
-  const maxWait = Math.min(settings.maxWaitMs || 600000, 600000);
+  const maxWait = Math.min(Number(settings.maxWaitMs) > 0 ? settings.maxWaitMs : 2_400_000, 2_400_000);
   const deadline = Date.now() + maxWait;
   let last = -1;
   while (Date.now() < deadline) {
