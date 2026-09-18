@@ -4,8 +4,10 @@ Pipeline **Node.js + GitHub Actions** :
 
 1. **Actu mondiale** (1× / jour vers 19h–20h Cotonou) → vidéo complète MagicLight (`/stanleystawa/fullvideo`)
 2. **Conseils** (2× / jour) → clip 10 s (ou 20 s) MagicLight (`/stanleystawa/video`), **la présentatrice de `assets/presenter.jpg`**, plus conseil que citation
-3. Sauvegarde le MP4 sur **Google Drive**
+3. **Conseils uniquement** : copie le MP4 dans le dossier Drive **Conseils Histoire Ai** (créé auto). L’actu va seulement sur YouTube.
 4. Publie sur **YouTube** (titre, hashtags, mention IA)
+
+Les clés API ne sont **jamais** dans le code : uniquement GitHub Secrets / `.env` local (gitignoré).
 
 ---
 
