@@ -4,22 +4,21 @@
   "videosPerDay": 3,
   "timezone": "Africa/Porto-Novo",
   "minHoursBetweenStarts": 6,
+  "strategy": {
+    "mode": "buzz",
+    "contentStyle": "faits_explicatifs",
+    "learnAfterDays": 3,
+    "geminiModel": "gemini-2.5-flash",
+    "markets": ["Afrique francophone", "Bénin", "Afrique de l'Ouest", "monde"]
+  },
   "youtube": {
     "privacyStatus": "public",
-    "categoryId": "1",
+    "categoryId": "25",
     "madeForKids": false,
     "defaultLanguage": "fr",
-    "tags": [
-      "IA",
-      "intelligence artificielle",
-      "histoire",
-      "animation",
-      "shorts",
-      "conte",
-      "storytelling"
-    ]
+    "tags": ["actu", "faits", "Afrique", "shorts", "explicatif", "IA"]
   },
-  "descriptionTemplate": "{{title}}\n\n{{idea}}\n\n---\n🎬 Vidéo générée par intelligence artificielle.\nCette vidéo contient du contenu synthétique / généré par IA.\n\n#shorts #ia #histoire #animation #conte",
+  "descriptionTemplate": "{{title}}\n\n{{idea}}\n\n---\n🎬 Vidéo générée par intelligence artificielle.\nCette vidéo contient du contenu synthétique / généré par IA.\n\n#shorts #actu #faits",
   "pollIntervalMs": 15000,
   "maxWaitMs": 3000000
 }

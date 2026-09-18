@@ -26,6 +26,7 @@ export function env() {
     googleClientSecret: required("GOOGLE_CLIENT_SECRET"),
     youtubeRefreshToken: required("GOOGLE_REFRESH_TOKEN_YOUTUBE"),
     driveRefreshToken: required("GOOGLE_REFRESH_TOKEN_DRIVE"),
+    geminiKey: (process.env.GEMINI_API_KEY || "").trim(),
     driveFolderId: (process.env.DRIVE_FOLDER_ID || "").trim(),
     ideaOverride: (process.env.IDEA || process.env.INPUT_IDEA || "").trim(),
     eventName: process.env.GITHUB_EVENT_NAME || "local",

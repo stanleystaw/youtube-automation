@@ -5,6 +5,9 @@ import { loadState, saveState, findByTask, upsertVideo, publishedToday } from ".
 import { pickNextIdea } from "./ideas.js";
 import { googleAuth } from "./google.js";
 import { uploadToYoutube } from "./youtube.js";
+import { pickBuzzTopic } from "./agents/buzz.js";
+import { packForYoutube } from "./agents/seo.js";
+import { runLearningLoop } from "./agents/learn.js";
 import { driveClient, ensureFolder, uploadVideo, pullRemoteState, pushRemoteState, mergeStates } from "./drive.js";
 import { downloadVideo, tmpPath } from "./download.js";
 import { banner, info, ok, warn, fail, step } from "./logger.js";
@@ -38,8 +41,13 @@ async function main() {
   const drive = await driveClient(driveAuthClient);
 
   step("Connexion Google Drive");
-  const folderId = await ensureFolder(drive, cfg.driveFolderId || settings.driveFolderId);
-  ok(`Dossier Drive prêt (${folderId})`);
+  let folderId;
+  try {
+    folderId = await ensureFolder(drive, cfg.driveFolderId || settings.driveFolderId);
+    ok(`Dossier Drive prêt (${folderId})`);
+  } catch (error) {
+    throw googleAuthError(error);
+  }
 
   let state = loadState();
   try {
@@ -63,6 +71,18 @@ async function main() {
       warn(`Sauvegarde Drive de l'état : ${error.message}`);
     }
   };
+
+  try {
+    await runLearningLoop({
+      apiKey: cfg.geminiKey,
+      auth: youtubeAuthClient,
+      state,
+      settings,
+      persist,
+    });
+  } catch (error) {
+    warn(`Agent apprentissage : ${error.message}`);
+  }
 
   step("Compte MagicLight");
   let credits = null;
@@ -131,7 +151,15 @@ async function main() {
       continue;
     }
     try {
-      await publishItem({ item, state, drive, folderId, youtubeAuth: youtubeAuthClient, settings });
+      await publishItem({
+        item,
+        state,
+        drive,
+        folderId,
+        youtubeAuth: youtubeAuthClient,
+        settings,
+        geminiKey: cfg.geminiKey,
+      });
       await persist();
     } catch (error) {
       fail(`Publication ${item.taskId} : ${error.message}`);
@@ -164,13 +192,32 @@ async function main() {
     return;
   }
 
-  const idea = pickNextIdea(state, cfg.ideaOverride);
-  step(`Lancement — ${idea.id}`);
-  info(idea.text);
+  step("Agent buzz — sujet du jour (Gemini + Google Search)");
+  let topic;
+  try {
+    topic = await pickBuzzTopic({
+      apiKey: cfg.geminiKey,
+      settings,
+      state,
+      override: cfg.ideaOverride,
+    });
+  } catch (error) {
+    warn(`Gemini indisponible (${error.message}) — fallback ideas.json`);
+    const fallback = pickNextIdea(state, cfg.ideaOverride);
+    topic = {
+      id: fallback.id,
+      headline: fallback.text,
+      magiclightIdea: fallback.text,
+      facts: [],
+      sources: [],
+    };
+  }
+  info(topic.headline);
+  if (topic.whyItWillBuzz) info(topic.whyItWillBuzz);
 
   try {
     const started = await ml.startFullVideo({
-      idea: idea.text,
+      idea: topic.magiclightIdea,
       ratio: settings.ratio,
       language: settings.language,
     });
@@ -180,8 +227,10 @@ async function main() {
     }
     upsertVideo(state, {
       taskId: taskId || `unknown-${Date.now()}`,
-      ideaId: idea.id,
-      idea: idea.text,
+      ideaId: topic.id,
+      idea: topic.magiclightIdea,
+      headline: topic.headline,
+      topic,
       status: extractStatus(started) || "queued",
       startedAt: new Date().toISOString(),
       magiclight: started,
@@ -198,9 +247,11 @@ async function main() {
         await publishItem({
           item: {
             taskId,
-            idea: idea.text,
-            ideaId: idea.id,
-            title: extractTitle(done.data, titleFromIdea(idea.text)),
+            idea: topic.magiclightIdea,
+            ideaId: topic.id,
+            headline: topic.headline,
+            topic,
+            title: topic.headline,
             videoUrl,
             status: "done",
           },
@@ -209,6 +260,7 @@ async function main() {
           folderId,
           youtubeAuth: youtubeAuthClient,
           settings,
+          geminiKey: cfg.geminiKey,
         });
         await persist();
       } else {
@@ -307,7 +359,10 @@ function collectPublishQueue({ current, history, state }) {
     map.set(row.taskId, {
       taskId: row.taskId,
       idea: row.idea || known?.idea,
-      ideaId: known?.ideaId,
+      ideaId: known?.ideaId || row.ideaId,
+      headline: row.headline || known?.headline,
+      topic: row.topic || known?.topic,
+      seo: known?.seo,
       title: row.title || known?.title,
       videoUrl,
       status: status || "done",
@@ -327,10 +382,18 @@ function collectPublishQueue({ current, history, state }) {
   return [...map.values()];
 }
 
-async function publishItem({ item, state, drive, folderId, youtubeAuth, settings }) {
+async function publishItem({ item, state, drive, folderId, youtubeAuth, settings, geminiKey }) {
   banner(`Publication ${item.taskId}`);
-  const idea = item.idea || "Vidéo IA";
-  const title = item.title || titleFromIdea(idea);
+  const idea = item.idea || item.headline || "Vidéo IA";
+  const known = findByTask(state, item.taskId) || {};
+  const topic = item.topic || known.topic || { headline: item.headline || known.headline || idea };
+
+  step("Agent SEO — titre, description, hashtags");
+  const seo =
+    item.seo ||
+    known.seo ||
+    (await packForYoutube({ apiKey: geminiKey, settings, topic, idea }));
+  const title = seo.title || item.title || titleFromIdea(idea);
   const fileName = `${stamp(settings.timezone)}_${slugify(title)}.mp4`;
   const filePath = tmpPath(fileName);
 
@@ -360,6 +423,9 @@ async function publishItem({ item, state, drive, folderId, youtubeAuth, settings
       taskId: item.taskId,
       idea,
       ideaId: item.ideaId,
+      headline: topic.headline,
+      topic,
+      seo,
       title,
       videoUrl: item.videoUrl,
       driveFileId,
@@ -377,6 +443,8 @@ async function publishItem({ item, state, drive, folderId, youtubeAuth, settings
       filePath,
       idea,
       title,
+      description: seo.description,
+      tags: seo.tags,
       settings,
     });
     ok(`YouTube : ${yt.url}`);
@@ -384,6 +452,9 @@ async function publishItem({ item, state, drive, folderId, youtubeAuth, settings
       taskId: item.taskId,
       idea,
       ideaId: item.ideaId,
+      headline: topic.headline,
+      topic,
+      seo,
       title: yt.title,
       videoUrl: item.videoUrl,
       driveFileId,
@@ -411,7 +482,20 @@ async function publishItem({ item, state, drive, folderId, youtubeAuth, settings
   }
 }
 
+function googleAuthError(error) {
+  const msg = String(error.message || error);
+  if (/invalid_grant/i.test(msg)) {
+    const wrapped = new Error(
+      "invalid_grant : les tokens Google ont expiré (appli OAuth en Test ≈ 7 jours). Relance YouTube puis Drive (npm run auth) et mets à jour les secrets GOOGLE_REFRESH_TOKEN_*."
+    );
+    wrapped.cause = error;
+    return wrapped;
+  }
+  return error;
+}
+
 main().catch((error) => {
-  fail(error.stack || error.message);
+  fail(googleAuthError(error).message);
+  if (error.stack) console.error(error.stack);
   process.exit(1);
 });

@@ -43,6 +43,7 @@ jobs:
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           GOOGLE_REFRESH_TOKEN_YOUTUBE: ${{ secrets.GOOGLE_REFRESH_TOKEN_YOUTUBE }}
           GOOGLE_REFRESH_TOKEN_DRIVE: ${{ secrets.GOOGLE_REFRESH_TOKEN_DRIVE }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node src/check-env.js
 
       - name: Générer / publier
@@ -52,6 +53,7 @@ jobs:
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           GOOGLE_REFRESH_TOKEN_YOUTUBE: ${{ secrets.GOOGLE_REFRESH_TOKEN_YOUTUBE }}
           GOOGLE_REFRESH_TOKEN_DRIVE: ${{ secrets.GOOGLE_REFRESH_TOKEN_DRIVE }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           DRIVE_FOLDER_ID: ${{ secrets.DRIVE_FOLDER_ID }}
           YOUTUBE_PRIVACY: ${{ secrets.YOUTUBE_PRIVACY }}
           IDEA: ${{ github.event.inputs.idea }}
@@ -64,7 +66,7 @@ jobs:
         run: |
           git config user.name "youtube-automation[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/state.json
+          git add data/state.json data/learnings.json
           if git diff --staged --quiet; then
             echo "Pas de changement d'état"
           else
