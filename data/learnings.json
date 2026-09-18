@@ -1,4 +1,358 @@
 {
   "playbook": "Faits d'actualité expliqués simplement. Un sujet = un angle. Accroche en 2 secondes. Titres concrets, pas de fiction, pas de rumeur.",
-  "notes": []
+  "notes": [
+    {
+      "at": "2026-09-18T15:32:03.504Z",
+      "videoIds": [
+        "9BVDSf12GzU",
+        "gYgQEPBbA9g",
+        "WjRODjc-5mk",
+        "qxfVoXLTngc",
+        "UzuMimxpGoE",
+        "3omPBRoeF9M",
+        "EYQYYRTGWR4",
+        "khRffj7y5wY",
+        "3OLyXk2rwwQ",
+        "AK9ApV0KbO4",
+        "UnpEgNhQO-c",
+        "znWjMLUuLuA",
+        "OlStG_TNIKU",
+        "4VDZRUU5T3c",
+        "KIrUMf8YiUE",
+        "x6SZu7NvIMQ",
+        "9oONEjNJaaA",
+        "ZugC4EaRIAQ",
+        "SGPO5A137NQ",
+        "dcEPInTq3XM",
+        "4slfi2ZrqcQ",
+        "NzsJDFCmOXA",
+        "yRpuvjMnARA",
+        "DapJBKfx5E4",
+        "7z6vybrYx1k",
+        "y8SegzNJn1o",
+        "0RZvcqKwth0",
+        "4TJ6vnGvGYY",
+        "fpsMlEgFl2E",
+        "4f2FVhyywJY",
+        "dnkOxFMK3QE"
+      ],
+      "stats": [
+        {
+          "youtubeId": "9BVDSf12GzU",
+          "youtubeUrl": "https://www.youtube.com/watch?v=9BVDSf12GzU",
+          "title": "Un renard bleu découvre une ville flottante au-dessus des nuages et apprend à parler le langag…",
+          "publishedAt": "2026-09-01T05:12:45.128Z",
+          "views": 12,
+          "likes": 1,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "gYgQEPBbA9g",
+          "youtubeUrl": "https://www.youtube.com/watch?v=gYgQEPBbA9g",
+          "title": "Un chat",
+          "publishedAt": "2026-09-01T05:12:39.653Z",
+          "views": 12,
+          "likes": 1,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "WjRODjc-5mk",
+          "youtubeUrl": "https://www.youtube.com/watch?v=WjRODjc-5mk",
+          "title": "Une petite lampe à huile oubliée dans un phare africain s'allume toute seule et guide un batea…",
+          "publishedAt": "2026-09-01T11:55:30.297Z",
+          "views": 29,
+          "likes": 1,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "qxfVoXLTngc",
+          "youtubeUrl": "https://www.youtube.com/watch?v=qxfVoXLTngc",
+          "title": "Un enfant jardinier plante une graine d'étoile : au matin, un arbre de lumière pousse au milie…",
+          "publishedAt": "2026-09-02T12:30:29.841Z",
+          "views": 9,
+          "likes": 1,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "UzuMimxpGoE",
+          "youtubeUrl": "https://www.youtube.com/watch?v=UzuMimxpGoE",
+          "title": "Une tortue millénaire traverse un désert de verre pour ramener la pluie à son oasis",
+          "publishedAt": "2026-09-02T19:55:15.581Z",
+          "views": 21,
+          "likes": 1,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "3omPBRoeF9M",
+          "youtubeUrl": "https://www.youtube.com/watch?v=3omPBRoeF9M",
+          "title": "Un horloger répare une montre qui remonte le temps de cinq minutes : il s'en sert pour sauver…",
+          "publishedAt": "2026-09-03T11:25:56.306Z",
+          "views": 31,
+          "likes": 1,
+          "comments": 2,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "EYQYYRTGWR4",
+          "youtubeUrl": "https://www.youtube.com/watch?v=EYQYYRTGWR4",
+          "title": "Dans un marché nocturne de Cotonou magique, une vendeuse d'épices découvre qu'un sachet fait d…",
+          "publishedAt": "2026-09-03T19:59:01.878Z",
+          "views": 165,
+          "likes": 5,
+          "comments": 4,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "khRffj7y5wY",
+          "youtubeUrl": "https://www.youtube.com/watch?v=khRffj7y5wY",
+          "title": "Un chat noir à lunettes devient bibliothécaire d'une bibliothèque sous-marine",
+          "publishedAt": "2026-09-04T11:32:43.604Z",
+          "views": 87,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "3OLyXk2rwwQ",
+          "youtubeUrl": "https://www.youtube.com/watch?v=3OLyXk2rwwQ",
+          "title": "Deux sœurs jumelles, l'une faite de feu et l'autre de glace, apprennent à peindre ensemble un…",
+          "publishedAt": "2026-09-04T19:46:15.152Z",
+          "views": 993,
+          "likes": 20,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "AK9ApV0KbO4",
+          "youtubeUrl": "https://www.youtube.com/watch?v=AK9ApV0KbO4",
+          "title": "Un robot ramasseur de déchets sur une plage trouve une bouteille contenant une carte vers une…",
+          "publishedAt": "2026-09-05T10:46:44.932Z",
+          "views": 0,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "UnpEgNhQO-c",
+          "youtubeUrl": "https://www.youtube.com/watch?v=UnpEgNhQO-c",
+          "title": "Une violoncelliste joue dans une forêt et les arbres se mettent à danser, révélant un sentier…",
+          "publishedAt": "2026-09-05T16:55:52.475Z",
+          "views": 20,
+          "likes": 1,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "znWjMLUuLuA",
+          "youtubeUrl": "https://www.youtube.com/watch?v=znWjMLUuLuA",
+          "title": "Un pêcheur de lune attrape un croissant d'argent et doit le rendre avant l'aube",
+          "publishedAt": "2026-09-05T23:02:56.358Z",
+          "views": 23,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "OlStG_TNIKU",
+          "youtubeUrl": "https://www.youtube.com/watch?v=OlStG_TNIKU",
+          "title": "Une dragonne miniature cache des trésors dans les poches d'un tailleur bienveillant",
+          "publishedAt": "2026-09-06T11:07:45.391Z",
+          "views": 47,
+          "likes": 1,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "4VDZRUU5T3c",
+          "youtubeUrl": "https://www.youtube.com/watch?v=4VDZRUU5T3c",
+          "title": "Au sommet du Mont Agou, un berger découvre que ses moutons marchent sur les nuages la nuit",
+          "publishedAt": "2026-09-06T17:11:45.621Z",
+          "views": 13,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "KIrUMf8YiUE",
+          "youtubeUrl": "https://www.youtube.com/watch?v=KIrUMf8YiUE",
+          "title": "Une botaniste parle aux plantes d'un jardin vertical et apprend qu'une fougère connaît le chem…",
+          "publishedAt": "2026-09-07T00:02:02.641Z",
+          "views": 28,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "x6SZu7NvIMQ",
+          "youtubeUrl": "https://www.youtube.com/watch?v=x6SZu7NvIMQ",
+          "title": "Un papillon de verre transporte les rêves des enfants d'un village jusqu'à la lune",
+          "publishedAt": "2026-09-07T12:46:03.570Z",
+          "views": 477,
+          "likes": 4,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "9oONEjNJaaA",
+          "youtubeUrl": "https://www.youtube.com/watch?v=9oONEjNJaaA",
+          "title": "Un vieux taxi-brousse enchanté emmène ses passagers exactement là où leur cœur veut aller",
+          "publishedAt": "2026-09-07T21:38:35.497Z",
+          "views": 14,
+          "likes": 1,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "ZugC4EaRIAQ",
+          "youtubeUrl": "https://www.youtube.com/watch?v=ZugC4EaRIAQ",
+          "title": "Une astronaute solitaire cultive un jardin de tournesols dans sa station et voit naître une ab…",
+          "publishedAt": "2026-09-08T18:38:48.947Z",
+          "views": 10,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "SGPO5A137NQ",
+          "youtubeUrl": "https://www.youtube.com/watch?v=SGPO5A137NQ",
+          "title": "Un forgeron de village façonne une clé qui ouvre les portes des souvenirs oubliés",
+          "publishedAt": "2026-09-09T11:38:55.955Z",
+          "views": 1,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "dcEPInTq3XM",
+          "youtubeUrl": "https://www.youtube.com/watch?v=dcEPInTq3XM",
+          "title": "Une baleine lumineuse guide un kayak à travers une mer d'étoiles filantes",
+          "publishedAt": "2026-09-09T19:53:28.558Z",
+          "views": 3,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "4slfi2ZrqcQ",
+          "youtubeUrl": "https://www.youtube.com/watch?v=4slfi2ZrqcQ",
+          "title": "Un petit Griot du futur raconte l'histoire d'une ville qui chante chaque soir pour faire pouss…",
+          "publishedAt": "2026-09-10T11:32:14.238Z",
+          "views": 37,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "NzsJDFCmOXA",
+          "youtubeUrl": "https://www.youtube.com/watch?v=NzsJDFCmOXA",
+          "title": "Une horloge florale au milieu d'un désert sonne midi et fait jaillir une source",
+          "publishedAt": "2026-09-10T19:49:46.422Z",
+          "views": 8,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "yRpuvjMnARA",
+          "youtubeUrl": "https://www.youtube.com/watch?v=yRpuvjMnARA",
+          "title": "Un écureuil facteur distribue des lettres d'amour entre les animaux d'une canopée magique",
+          "publishedAt": "2026-09-11T11:33:15.882Z",
+          "views": 19,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "DapJBKfx5E4",
+          "youtubeUrl": "https://www.youtube.com/watch?v=DapJBKfx5E4",
+          "title": "Une peintre aveugle découvre que ses pinceaux voient pour elle et créent des paysages réels",
+          "publishedAt": "2026-09-11T19:51:22.257Z",
+          "views": 14,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "7z6vybrYx1k",
+          "youtubeUrl": "https://www.youtube.com/watch?v=7z6vybrYx1k",
+          "title": "Dans les rues de Porto-Novo, un masque traditionnel s'anime et enseigne la danse de la pluie à…",
+          "publishedAt": "2026-09-12T11:00:16.578Z",
+          "views": 72,
+          "likes": 1,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "y8SegzNJn1o",
+          "youtubeUrl": "https://www.youtube.com/watch?v=y8SegzNJn1o",
+          "title": "Un train de bois flotté traverse une mangrove et s'arrête seulement pour ceux qui disent merci",
+          "publishedAt": "2026-09-12T17:19:32.162Z",
+          "views": 53,
+          "likes": 1,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "0RZvcqKwth0",
+          "youtubeUrl": "https://www.youtube.com/watch?v=0RZvcqKwth0",
+          "title": "Une étoile filante se pose dans une tasse de café et demande le chemin vers la constellation p…",
+          "publishedAt": "2026-09-13T12:03:03.069Z",
+          "views": 0,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "4TJ6vnGvGYY",
+          "youtubeUrl": "https://www.youtube.com/watch?v=4TJ6vnGvGYY",
+          "title": "Un inventeur construit un cerf-volant capable de ramener les nuages d'orage trop violents",
+          "publishedAt": "2026-09-13T19:34:59.448Z",
+          "views": 21,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "fpsMlEgFl2E",
+          "youtubeUrl": "https://www.youtube.com/watch?v=fpsMlEgFl2E",
+          "title": "Une loutre bijoutière fabrique des colliers de galets qui protègent les rivières de la polluti…",
+          "publishedAt": "2026-09-14T13:01:01.985Z",
+          "views": 24,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "4f2FVhyywJY",
+          "youtubeUrl": "https://www.youtube.com/watch?v=4f2FVhyywJY",
+          "title": "Un phare au milieu du Sahel allume un océan imaginaire pour les caravanes égarées",
+          "publishedAt": "2026-09-14T22:37:38.222Z",
+          "views": 26,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        },
+        {
+          "youtubeId": "dnkOxFMK3QE",
+          "youtubeUrl": "https://www.youtube.com/watch?v=dnkOxFMK3QE",
+          "title": "Deux oiseaux-messagers livrent un secret entre une montagne de neige et une lagune tropicale",
+          "publishedAt": "2026-09-15T11:54:55.970Z",
+          "views": 4,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        }
+      ],
+      "summary": "Analyse automatique sans Gemini.",
+      "winners": [],
+      "losers": [],
+      "rules": [],
+      "playbook": "Faits d'actualité expliqués simplement. Un sujet = un angle. Accroche en 2 secondes. Titres concrets, pas de fiction, pas de rumeur."
+    }
+  ]
 }
