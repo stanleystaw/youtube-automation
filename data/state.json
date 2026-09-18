@@ -712,6 +712,59 @@
         "fetchedAt": "2026-09-18T15:31:43.041Z"
       },
       "learnedAt": "2026-09-18T15:32:03.504Z"
+    },
+    {
+      "taskId": "fv_57145336de9c3495cc8684af",
+      "kind": "news",
+      "idea": "Une astronaute découvre une planète qui chante à la tombée de la nuit",
+      "headline": "Une astronaute découvre une planète qui chante à la tombée de la nuit",
+      "topic": {
+        "headline": "Une astronaute découvre une planète qui chante à la tombée de la nuit"
+      },
+      "seo": {
+        "title": "L'astronaute et la planète 'chantante' : la science révèle ses sons nocturnes",
+        "description": "Plongez dans le mystère des mondes lointains. Et si une planète \"chantait\" au crépuscule ? Découvrez comment la science convertit les ondes électromagnétiques des exoplanètes en sons audibles. Une exploration fascinante de l'univers sonore. Des données collectées par nos sondes, analysées par des experts et l'intelligence artificielle (IA), nous révèlent des mélodies cosmiques insoupçonnées. Cette vidéo décrypte les faits derrière ce phénomène unique, loin de la fiction. L'IA joue un rôle crucial dans l'identification et l'interprétation de ces signaux complexes. Abonnez-vous pour plus de découvertes spatiales époustouflantes et des faits scientifiques vérifiés ! #shorts #Espace #Science #Exoplanète #IA #Découverte #AfriqueTech #Univers",
+        "tags": [
+          "planète chantante",
+          "sons espace",
+          "ondes électromagnétiques",
+          "exoplanète",
+          "astronomie",
+          "découverte scientifique",
+          "IA espace",
+          "exploration spatiale",
+          "faits spatiaux",
+          "univers sonore",
+          "science expliquée",
+          "futur exploration",
+          "astronaute",
+          "cosmos",
+          "Afrique science",
+          "shorts",
+          "Espace",
+          "Science",
+          "IA",
+          "Découverte"
+        ],
+        "hashtags": [
+          "#shorts",
+          "#Espace",
+          "#Science",
+          "#Exoplanète",
+          "#IA",
+          "#Découverte",
+          "#AfriqueTech",
+          "#Univers"
+        ]
+      },
+      "title": "L'astronaute et la planète 'chantante' : la science révèle ses sons nocturnes",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_57145336de9c3495cc8684af",
+      "youtubeId": "eH5lAVdWxQ0",
+      "youtubeUrl": "https://www.youtube.com/watch?v=eH5lAVdWxQ0",
+      "publishedAt": "2026-09-18T18:34:14.703Z",
+      "status": "published",
+      "createdAt": "2026-09-18T18:34:14.703Z",
+      "updatedAt": "2026-09-18T18:34:14.703Z"
     }
   ],
   "lastStartAt": "2026-09-15T11:50:19.592Z",
