@@ -45,12 +45,13 @@ async function main() {
 
   const conseilsFolderName = settings.quotes?.driveFolderName || DEFAULT_CONSEILS_FOLDER;
   step("Google Drive — dossier conseils uniquement");
-  let folderId;
+  let folderId = null;
   try {
     folderId = await ensureConseilsFolder(drive, stateFolderHint(), conseilsFolderName);
     ok(`Dossier Drive « ${conseilsFolderName} » (${folderId})`);
   } catch (error) {
-    throw googleAuthError(error);
+    warn(googleAuthError(error).message);
+    warn("Drive indisponible — le conseil sera quand même généré (YouTube).");
   }
 
   let state = loadState();
@@ -180,6 +181,7 @@ async function main() {
     `Aujourd'hui (${settings.timezone}) ${clock.dayName} ${String(clock.hour).padStart(2, "0")}h — actu ${newsToday}/${settings.videosPerDay} · conseils ${quoteToday}/${settings.quotes?.perDay || 2}`
   );
 
+  const category = (process.env.CATEGORY || "auto").trim().toLowerCase();
   const shouldStart = canStart({
     current,
     todayCount: newsToday,
@@ -189,7 +191,9 @@ async function main() {
     forceIdea: Boolean(cfg.ideaOverride),
   });
 
-  if (!shouldStart.ok) {
+  if (category === "conseil") {
+    info("Catégorie : conseil — pas d’actu sur ce run.");
+  } else if (!shouldStart.ok) {
     info(`Pas de nouvelle actu : ${shouldStart.reason}`);
   } else {
 
@@ -576,32 +580,38 @@ async function publishItem({ item, state, drive, folderId, youtubeAuth, settings
   const isConseil = kind === "conseil" || kind === "quote";
   let driveFileId = item.driveFileId || known.driveFileId;
   let driveUrl = item.driveUrl || known.driveUrl;
-  if (isConseil && !driveFileId) {
+  if (isConseil && !driveFileId && folderId) {
     step(`Upload Drive « ${settings.quotes?.driveFolderName || DEFAULT_CONSEILS_FOLDER} »`);
-    const uploaded = await uploadVideo({
-      drive,
-      folderId,
-      filePath,
-      name: fileName,
-      description: idea,
-    });
-    driveFileId = uploaded.id;
-    driveUrl = uploaded.webViewLink;
-    ok(`Drive : ${driveUrl || driveFileId}`);
-    upsertVideo(state, {
-      taskId: item.taskId,
-      kind,
-      idea,
-      ideaId: item.ideaId,
-      headline: topic.headline,
-      topic,
-      seo,
-      title,
-      videoUrl: item.videoUrl,
-      driveFileId,
-      driveUrl,
-      status: "uploaded_drive",
-    });
+    try {
+      const uploaded = await uploadVideo({
+        drive,
+        folderId,
+        filePath,
+        name: fileName,
+        description: idea,
+      });
+      driveFileId = uploaded.id;
+      driveUrl = uploaded.webViewLink;
+      ok(`Drive : ${driveUrl || driveFileId}`);
+      upsertVideo(state, {
+        taskId: item.taskId,
+        kind,
+        idea,
+        ideaId: item.ideaId,
+        headline: topic.headline,
+        topic,
+        seo,
+        title,
+        videoUrl: item.videoUrl,
+        driveFileId,
+        driveUrl,
+        status: "uploaded_drive",
+      });
+    } catch (error) {
+      warn(`Drive : ${googleAuthError(error).message}`);
+    }
+  } else if (isConseil && !driveFileId) {
+    warn("Pas de dossier Drive — YouTube uniquement.");
   } else if (!isConseil) {
     info("Actu : YouTube uniquement — pas de copie sur Drive.");
   } else {
