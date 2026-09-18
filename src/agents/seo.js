@@ -1,8 +1,9 @@
 import { geminiJson } from "../gemini.js";
 import { truncate } from "../utils.js";
 
-export async function packForYoutube({ apiKey, settings, topic, idea }) {
-  const fallback = fallbackSeo({ topic, idea, settings });
+export async function packForYoutube({ apiKey, settings, topic, idea, kind = "news" }) {
+  const isConseil = kind === "conseil" || kind === "quote";
+  const fallback = fallbackSeo({ topic, idea, settings, kind });
   if (!apiKey) return fallback;
 
   try {
@@ -12,7 +13,27 @@ export async function packForYoutube({ apiKey, settings, topic, idea }) {
       model: settings.strategy?.geminiModel,
       system: `Tu es un expert YouTube Shorts francophone (Afrique). Tu maximises clics HONNÊTES : pas de clickbait mensonger.
 Réponds UNIQUEMENT en JSON.`,
-      prompt: `Prépare le packaging YouTube d'une vidéo explicative (faits, pas fiction).
+      prompt: isConseil
+        ? `Prépare le packaging YouTube d'un Short CONSEIL (jeune femme qui parle à la caméra).
+
+Conseil : ${topic?.headline || idea}
+Texte dit : ${(topic?.facts || []).join(" | ") || idea}
+Thème : ${topic?.angle || "conseil"}
+
+Contraintes :
+- title : max 90 caractères, fort, tutoiement possible, français, pas de ALL CAPS
+- description : 4–8 lignes, le conseil + CTA abonne-toi, mention IA obligatoire
+- tags : 8 à 15 mots-clés (conseil, motivation, développement personnel)
+- hashtags : 5 à 8, dont #shorts #conseil
+
+JSON :
+{
+  "title": "...",
+  "description": "...",
+  "tags": ["..."],
+  "hashtags": ["#shorts", "#conseil"]
+}`
+        : `Prépare le packaging YouTube d'une vidéo explicative (faits, pas fiction).
 
 Headline : ${topic?.headline || idea}
 Angle : ${topic?.angle || ""}
@@ -60,9 +81,15 @@ JSON :
   }
 }
 
-function fallbackSeo({ topic, idea, settings }) {
-  const title = truncate(topic?.headline || idea || "L'info du jour expliquée", 90);
-  const hashtags = ["#shorts", "#actu", "#faits", "#afrique", "#ia"];
+function fallbackSeo({ topic, idea, settings, kind = "news" }) {
+  const isConseil = kind === "conseil" || kind === "quote";
+  const title = truncate(
+    topic?.headline || idea || (isConseil ? "Un conseil pour aujourd'hui" : "L'info du jour expliquée"),
+    90
+  );
+  const hashtags = isConseil
+    ? ["#shorts", "#conseil", "#motivation", "#developpementpersonnel", "#ia"]
+    : ["#shorts", "#actu", "#faits", "#afrique", "#ia"];
   const description = [
     title,
     "",
@@ -79,7 +106,10 @@ function fallbackSeo({ topic, idea, settings }) {
   return {
     title,
     description: truncate(description, 4900),
-    tags: unique([...(settings.youtube?.tags || []), "actu", "faits", "shorts", "afrique"]).slice(0, 20),
+    tags: unique([
+      ...(settings.youtube?.tags || []),
+      ...(isConseil ? ["conseil", "motivation", "shorts"] : ["actu", "faits", "shorts", "afrique"]),
+    ]).slice(0, 20),
     hashtags,
   };
 }

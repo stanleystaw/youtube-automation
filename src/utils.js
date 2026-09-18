@@ -25,6 +25,40 @@ export function todayKey(timeZone) {
   }).format(new Date());
 }
 
+const WEEKDAY_EN = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+const DAY_NAMES_FR = [
+  "dimanche",
+  "lundi",
+  "mardi",
+  "mercredi",
+  "jeudi",
+  "vendredi",
+  "samedi",
+];
+
+export function zonedClock(timeZone, date = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone,
+    weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  })
+    .formatToParts(date)
+    .reduce((acc, p) => ({ ...acc, [p.type]: p.value }), {});
+  const weekday = WEEKDAY_EN[parts.weekday] ?? 0;
+  return {
+    weekday,
+    hour: Number(parts.hour),
+    minute: Number(parts.minute),
+    dayName: DAY_NAMES_FR[weekday],
+  };
+}
+
+export function isCronRun() {
+  return (process.env.GITHUB_EVENT_NAME || "") === "schedule";
+}
+
 export function stamp(timeZone) {
   const parts = new Intl.DateTimeFormat("en-GB", {
     timeZone,

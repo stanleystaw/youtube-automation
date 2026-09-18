@@ -2,8 +2,12 @@ name: YouTube Automation
 
 on:
   schedule:
-    # Toutes les heures, 07:20 → 23:20 (Cotonou, UTC+1)
-    - cron: "20 6-22 * * *"
+    # Actu : 19:20 et 20:20 Cotonou (UTC+1)
+    - cron: "20 18,19 * * *"
+    # Filet publication si la génération a débordé
+    - cron: "20 21 * * *"
+    # Conseils : mardi et jeudi 12:20 Cotonou
+    - cron: "20 11 * * 2,4"
   workflow_dispatch:
     inputs:
       idea:

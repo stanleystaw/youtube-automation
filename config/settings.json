@@ -1,9 +1,10 @@
 {
   "language": "french",
   "ratio": 1,
-  "videosPerDay": 3,
+  "videosPerDay": 1,
   "timezone": "Africa/Porto-Novo",
-  "minHoursBetweenStarts": 6,
+  "minHoursBetweenStarts": 12,
+  "newsHours": [19, 20],
   "strategy": {
     "mode": "buzz",
     "contentStyle": "faits_explicatifs",
@@ -13,8 +14,10 @@
   },
   "quotes": {
     "enabled": true,
-    "perDay": 3,
-    "minHoursBetween": 4,
+    "style": "conseil",
+    "perDay": 1,
+    "days": [2, 4],
+    "minHoursBetween": 12,
     "maxCharsFor10s": 140,
     "duration": 10,
     "quality": "high"
@@ -24,7 +27,7 @@
     "categoryId": "25",
     "madeForKids": false,
     "defaultLanguage": "fr",
-    "tags": ["actu", "faits", "Afrique", "shorts", "explicatif", "IA"]
+    "tags": ["actu", "faits", "Afrique", "shorts", "explicatif", "IA", "conseil"]
   },
   "descriptionTemplate": "{{title}}\n\n{{idea}}\n\n---\n🎬 Vidéo générée par intelligence artificielle.\nCette vidéo contient du contenu synthétique / généré par IA.\n\n#shorts #actu #faits",
   "pollIntervalMs": 15000,

@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import path from "node:path";
 import { env, loadSettings, missingEnv } from "./config.js";
 import { MagicLight, extractTaskId, extractStatus, extractProgress, extractVideoUrl, extractTitle, normalizeHistory, isDone, isFailed } from "./magiclight.js";
 import { loadState, saveState, findByTask, upsertVideo, publishedToday } from "./state.js";
@@ -13,7 +14,7 @@ import { produceQuoteClip } from "./clips.js";
 import { driveClient, ensureFolder, uploadVideo, pullRemoteState, pushRemoteState, mergeStates } from "./drive.js";
 import { downloadVideo, tmpPath } from "./download.js";
 import { banner, info, ok, warn, fail, step } from "./logger.js";
-import { hoursSince, slugify, stamp, sleep, titleFromIdea } from "./utils.js";
+import { hoursSince, slugify, stamp, sleep, titleFromIdea, zonedClock, isCronRun } from "./utils.js";
 
 const COST = 12;
 
@@ -129,6 +130,9 @@ async function main() {
 
   for (const item of queue) {
     if (!item.taskId) continue;
+    if (item.kind === "conseil" || item.kind === "quote" || String(item.taskId).startsWith("vid_")) {
+      continue;
+    }
     try {
       let fresh = await ml.status(item.taskId);
       let status = extractStatus(fresh) || item.status;
@@ -148,7 +152,7 @@ async function main() {
   }
 
   for (const item of queue) {
-    if (!item.videoUrl) {
+    if (!item.videoUrl && !item.localPath) {
       info(`On attend encore le fichier de ${item.taskId}.`);
       continue;
     }
@@ -176,9 +180,12 @@ async function main() {
 
   current = await readCurrent(ml);
   const newsToday = publishedToday(state, settings.timezone, "news").length;
-  const quoteToday = publishedToday(state, settings.timezone, "quote").length;
+  const quoteToday =
+    publishedToday(state, settings.timezone, "quote").length +
+    publishedToday(state, settings.timezone, "conseil").length;
+  const clock = zonedClock(settings.timezone);
   info(
-    `Aujourd'hui (${settings.timezone}) — actu ${newsToday}/${settings.videosPerDay} · citations ${quoteToday}/${settings.quotes?.perDay || 3}`
+    `Aujourd'hui (${settings.timezone}) ${clock.dayName} ${String(clock.hour).padStart(2, "0")}h — actu ${newsToday}/${settings.videosPerDay} · conseils ${quoteToday}/${settings.quotes?.perDay || 1}`
   );
 
   const shouldStart = canStart({
@@ -250,6 +257,7 @@ async function main() {
         await publishItem({
           item: {
             taskId,
+            kind: "news",
             idea: topic.magiclightIdea,
             ideaId: topic.id,
             headline: topic.headline,
@@ -312,29 +320,50 @@ async function maybePublishQuote({
 }) {
   const q = settings.quotes || {};
   if (q.enabled === false) return;
-  const quoteToday = publishedToday(state, settings.timezone, "quote").length;
-  const cap = Number(q.perDay || 3);
-  if (quoteToday >= cap) {
-    info(`Citations : quota du jour atteint (${cap}).`);
+  const quoteToday =
+    publishedToday(state, settings.timezone, "quote").length +
+    publishedToday(state, settings.timezone, "conseil").length;
+  const cap = Number(q.perDay || 1);
+  const clock = zonedClock(settings.timezone);
+  const days = Array.isArray(q.days) && q.days.length ? q.days : [2, 4];
+  if (isCronRun() && !days.includes(clock.weekday)) {
+    info(`Conseils : seulement ${daysLabel(days)} (aujourd'hui ${clock.dayName}).`);
     return;
   }
-  if (hoursSince(state.lastQuoteAt) < Number(q.minHoursBetween || 4)) {
-    info("Citations : espacement pas encore écoulé.");
+  if (quoteToday >= cap) {
+    info(`Conseils : quota du jour atteint (${cap}).`);
+    return;
+  }
+  if (hoursSince(state.lastQuoteAt) < Number(q.minHoursBetween || 12)) {
+    info("Conseils : espacement pas encore écoulé.");
     return;
   }
   if (credits != null && credits < 7) {
-    info("Citations : crédits insuffisants.");
+    info("Conseils : crédits insuffisants.");
     return;
   }
   if (!cfg.geminiKey) {
-    warn("Citations : GEMINI_API_KEY manquante.");
+    warn("Conseils : GEMINI_API_KEY manquante.");
     return;
   }
 
-  step("Agent citations / motivation");
-  const quote = await pickQuote({ apiKey: cfg.geminiKey, settings, state });
+  step(`Agent conseils — ${clock.dayName}`);
+  let quote;
+  try {
+    quote = await pickQuote({
+      apiKey: cfg.geminiKey,
+      settings,
+      state,
+      dayName: clock.dayName,
+    });
+  } catch (error) {
+    warn(`Conseil Gemini : ${error.message}`);
+    return;
+  }
   info(quote.text);
-  const clip = await produceQuoteClip({
+  let clip;
+  try {
+    clip = await produceQuoteClip({
     ml,
     quote,
     settings: {
@@ -347,10 +376,14 @@ async function maybePublishQuote({
     drive,
     folderId,
   });
+  } catch (error) {
+    fail(`Clip conseil : ${error.message}`);
+    return;
+  }
   const taskId = clip.taskIds[0];
   upsertVideo(state, {
     taskId,
-    kind: "quote",
+    kind: "conseil",
     ideaId: quote.id,
     idea: quote.text,
     headline: quote.title,
@@ -361,30 +394,35 @@ async function maybePublishQuote({
     clipTaskIds: clip.taskIds,
     durationSec: clip.durationSec,
   });
-  state.lastQuoteAt = new Date().toISOString();
   await persist();
-
-  await publishItem({
-    item: {
-      taskId,
-      kind: "quote",
-      idea: quote.text,
-      ideaId: quote.id,
-      headline: quote.title,
-      topic: { headline: quote.title, facts: [quote.text], angle: quote.theme },
-      title: quote.title,
-      localPath: clip.filePath,
-      videoUrl: "file://local",
-      status: "done",
-    },
-    state,
-    drive,
-    folderId,
-    youtubeAuth: youtubeAuthClient,
-    settings,
-    geminiKey: cfg.geminiKey,
-  });
-  await persist();
+  try {
+    await publishItem({
+      item: {
+        taskId,
+        kind: "conseil",
+        idea: quote.text,
+        ideaId: quote.id,
+        headline: quote.title,
+        topic: { headline: quote.title, facts: [quote.text], angle: quote.theme },
+        title: quote.title,
+        localPath: clip.filePath,
+        videoUrl: "file://local",
+        status: "done",
+      },
+      state,
+      drive,
+      folderId,
+      youtubeAuth: youtubeAuthClient,
+      settings,
+      geminiKey: cfg.geminiKey,
+    });
+    state.lastQuoteAt = new Date().toISOString();
+    await persist();
+  } catch (error) {
+    fail(`Publication conseil : ${error.message}`);
+    upsertVideo(state, { taskId, status: "error", lastError: error.message });
+    await persist();
+  }
 }
 
 function canStart({ current, todayCount, settings, lastStartAt, credits, forceIdea }) {
@@ -397,11 +435,26 @@ function canStart({ current, todayCount, settings, lastStartAt, credits, forceId
   if (credits != null && credits < COST) {
     return { ok: false, reason: `crédits insuffisants (${credits} < ${COST})` };
   }
+  if (!forceIdea && isCronRun()) {
+    const { hour } = zonedClock(settings.timezone);
+    const window = Array.isArray(settings.newsHours) && settings.newsHours.length ? settings.newsHours : [19, 20];
+    if (!window.includes(hour)) {
+      return {
+        ok: false,
+        reason: `hors créneau actu (${window.join("/")}h ${settings.timezone}, il est ${hour}h)`,
+      };
+    }
+  }
   if (!forceIdea && hoursSince(lastStartAt) < settings.minHoursBetweenStarts) {
     const left = (settings.minHoursBetweenStarts - hoursSince(lastStartAt)).toFixed(1);
     return { ok: false, reason: `espacement : encore ${left} h avant le prochain lancement` };
   }
   return { ok: true };
+}
+
+function daysLabel(days) {
+  const names = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+  return days.map((d) => names[d] || d).join(" et ");
 }
 
 async function readCurrent(ml) {
@@ -462,6 +515,7 @@ function collectPublishQueue({ current, history, state }) {
     if (isFailed(status)) return;
     map.set(row.taskId, {
       taskId: row.taskId,
+      kind: row.kind || known?.kind,
       idea: row.idea || known?.idea,
       ideaId: known?.ideaId || row.ideaId,
       headline: row.headline || known?.headline,
@@ -469,6 +523,7 @@ function collectPublishQueue({ current, history, state }) {
       seo: known?.seo,
       title: row.title || known?.title,
       videoUrl,
+      localPath: row.localPath || known?.localPath,
       status: status || "done",
       driveFileId: known?.driveFileId,
       youtubeId: known?.youtubeId,
@@ -480,7 +535,7 @@ function collectPublishQueue({ current, history, state }) {
   }
   for (const item of history) consider(item);
   for (const v of state.videos) {
-    if (v.videoUrl && !v.youtubeId) consider(v);
+    if ((v.videoUrl || v.localPath) && !v.youtubeId) consider(v);
   }
 
   return [...map.values()];
@@ -492,21 +547,33 @@ async function publishItem({ item, state, drive, folderId, youtubeAuth, settings
   const known = findByTask(state, item.taskId) || {};
   const topic = item.topic || known.topic || { headline: item.headline || known.headline || idea };
 
+  const kind = item.kind || known.kind || "news";
   step("Agent SEO — titre, description, hashtags");
   const seo =
     item.seo ||
     known.seo ||
-    (await packForYoutube({ apiKey: geminiKey, settings, topic, idea }));
+    (await packForYoutube({ apiKey: geminiKey, settings, topic, idea, kind }));
   const title = seo.title || item.title || titleFromIdea(idea);
   const fileName = `${stamp(settings.timezone)}_${slugify(title)}.mp4`;
   const filePath = tmpPath(fileName);
 
-  if (!item.videoUrl) {
-    throw new Error("Pas d'URL vidéo — génération pas encore prête");
-  }
+  const localPath =
+    (item.localPath && fs.existsSync(item.localPath) && item.localPath) ||
+    (known.localPath && fs.existsSync(known.localPath) && known.localPath) ||
+    null;
 
-  step("Téléchargement");
-  await downloadVideo(item.videoUrl, filePath);
+  if (localPath) {
+    step("Fichier local (clip conseil)");
+    if (path.resolve(localPath) !== path.resolve(filePath)) {
+      fs.copyFileSync(localPath, filePath);
+    }
+  } else {
+    if (!item.videoUrl || String(item.videoUrl).startsWith("file:")) {
+      throw new Error("Pas d'URL vidéo — génération pas encore prête");
+    }
+    step("Téléchargement");
+    await downloadVideo(item.videoUrl, filePath);
+  }
   ok(`Fichier : ${filePath} (${fs.statSync(filePath).size} octets)`);
 
   let driveFileId = item.driveFileId;
@@ -525,6 +592,7 @@ async function publishItem({ item, state, drive, folderId, youtubeAuth, settings
     ok(`Drive : ${driveUrl || driveFileId}`);
     upsertVideo(state, {
       taskId: item.taskId,
+      kind,
       idea,
       ideaId: item.ideaId,
       headline: topic.headline,
@@ -554,6 +622,7 @@ async function publishItem({ item, state, drive, folderId, youtubeAuth, settings
     ok(`YouTube : ${yt.url}`);
     upsertVideo(state, {
       taskId: item.taskId,
+      kind,
       idea,
       ideaId: item.ideaId,
       headline: topic.headline,

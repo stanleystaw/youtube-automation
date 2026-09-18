@@ -1,28 +1,25 @@
-# YouTube Automation — 3 vidéos IA par jour
+# YouTube Automation — actu du soir + conseils mardi/jeudi
 
 Pipeline **Node.js + GitHub Actions** :
 
-1. Prend une idée dans `config/ideas.json`
-2. Lance une **vidéo complète IA** (MagicLight, endpoint `/stanleystawa/fullvideo`)
-3. Attend que le serveur termine (pilote automatique)
-4. Sauvegarde le MP4 sur **Google Drive**
-5. Publie la vidéo sur **YouTube**
-
-Cadence : **3 vidéos / jour**, une à la fois (limite de l’API).
+1. **Actu mondiale** (1× / jour vers 19h–20h Cotonou) → vidéo complète MagicLight (`/stanleystawa/fullvideo`)
+2. **Conseils** (mardi et jeudi) → clip 10 s (ou 20 s) MagicLight (`/stanleystawa/video`), jeune femme à la caméra, plus conseil que citation
+3. Sauvegarde le MP4 sur **Google Drive**
+4. Publie sur **YouTube** (titre, hashtags, mention IA)
 
 ---
 
 ## Architecture
 
 ```
-GitHub Actions (toutes les heures, 07h–23h Cotonou)
+GitHub Actions
+  19:20 / 20:20 Cotonou  →  1 actu mondiale (Gemini + Search)
+  mardi & jeudi 12:20    →  1 conseil (clip 10s / 20s)
+  22:20                  →  filet si une génération n’était pas encore prête
         │
-        ├─ Si une vidéo MagicLight est prête  → Drive + YouTube
-        ├─ Si une génération est en cours     → on attend le run suivant
-        └─ Si quota du jour < 3 et 6 h d’écart → on lance une nouvelle idée
+        ├─ Vidéo MagicLight prête  → Drive + YouTube
+        └─ Hors créneau            → rien (pas de run inutile toutes les heures)
 ```
-
-La génération continue **côté serveur MagicLight** même si le job GitHub se termine. On ne reste pas 2 heures à poller : ça économise les minutes Actions et respecte la règle « une seule vidéo complète active ».
 
 ---
 
@@ -44,7 +41,7 @@ gh repo create youtube-automation --public --source=. --remote=origin --push
 
 1. Crée un compte sur le studio (Gmail, voir [la doc API](https://magiclight-api-gamma.vercel.app/docs)).
 2. Récupère `user.api_key`.
-3. Vérifie tes crédits : **12 crédits par vidéo** × 3 / jour = **36 crédits / jour**.
+3. Vérifie tes crédits : **12 crédits / actu** + **7 crédits / conseil** (14 si 20 s).
 
 Compte Développeur conseillé si tu branches ce bot en continu.
 
@@ -146,9 +143,10 @@ Repo → **Settings → Secrets and variables → Actions → New repository sec
 
 1. Onglet **Actions** du repo → autorise les workflows.
 2. **YouTube Automation → Run workflow** pour un test manuel.
-3. Le cron tourne ensuite tout seul (`20 6-22 * * *` UTC = 07:20–23:20 à Cotonou).
-
-Les 3 créneaux se calent tout seuls grâce à `minHoursBetweenStarts: 6` dans `config/settings.json`.
+3. Le cron tourne ensuite tout seul :
+   - `20 18,19 * * *` UTC → 19:20 et 20:20 Cotonou (actu)
+   - `20 11 * * 2,4` UTC → mardi/jeudi 12:20 Cotonou (conseil)
+   - `20 21 * * *` UTC → 22:20 Cotonou (filet publication)
 
 ---
 
