@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Confidentialité — youtube-automation</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; line-height: 1.55; color: #111; }
+    h1 { font-size: 1.6rem; }
+    a { color: #0b57d0; }
+  </style>
+</head>
+<body>
+  <p><a href="index.html">← Accueil</a></p>
+  <h1>Règles de confidentialité</h1>
+  <p>Dernière mise à jour : 18 septembre 2026. Contact : ipoppolive6@gmail.com</p>
+
+  <h2>Qui</h2>
+  <p>
+    <strong>youtube-automation</strong> est un outil personnel du propriétaire de la chaîne YouTube Histoire Ai.
+    Il n’est pas proposé au public.
+  </p>
+
+  <h2>Données Google utilisées</h2>
+  <p>Après autorisation explicite du compte Google de la chaîne, l’application accède uniquement à :</p>
+  <ul>
+    <li><strong>YouTube</strong> (<code>youtube.upload</code>, <code>youtube</code>) : envoyer une vidéo, lire le titre / les stats de nos propres vidéos pour améliorer les prochains sujets.</li>
+    <li><strong>Google Drive</strong> (<code>drive.file</code>) : créer et enregistrer des fichiers MP4 et un fichier d’état <em>dans un dossier créé par l’appli</em>. Elle ne lit pas le reste de votre Drive.</li>
+  </ul>
+  <p>Pas d’accès Gmail, Contacts, Photos, ni Drive complet.</p>
+
+  <h2>Autres traitements</h2>
+  <ul>
+    <li>Textes d’idées / titres : envoyés à Google Gemini pour rédiger le contenu.</li>
+    <li>Idées de vidéo : envoyées à MagicLight pour générer le MP4.</li>
+  </ul>
+
+  <h2>Stockage</h2>
+  <p>
+    Les jetons d’accès (refresh tokens) sont stockés comme secrets GitHub, pas dans le code public.
+    Un journal technique (titre, identifiant YouTube, date) est sauvegardé dans Drive.
+    Aucune donnée n’est vendue ni utilisée pour de la publicité.
+  </p>
+
+  <h2>Conservation et révocation</h2>
+  <p>
+    Les données restent tant que l’automatisation tourne.
+    Tu peux couper l’accès à tout moment :
+    <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>
+    → youtube-automation → Supprimer l’accès.
+  </p>
+</body>
+</html>
