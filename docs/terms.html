@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Conditions — youtube-automation</title>
   <style>
     :root {
@@ -11,8 +11,13 @@
       --muted: #b7aa9a;
       --gold: #d4b483;
       --line: rgba(212, 180, 131, 0.28);
+      --pad: clamp(16px, 4.5vw, 28px);
     }
     * { box-sizing: border-box; }
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
     html, body { margin: 0; min-height: 100%; }
     body {
       font-family: Georgia, "Times New Roman", serif;
@@ -21,28 +26,95 @@
         radial-gradient(1200px 500px at 90% -10%, rgba(212,180,131,.12), transparent 50%),
         var(--bg);
       line-height: 1.65;
+      overflow-x: hidden;
     }
     a { color: var(--gold); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 28px 22px 72px; }
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; padding-bottom: 22px; border-bottom: 1px solid var(--line);
+    .wrap {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      padding: var(--pad);
+      padding-top: max(var(--pad), env(safe-area-inset-top));
+      padding-bottom: max(72px, env(safe-area-inset-bottom));
+      padding-left: max(var(--pad), env(safe-area-inset-left));
+      padding-right: max(var(--pad), env(safe-area-inset-right));
     }
-    .brand { font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
-    nav { display: flex; gap: 18px; font-size: 0.92rem; }
-    nav a { color: var(--muted); }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand {
+      font-size: clamp(0.68rem, 2.4vw, 0.78rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      word-break: break-word;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 6px;
+      font-size: 0.92rem;
+      font-family: system-ui, sans-serif;
+    }
+    nav a {
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 10px;
+    }
     nav a.active { color: var(--ink); }
-    h1 { font-weight: 500; font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 42px 0 8px; }
-    .meta { font-family: system-ui, sans-serif; color: #8a7d70; font-size: 0.9rem; margin-bottom: 28px; }
-    .rule { width: 72px; height: 2px; background: var(--gold); margin: 0 0 28px; border: 0; }
-    p, li { font-family: system-ui, sans-serif; color: var(--muted); font-size: 1.02rem; }
+    h1 {
+      font-weight: 500;
+      font-size: clamp(1.55rem, 6.4vw, 2.6rem);
+      line-height: 1.2;
+      margin: clamp(24px, 6vw, 42px) 0 8px;
+      overflow-wrap: anywhere;
+    }
+    .meta { font-family: system-ui, sans-serif; color: #8a7d70; font-size: 0.9rem; margin-bottom: 22px; }
+    .rule { width: 72px; max-width: 30%; height: 2px; background: var(--gold); margin: 0 0 24px; border: 0; }
+    p, li {
+      font-family: system-ui, sans-serif;
+      color: var(--muted);
+      font-size: clamp(0.95rem, 2.6vw, 1.02rem);
+      overflow-wrap: anywhere;
+    }
     p strong { color: var(--ink); }
     ul { padding-left: 1.15rem; }
     li { margin: 10px 0; }
     footer {
-      margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
-      font-family: system-ui, sans-serif; font-size: 0.85rem; color: #8a7d70;
+      margin-top: clamp(36px, 8vw, 56px);
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: #8a7d70;
+    }
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        width: 100%;
+        justify-content: space-between;
+      }
+      nav a {
+        flex: 1 1 auto;
+        justify-content: center;
+        padding: 0 6px;
+        font-size: 0.86rem;
+      }
+      .brand { letter-spacing: 0.14em; }
+    }
+    @media (max-width: 380px) {
+      nav a { font-size: 0.8rem; min-height: 40px; }
     }
   </style>
 </head>
