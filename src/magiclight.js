@@ -47,6 +47,39 @@ export class MagicLight {
     return this.request("GET", "/stanleystawa/fullvideo?action=history");
   }
 
+  async startClip({ prompt, duration = 10, quality = "high", imageUrl }) {
+    const body = { prompt, duration, quality };
+    if (imageUrl) body.imageUrl = imageUrl;
+    return this.request("POST", "/stanleystawa/video", body);
+  }
+
+  async clipStatus(taskId) {
+    return this.request(
+      "GET",
+      `/stanleystawa/status?task_id=${encodeURIComponent(taskId)}`
+    );
+  }
+
+  clipDownloadUrl(taskId) {
+    return `${BASE}/stanleystawa/download?task_id=${encodeURIComponent(taskId)}&key=${encodeURIComponent(this.apiKey)}`;
+  }
+
+  async speak(text) {
+    const url = new URL("/stanleystawa/voice", BASE);
+    url.searchParams.set("text", text);
+    url.searchParams.set("key", this.apiKey);
+    url.searchParams.set("format", "audio");
+    const res = await fetch(url, {
+      headers: { "x-api-key": this.apiKey, Authorization: `Bearer ${this.apiKey}` },
+    });
+    if (!res.ok) {
+      const err = new Error(`Voix HTTP ${res.status}`);
+      err.status = res.status;
+      throw err;
+    }
+    return Buffer.from(await res.arrayBuffer());
+  }
+
   async request(method, pathname, body) {
     const url = new URL(pathname, BASE);
     if (method === "GET") url.searchParams.set("key", this.apiKey);
@@ -99,7 +132,7 @@ export class MagicLight {
 
 export function extractTaskId(data) {
   if (!data) return null;
-  if (typeof data === "string" && data.startsWith("fv_")) return data;
+  if (typeof data === "string" && /^(fv_|vid_)/.test(data)) return data;
   return (
     pick(data, [
       "task_id",

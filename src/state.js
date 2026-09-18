@@ -11,6 +11,7 @@ export function loadState() {
     return {
       videos: Array.isArray(raw.videos) ? raw.videos : [],
       lastStartAt: raw.lastStartAt || null,
+      lastQuoteAt: raw.lastQuoteAt || null,
     };
   } catch {
     return { videos: [], lastStartAt: null };
@@ -41,10 +42,11 @@ export function upsertVideo(state, patch) {
   return row;
 }
 
-export function publishedToday(state, timeZone) {
+export function publishedToday(state, timeZone, kind) {
   const day = todayKey(timeZone);
   return state.videos.filter((v) => {
     if (["failed", "error", "cancelled", "canceled"].includes(v.status)) return false;
+    if (kind && (v.kind || "news") !== kind) return false;
     const when = v.startedAt || v.publishedAt || v.createdAt;
     if (!when) return false;
     const key = new Intl.DateTimeFormat("en-CA", {

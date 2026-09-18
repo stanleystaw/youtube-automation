@@ -7,7 +7,9 @@ import { googleAuth } from "./google.js";
 import { uploadToYoutube } from "./youtube.js";
 import { pickBuzzTopic } from "./agents/buzz.js";
 import { packForYoutube } from "./agents/seo.js";
+import { pickQuote } from "./agents/quotes.js";
 import { runLearningLoop } from "./agents/learn.js";
+import { produceQuoteClip } from "./clips.js";
 import { driveClient, ensureFolder, uploadVideo, pullRemoteState, pushRemoteState, mergeStates } from "./drive.js";
 import { downloadVideo, tmpPath } from "./download.js";
 import { banner, info, ok, warn, fail, step } from "./logger.js";
@@ -59,13 +61,13 @@ async function main() {
   }
 
   const persist = async () => {
-    saveState({ videos: state.videos, lastStartAt: state.lastStartAt });
+    saveState({ videos: state.videos, lastStartAt: state.lastStartAt, lastQuoteAt: state.lastQuoteAt });
     try {
       state._driveStateId = await pushRemoteState(
         drive,
         folderId,
         state._driveStateId || null,
-        { videos: state.videos, lastStartAt: state.lastStartAt }
+        { videos: state.videos, lastStartAt: state.lastStartAt, lastQuoteAt: state.lastQuoteAt }
       );
     } catch (error) {
       warn(`Sauvegarde Drive de l'état : ${error.message}`);
@@ -173,13 +175,15 @@ async function main() {
   }
 
   current = await readCurrent(ml);
-  const today = publishedToday(state, settings.timezone);
-  const todayCount = today.length;
-  info(`Vidéos du jour (${settings.timezone}) : ${todayCount}/${settings.videosPerDay}`);
+  const newsToday = publishedToday(state, settings.timezone, "news").length;
+  const quoteToday = publishedToday(state, settings.timezone, "quote").length;
+  info(
+    `Aujourd'hui (${settings.timezone}) — actu ${newsToday}/${settings.videosPerDay} · citations ${quoteToday}/${settings.quotes?.perDay || 3}`
+  );
 
   const shouldStart = canStart({
     current,
-    todayCount,
+    todayCount: newsToday,
     settings,
     lastStartAt: state.lastStartAt,
     credits,
@@ -187,12 +191,10 @@ async function main() {
   });
 
   if (!shouldStart.ok) {
-    info(`Pas de nouvelle génération : ${shouldStart.reason}`);
-    banner("Terminé");
-    return;
-  }
+    info(`Pas de nouvelle actu : ${shouldStart.reason}`);
+  } else {
 
-  step("Agent buzz — sujet du jour (Gemini + Google Search)");
+  step("Agent buzz — actu MONDIALE (Gemini + Google Search)");
   let topic;
   try {
     topic = await pickBuzzTopic({
@@ -231,6 +233,7 @@ async function main() {
       idea: topic.magiclightIdea,
       headline: topic.headline,
       topic,
+      kind: "news",
       status: extractStatus(started) || "queued",
       startedAt: new Date().toISOString(),
       magiclight: started,
@@ -279,8 +282,109 @@ async function main() {
       throw error;
     }
   }
+  } // fin actu
+
+  await maybePublishQuote({
+    ml,
+    cfg,
+    settings,
+    state,
+    credits,
+    drive,
+    folderId,
+    youtubeAuthClient,
+    persist,
+  });
 
   banner("Terminé");
+}
+
+async function maybePublishQuote({
+  ml,
+  cfg,
+  settings,
+  state,
+  credits,
+  drive,
+  folderId,
+  youtubeAuthClient,
+  persist,
+}) {
+  const q = settings.quotes || {};
+  if (q.enabled === false) return;
+  const quoteToday = publishedToday(state, settings.timezone, "quote").length;
+  const cap = Number(q.perDay || 3);
+  if (quoteToday >= cap) {
+    info(`Citations : quota du jour atteint (${cap}).`);
+    return;
+  }
+  if (hoursSince(state.lastQuoteAt) < Number(q.minHoursBetween || 4)) {
+    info("Citations : espacement pas encore écoulé.");
+    return;
+  }
+  if (credits != null && credits < 7) {
+    info("Citations : crédits insuffisants.");
+    return;
+  }
+  if (!cfg.geminiKey) {
+    warn("Citations : GEMINI_API_KEY manquante.");
+    return;
+  }
+
+  step("Agent citations / motivation");
+  const quote = await pickQuote({ apiKey: cfg.geminiKey, settings, state });
+  info(quote.text);
+  const clip = await produceQuoteClip({
+    ml,
+    quote,
+    settings: {
+      ...settings,
+      quotes: {
+        ...q,
+        maxCharsFor10s: credits != null && credits < 14 ? 9999 : q.maxCharsFor10s || 140,
+      },
+    },
+    drive,
+    folderId,
+  });
+  const taskId = clip.taskIds[0];
+  upsertVideo(state, {
+    taskId,
+    kind: "quote",
+    ideaId: quote.id,
+    idea: quote.text,
+    headline: quote.title,
+    topic: { headline: quote.title, facts: [quote.text], angle: quote.theme },
+    status: "generated",
+    startedAt: new Date().toISOString(),
+    localPath: clip.filePath,
+    clipTaskIds: clip.taskIds,
+    durationSec: clip.durationSec,
+  });
+  state.lastQuoteAt = new Date().toISOString();
+  await persist();
+
+  await publishItem({
+    item: {
+      taskId,
+      kind: "quote",
+      idea: quote.text,
+      ideaId: quote.id,
+      headline: quote.title,
+      topic: { headline: quote.title, facts: [quote.text], angle: quote.theme },
+      title: quote.title,
+      localPath: clip.filePath,
+      videoUrl: "file://local",
+      status: "done",
+    },
+    state,
+    drive,
+    folderId,
+    youtubeAuth: youtubeAuthClient,
+    settings,
+    geminiKey: cfg.geminiKey,
+  });
+  await persist();
 }
 
 function canStart({ current, todayCount, settings, lastStartAt, credits, forceIdea }) {

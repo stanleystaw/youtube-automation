@@ -28,19 +28,19 @@ export async function pickBuzzTopic({ apiKey, settings, state, override }) {
     apiKey,
     search: true,
     model: settings.strategy?.geminiModel,
-    system: `Tu es le directeur éditorial d'une chaîne YouTube Shorts francophone (Afrique de l'Ouest, Bénin, diaspora).
-Tu ne fais PAS de contes ni de fiction. Uniquement des FAITS d'actualité, expliqués simplement.
-Tu t'appuies sur Google Search (événements des dernières 24–48 h).
-Tu ne inventes aucun fait. Si tu n'es pas sûr, tu choisis un autre sujet.
+    system: `Tu es le directeur éditorial d'une chaîne YouTube Shorts francophone à audience MONDIALE.
+Tu ne fais PAS de contes ni de fiction. Uniquement des FAITS d'actualité mondiale, expliqués simplement.
+Tu t'appuies sur Google Search (événements des dernières 24–48 h, monde entier).
+Tu n'inventes aucun fait. Si tu n'es pas sûr, tu choisis un autre sujet.
 Réponds UNIQUEMENT en JSON.`,
     prompt: `Date et fuseau : ${new Date().toISOString()} / ${settings.timezone || "Africa/Porto-Novo"}
 
-Mission : choisir LE sujet du moment le plus susceptible de générer des vues en Shorts francophones.
-Priorités : Afrique, Afrique de l'Ouest, Bénin, politique, société, économie, sport, faits surprenants VRAIS, décisions officielles, scandales documentés, records, catastrophes, tech.
-Évite : rumeurs, théories du complot, diffamation, contenu pour enfants, horreur gore, NSFW, fiction.
+Mission : choisir LE sujet d'actualité MONDIALE du moment le plus susceptible de générer des vues en Shorts francophones.
+Couvre le monde : géopolitique, économie, tech, sport, science, société, catastrophes, décisions de grandes puissances, records. L'Afrique peut entrer si c'est vraiment le sujet n°1 mondial du jour — sinon, prends le plus gros buzz planète.
+Évite : rumeurs, complots, diffamation, contenu pour enfants, gore, NSFW, fiction, sujets ultra-locaux sans portée.
 
 Playbook appris (performances passées) :
-${learnings.playbook || "Pas encore de données. Privilégie clarté, un seul fait fort, titre concret."}
+${learnings.playbook || "Pas encore de données. Privilégie clarté, un seul fait fort, titre concret, portée mondiale."}
 
 Sujets déjà traités (ne pas répéter) :
 ${recent.length ? recent.map((t) => `- ${t}`).join("\n") : "(aucun)"}

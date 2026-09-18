@@ -9,7 +9,15 @@
     "contentStyle": "faits_explicatifs",
     "learnAfterDays": 3,
     "geminiModel": "gemini-2.5-flash",
-    "markets": ["Afrique francophone", "Bénin", "Afrique de l'Ouest", "monde"]
+    "markets": ["monde", "géopolitique", "économie", "tech", "sport", "science"]
+  },
+  "quotes": {
+    "enabled": true,
+    "perDay": 3,
+    "minHoursBetween": 4,
+    "maxCharsFor10s": 140,
+    "duration": 10,
+    "quality": "high"
   },
   "youtube": {
     "privacyStatus": "public",
