@@ -765,9 +765,77 @@
       "status": "published",
       "createdAt": "2026-09-18T18:34:14.703Z",
       "updatedAt": "2026-09-18T18:34:14.703Z"
+    },
+    {
+      "taskId": "fv_bf08792183e32700302b680e",
+      "ideaId": "buzz-1789841239754",
+      "idea": "Débutez avec une animation rapide des logos d'OpenAI, Google, Anthropic et SpaceXAI, qui se figent soudainement avec un grand point d'interrogation. Enchaînez avec une infographie dynamique montrant la croissance exponentielle attendue de l'IA, puis une ligne qui ralentit brutalement pour symboliser l'allégation de collusion. Illustrez la plainte antitrust avec des visuels de documents juridiques stylisés et des gros titres de presse internationaux. Montrez des scènes concrètes de personnes utilisant l'IA dans leur quotidien (création artistique, recherche, assistance vocale) pour souligner l'impact sur les utilisateurs. Terminez par une vue aérienne stylisée du globe, avec des points lumineux représentant les centres d'innovation IA, tandis qu'une voix off factuelle explique les enjeux de cette affaire pour l'avenir de la technologie et la concurrence mondiale.",
+      "headline": "Les géants de l'IA accusés de collusion pour ralentir le développement",
+      "topic": {
+        "id": "buzz-1789841239754",
+        "headline": "Les géants de l'IA accusés de collusion pour ralentir le développement",
+        "whyItWillBuzz": "Ce sujet combine l'intérêt mondial pour l'intelligence artificielle avec une accusation inattendue de comportement anticoncurrentiel de la part de grandes entreprises technologiques. Cela soulève des questions sur l'innovation, l'éthique et l'avenir de la tech, garantissant un fort engagement.",
+        "angle": "Nous expliquons comment une plainte antitrust majeure accuse les leaders de l'IA d'avoir secrètement collaboré pour freiner le progrès de l'intelligence artificielle, avec des implications pour l'innovation et les consommateurs.",
+        "facts": [
+          "Une plainte a été déposée, accusant Anthropic, OpenAI, SpaceXAI et Google d'avoir conclu un accord illégal pour coordonner un ralentissement du développement de l'IA.",
+          "La plainte allègue que cette entente viole les lois antitrust et réduirait la valeur que les consommateurs retirent des abonnements payants à l'IA.",
+          "Parallèlement, le PDG d'OpenAI, Sam Altman, est attendu la semaine prochaine au Conseil de sécurité de l'ONU pour discuter de l'IA et de la sécurité internationale, soulignant l'importance mondiale de la gouvernance de cette technologie."
+        ],
+        "sources": [
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGAX1usvRrR2jonGgxD9hSSzmJt_pxvhbpld69IYGWnS10Nr5hi6Q4_Y4AmEdav5h8SA9ppa0Z-9bJ4C1VpkOiEqAKhRPtruLYnkIxhgYmHP_DQYBqMGKN7vAj6VQQg",
+          "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFsOSAAZg4SmCNErzTrhzijgIm1GthTfFgyWaUizGGLmPDyGSSKrd9ehalWSAZH3h5vi3F3UC7I9c8A1WzKy2fdA5vXH9Mgl6Vfz4EjcD7Z9J0SlwD816zyklG9CYs-H-YENC3pO-x5tpvE0U-gLo1Y22GiTl-UUUqSMNTOH4uKBRD69HHV5fWwQ3zgNdsIB4Pl1670pzR5WHyl3laN7Pqikw8"
+        ],
+        "hook": "Imaginez un monde où les géants de la tech s'entendent pour freiner le futur... C'est l'accusation choc qui secoue le monde de l'IA aujourd'hui !",
+        "magiclightIdea": "Débutez avec une animation rapide des logos d'OpenAI, Google, Anthropic et SpaceXAI, qui se figent soudainement avec un grand point d'interrogation. Enchaînez avec une infographie dynamique montrant la croissance exponentielle attendue de l'IA, puis une ligne qui ralentit brutalement pour symboliser l'allégation de collusion. Illustrez la plainte antitrust avec des visuels de documents juridiques stylisés et des gros titres de presse internationaux. Montrez des scènes concrètes de personnes utilisant l'IA dans leur quotidien (création artistique, recherche, assistance vocale) pour souligner l'impact sur les utilisateurs. Terminez par une vue aérienne stylisée du globe, avec des points lumineux représentant les centres d'innovation IA, tandis qu'une voix off factuelle explique les enjeux de cette affaire pour l'avenir de la technologie et la concurrence mondiale."
+      },
+      "kind": "news",
+      "status": "published",
+      "startedAt": "2026-09-19T18:07:20.740Z",
+      "createdAt": "2026-09-19T18:07:20.740Z",
+      "updatedAt": "2026-09-19T18:10:58.379Z",
+      "seo": {
+        "title": "IA: Les géants accusés de collusion pour freiner le développement? La plainte qui secoue la tech.",
+        "description": "Une plainte antitrust majeure accuse Anthropic, OpenAI, SpaceXAI et Google d'avoir secrètement collaboré pour ralentir le développement de l'IA. Cette entente illégale violerait les lois et priverait les consommateurs de la pleine valeur de leurs abonnements IA. Alors que Sam Altman est attendu à l'ONU, cette affaire soulève de graves questions sur l'innovation et l'avenir de l'intelligence artificielle. Découvrez tous les détails de cette accusation explosive. Abonne-toi pour ne rien manquer de l'actu tech! #shorts #IA #ActualitéTech #Antitrust #ScandaleIA #InnovationAfrique #GouvernanceIA",
+        "tags": [
+          "intelligence artificielle",
+          "IA",
+          "OpenAI",
+          "Google",
+          "Anthropic",
+          "SpaceXAI",
+          "antitrust",
+          "plainte",
+          "collusion",
+          "tech",
+          "actualité",
+          "innovation",
+          "Sam Altman",
+          "ONU",
+          "Afrique",
+          "shorts",
+          "ActualitéTech",
+          "ScandaleIA",
+          "InnovationAfrique",
+          "GouvernanceIA"
+        ],
+        "hashtags": [
+          "#shorts",
+          "#IA",
+          "#ActualitéTech",
+          "#Antitrust",
+          "#ScandaleIA",
+          "#InnovationAfrique",
+          "#GouvernanceIA"
+        ]
+      },
+      "title": "IA: Les géants accusés de collusion pour freiner le développement? La plainte qui secoue la tech.",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_bf08792183e32700302b680e",
+      "youtubeId": "4X7iVgY-vOg",
+      "youtubeUrl": "https://www.youtube.com/watch?v=4X7iVgY-vOg",
+      "publishedAt": "2026-09-19T18:10:58.379Z"
     }
   ],
-  "lastStartAt": "2026-09-15T11:50:19.592Z",
+  "lastStartAt": "2026-09-19T18:07:20.740Z",
   "lastQuoteAt": null,
   "conseilsFolderId": "1bfh0iJuEdPKeI3uOCrMIVRPl1uqaJY4v"
 }
