@@ -833,9 +833,79 @@
       "youtubeId": "4X7iVgY-vOg",
       "youtubeUrl": "https://www.youtube.com/watch?v=4X7iVgY-vOg",
       "publishedAt": "2026-09-19T18:10:58.379Z"
+    },
+    {
+      "taskId": "fv_248dc879e1e4bc4f82690bde",
+      "ideaId": "buzz-1789928050232",
+      "idea": "Débuter par une carte animée montrant la trajectoire des drones de l'Ukraine vers l'oblast de Moscou, avec des points d'impact symbolisés par des explosions stylisées. Enchaîner avec des images d'archives de drones en vol ou de débris (anonymisés si nécessaire) et des infographies simples affichant le nombre de drones impliqués et les dégâts (raffinerie en feu, victimes). Inclure une photo du président Zelenskyy avec une citation de sa déclaration. La voix off factuelle explique la nature de l'attaque et ses conséquences géopolitiques immédiates, soulignant la confirmation ukrainienne et la réaction russe. Terminer sur une vue satellite stylisée de la région affectée.",
+      "headline": "Attaque massive de drones ukrainiens sur Moscou",
+      "topic": {
+        "id": "buzz-1789928050232",
+        "headline": "Attaque massive de drones ukrainiens sur Moscou",
+        "whyItWillBuzz": "Cette attaque représente une escalade majeure et sans précédent dans le conflit ukrainien, touchant directement la capitale russe avec un nombre impressionnant de drones et des conséquences tangibles, générant un buzz mondial immédiat.",
+        "angle": "Comprendre l'ampleur de l'attaque de drones ukrainiens sur l'oblast de Moscou et ses implications géopolitiques pour le conflit.",
+        "facts": [
+          "Les forces ukrainiennes ont lancé une attaque massive avec plus de 1 600 drones à longue portée sur l'oblast de Moscou, en Russie.",
+          "L'attaque a provoqué un incendie à la raffinerie de Moscou et a fait au moins deux morts.",
+          "Le président ukrainien Volodymyr Zelenskyy a confirmé avoir ordonné cette attaque, la présentant comme une réponse aux frappes russes contre des civils ukrainiens."
+        ],
+        "sources": [
+          "Al Jazeera",
+          "L'Unione Sarda",
+          "News.az",
+          "La Tribune"
+        ],
+        "hook": "Une pluie de drones sur Moscou. L'Ukraine frappe fort au cœur de la Russie, marquant une escalade majeure.",
+        "magiclightIdea": "Débuter par une carte animée montrant la trajectoire des drones de l'Ukraine vers l'oblast de Moscou, avec des points d'impact symbolisés par des explosions stylisées. Enchaîner avec des images d'archives de drones en vol ou de débris (anonymisés si nécessaire) et des infographies simples affichant le nombre de drones impliqués et les dégâts (raffinerie en feu, victimes). Inclure une photo du président Zelenskyy avec une citation de sa déclaration. La voix off factuelle explique la nature de l'attaque et ses conséquences géopolitiques immédiates, soulignant la confirmation ukrainienne et la réaction russe. Terminer sur une vue satellite stylisée de la région affectée."
+      },
+      "kind": "news",
+      "status": "published",
+      "startedAt": "2026-09-20T18:14:11.271Z",
+      "createdAt": "2026-09-20T18:14:11.271Z",
+      "updatedAt": "2026-09-20T18:18:02.679Z",
+      "seo": {
+        "title": "Moscou frappée par 1600 drones ukrainiens : l'escalade sans précédent expliquée",
+        "description": "Découvrez les détails de l'attaque massive et sans précédent de plus de 1 600 drones ukrainiens sur l'oblast de Moscou. Cette frappe a provoqué un incendie à la raffinerie de Moscou et fait des victimes, marquant une escalade majeure du conflit. Le président Zelenskyy a confirmé l'ordre de cette opération, présentée comme une riposte aux attaques russes. Grâce à notre analyse assistée par IA, nous décryptons les implications géopolitiques de cet événement mondial. Abonnez-vous pour des analyses factuelles et des reportages percutants sur l'actualité internationale. #shorts #actu #GuerreUkraine #Moscou #Drones #Geopolitique #Afrique 🎬 Contenu généré par intelligence artificielle.",
+        "tags": [
+          "Ukraine",
+          "Russie",
+          "Moscou",
+          "attaque drones",
+          "guerre Ukraine Russie",
+          "conflit",
+          "géopolitique",
+          "escalade",
+          "analyse",
+          "actualité",
+          "Zelenskyy",
+          "impact international",
+          "shorts",
+          "actu",
+          "GuerreUkraine",
+          "Drones",
+          "Geopolitique",
+          "Afrique",
+          "faits",
+          "explicatif"
+        ],
+        "hashtags": [
+          "#shorts",
+          "#actu",
+          "#GuerreUkraine",
+          "#Moscou",
+          "#Drones",
+          "#Geopolitique",
+          "#Afrique"
+        ]
+      },
+      "title": "Moscou frappée par 1600 drones ukrainiens : l'escalade sans précédent expliquée",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_248dc879e1e4bc4f82690bde",
+      "youtubeId": "SMhX4EahQkc",
+      "youtubeUrl": "https://www.youtube.com/watch?v=SMhX4EahQkc",
+      "publishedAt": "2026-09-20T18:18:02.679Z"
     }
   ],
-  "lastStartAt": "2026-09-19T18:07:20.740Z",
+  "lastStartAt": "2026-09-20T18:14:11.271Z",
   "lastQuoteAt": null,
   "conseilsFolderId": "1bfh0iJuEdPKeI3uOCrMIVRPl1uqaJY4v"
 }
