@@ -1,5 +1,5 @@
 {
-  "playbook": "Faits d'actualité expliqués simplement. Un sujet = un angle. Accroche en 2 secondes. Titres concrets, pas de fiction, pas de rumeur.",
+  "playbook": "Notre mission est de démystifier le monde par des faits concrets et vérifiables, destinés à une audience francophone d'Afrique de l'Ouest qui cherche à comprendre. Chaque vidéo doit être une fenêtre ouverte sur la réalité, pas une porte vers l'imaginaire ou le divertissement narratif. \n\n**Sujet :** Choisis des faits d'actualité, des découvertes scientifiques récentes, des avancées technologiques ou des explications de phénomènes réels. Le sujet doit être intrinsèquement fascinant *parce qu'il est vrai* et avoir un ancrage clair dans le monde réel, potentiellement avec un lien ou une résonance pour notre audience. Fuis tout ce qui peut sonner comme une fable, un mythe ou une spéculation non prouvée.\n\n**Angle :** Un seul angle, une explication simple, concise et percutante du fait. Réponds directement aux questions 'quoi', 'comment', 'pourquoi'.\n\n**Accroche (2 secondes) :** Les deux premières secondes visuelles et sonores, combinées à la 'headline' textuelle, doivent instantanément et sans aucune ambiguïté signaler que le contenu est un fait explicatif. Pas de suspense narratif, pas de question rhétorique ambiguë. Va droit au but : 'Voici ce qui a été découvert...', 'Comprends pourquoi...', 'Le fait est...'. L'objectif est de rassurer l'audience sur la nature factuelle du contenu.\n\n**Titres :** Impérativement concrets, informatifs et dénués de toute interprétation fictionnelle ou sensationnaliste. Bannis les mots qui évoquent le merveilleux, le magique, le conte ou l'extraordinaire au sens de l'irréel. Préfère les verbes d'action factuels (découvrir, expliquer, révéler, comprendre) et les noms précis. Ex: au lieu de 'planète chantante', pense 'ondes radio de [planète] converties en sons audibles'.",
   "notes": [
     {
       "at": "2026-09-18T15:32:03.504Z",
@@ -353,6 +353,41 @@
       "losers": [],
       "rules": [],
       "playbook": "Faits d'actualité expliqués simplement. Un sujet = un angle. Accroche en 2 secondes. Titres concrets, pas de fiction, pas de rumeur."
+    },
+    {
+      "at": "2026-09-21T21:59:48.796Z",
+      "videoIds": [
+        "eH5lAVdWxQ0"
+      ],
+      "stats": [
+        {
+          "youtubeId": "eH5lAVdWxQ0",
+          "youtubeUrl": "https://www.youtube.com/watch?v=eH5lAVdWxQ0",
+          "title": "L'astronaute et la planète 'chantante' : la science révèle ses sons nocturnes",
+          "headline": "Une astronaute découvre une planète qui chante à la tombée de la nuit",
+          "publishedAt": "2026-09-18T18:34:14.703Z",
+          "views": 1,
+          "likes": 0,
+          "comments": 0,
+          "favorites": 0
+        }
+      ],
+      "summary": "La vidéo unique soumise, 'L'astronaute et la planète 'chantante'', a généré 1 vue, indiquant un échec total de l'accroche et de l'engagement. Le titre et la 'headline' ont été perçus comme fictionnels ou trop poétiques ('chantante', 'découvre'), ce qui contredit directement le playbook ('pas de fiction, pas de rumeur') et les attentes d'une audience cherchant des faits explicatifs. Cette ambiguïté a clairement empêché l'attraction et la rétention. Il est impératif de réaligner la formulation des sujets, titres et accroches pour garantir une clarté factuelle absolue, éliminant toute interprétation narrative ou de conte.",
+      "winners": [],
+      "losers": [
+        {
+          "title": "L'astronaute et la planète 'chantante' : la science révèle ses sons nocturnes",
+          "views": 1,
+          "why": "Le titre et la 'headline' ('Une astronaute découvre une planète qui chante') ont été perçus comme de la fiction ou un conte, allant à l'encontre de la consigne 'pas de fiction, pas de rumeur' et des attentes d'une audience francophone d'Afrique de l'Ouest cherchant des faits explicatifs. La présentation du sujet, bien que potentiellement basé sur la science, a été mal formulée, entraînant un échec total de l'engagement et de la visibilité."
+        }
+      ],
+      "rules": [
+        "**Clarté Factuelle Implacable :** Chaque titre et accroche doit clairement annoncer un fait réel. Bannir tout terme, métaphore ou formulation qui pourrait être interprété comme de la fiction, un conte, ou une rumeur, même si le fond est scientifique. La crédibilité est non négociable.",
+        "**Spécificité et Ancrage Réel :** Nommer les entités, lieux, organisations ou phénomènes spécifiques (ex: 'La NASA', 'Mars', 'Le volcan Nyiragongo') dès que possible pour ancrer le sujet dans la réalité et renforcer son authenticité. Éviter les généralités ambiguës.",
+        "**Impact Explicatif Direct (2 secondes) :** L'accroche visuelle/sonore et la 'headline' textuelle doivent immédiatement et sans ambiguïté expliquer le 'quoi' ou le 'pourquoi' du fait. Pas de suspense narratif ou d'énigme qui pourrait être confondu avec une introduction de conte. Aller droit au but.",
+        "**Langage Direct et Scientifique/Factuel :** Utiliser un vocabulaire précis, concret et explicatif. Éviter le langage poétique, abstrait ou émotionnel excessif qui pourrait diluer le caractère factuel du contenu."
+      ],
+      "playbook": "Notre mission est de démystifier le monde par des faits concrets et vérifiables, destinés à une audience francophone d'Afrique de l'Ouest qui cherche à comprendre. Chaque vidéo doit être une fenêtre ouverte sur la réalité, pas une porte vers l'imaginaire ou le divertissement narratif. \n\n**Sujet :** Choisis des faits d'actualité, des découvertes scientifiques récentes, des avancées technologiques ou des explications de phénomènes réels. Le sujet doit être intrinsèquement fascinant *parce qu'il est vrai* et avoir un ancrage clair dans le monde réel, potentiellement avec un lien ou une résonance pour notre audience. Fuis tout ce qui peut sonner comme une fable, un mythe ou une spéculation non prouvée.\n\n**Angle :** Un seul angle, une explication simple, concise et percutante du fait. Réponds directement aux questions 'quoi', 'comment', 'pourquoi'.\n\n**Accroche (2 secondes) :** Les deux premières secondes visuelles et sonores, combinées à la 'headline' textuelle, doivent instantanément et sans aucune ambiguïté signaler que le contenu est un fait explicatif. Pas de suspense narratif, pas de question rhétorique ambiguë. Va droit au but : 'Voici ce qui a été découvert...', 'Comprends pourquoi...', 'Le fait est...'. L'objectif est de rassurer l'audience sur la nature factuelle du contenu.\n\n**Titres :** Impérativement concrets, informatifs et dénués de toute interprétation fictionnelle ou sensationnaliste. Bannis les mots qui évoquent le merveilleux, le magique, le conte ou l'extraordinaire au sens de l'irréel. Préfère les verbes d'action factuels (découvrir, expliquer, révéler, comprendre) et les noms précis. Ex: au lieu de 'planète chantante', pense 'ondes radio de [planète] converties en sons audibles'."
     }
   ]
 }

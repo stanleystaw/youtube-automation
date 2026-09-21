@@ -764,7 +764,14 @@
       "publishedAt": "2026-09-18T18:34:14.703Z",
       "status": "published",
       "createdAt": "2026-09-18T18:34:14.703Z",
-      "updatedAt": "2026-09-18T18:34:14.703Z"
+      "updatedAt": "2026-09-18T18:34:14.703Z",
+      "stats": {
+        "views": 1,
+        "likes": 0,
+        "comments": 0,
+        "fetchedAt": "2026-09-21T21:59:31.691Z"
+      },
+      "learnedAt": "2026-09-21T21:59:48.797Z"
     },
     {
       "taskId": "fv_bf08792183e32700302b680e",
