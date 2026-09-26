@@ -924,9 +924,79 @@
         "fetchedAt": "2026-09-23T21:31:21.804Z"
       },
       "learnedAt": "2026-09-23T21:31:38.326Z"
+    },
+    {
+      "taskId": "fv_e4c3400f65581d04c1362d20",
+      "ideaId": "buzz-1790447942132",
+      "idea": "Débuter avec une carte animée du Moyen-Orient, zoomant sur le détroit d'Ormuz, montrant des navires pétroliers stylisés. Enchaîner avec des images d'archives de Donald Trump et du président iranien (anonymisées si nécessaire, ou des plans larges de conférences de presse). Intégrer une infographie simple expliquant le volume de pétrole transitant par Ormuz. Montrer des extraits de titres de presse internationaux (factuels, sans sensationnalisme). La voix off, claire et posée, explique les faits sans dramatisation, avec des transitions fluides entre les visuels pour illustrer chaque point clé de l'impasse diplomatique et ses conséquences économiques mondiales.",
+      "headline": "Tensions Iran-USA: Trump rejette l'offre d'Ormuz",
+      "topic": {
+        "id": "buzz-1790447942132",
+        "headline": "Tensions Iran-USA: Trump rejette l'offre d'Ormuz",
+        "whyItWillBuzz": "Cette actualité est cruciale car elle concerne une escalade diplomatique entre deux puissances majeures, avec des implications directes sur le commerce mondial de pétrole via le détroit d'Ormuz, impactant l'économie globale et potentiellement l'Afrique de l'Ouest.",
+        "angle": "Comprenez pourquoi la dernière proposition de l'Iran concernant le détroit d'Ormuz a été rejetée par les États-Unis et quelles sont les conséquences de cette impasse diplomatique.",
+        "facts": [
+          "Le président américain Donald Trump a rejeté la proposition de l'Iran de rouvrir le détroit d'Ormuz dans un délai de sept jours.",
+          "Le président iranien Pezeshkian a déclaré que l'Iran ne faisait 'plus confiance aux pourparlers avec Washington'.",
+          "Le détroit d'Ormuz est un point de passage maritime vital pour une part significative du pétrole mondial."
+        ],
+        "sources": [
+          "https://www.aljazeera.com/news/2026/9/26/trump-rejects-irans-proposal-to-reopen-hormuz-within-seven-days",
+          "https://www.liberation.fr/international/les-etats-unis-et-la-chine-ouvrent-un-canal-de-communication-sur-l-intelligence-artificielle-20260926_S7X2Y3Z4A5B6C7D8E9F0G1H2I3J4K5L6M7N8O9P0Q1R2S3T4U5V6W7X8Y9Z0/",
+          "https://www.latribune.fr/actualite/economie/trump-rejette-le-plan-iranien-pour-rouvrir-le-detroit-d-ormuz-20260926.html",
+          "https://globalnews.ca/news/10793741/ai-trade-iran-trump-xi-summit/"
+        ],
+        "hook": "Le détroit d'Ormuz, crucial pour le pétrole mondial, reste au cœur des tensions. Voici pourquoi les négociations entre l'Iran et les États-Unis viennent d'échouer.",
+        "magiclightIdea": "Débuter avec une carte animée du Moyen-Orient, zoomant sur le détroit d'Ormuz, montrant des navires pétroliers stylisés. Enchaîner avec des images d'archives de Donald Trump et du président iranien (anonymisées si nécessaire, ou des plans larges de conférences de presse). Intégrer une infographie simple expliquant le volume de pétrole transitant par Ormuz. Montrer des extraits de titres de presse internationaux (factuels, sans sensationnalisme). La voix off, claire et posée, explique les faits sans dramatisation, avec des transitions fluides entre les visuels pour illustrer chaque point clé de l'impasse diplomatique et ses conséquences économiques mondiales."
+      },
+      "kind": "news",
+      "status": "published",
+      "startedAt": "2026-09-26T18:39:03.042Z",
+      "createdAt": "2026-09-26T18:39:03.042Z",
+      "updatedAt": "2026-09-26T18:43:05.595Z",
+      "seo": {
+        "title": "Tensions Iran-USA : Trump rejette l'offre d'Ormuz. Pourquoi cette impasse ?",
+        "description": "Le président Trump a rejeté l'offre de l'Iran de rouvrir le détroit d'Ormuz en 7 jours. Le président iranien Pezeshkian exprime désormais une totale méfiance envers Washington. Ce détroit crucial est vital pour le commerce mondial de pétrole. Comprenez les raisons de cette impasse diplomatique et ses potentielles répercussions sur l'économie globale, y compris en Afrique de l'Ouest. Restez informé : abonnez-vous pour ne rien manquer ! (Cette analyse factuelle a été élaborée avec l'aide d'une IA pour la synthèse des informations.) #shorts #actu #IranUSA #DétroitOrmuz #Geopolitique #CrisePetrole #AfriqueActu 🎬 Contenu généré par intelligence artificielle.",
+        "tags": [
+          "Iran",
+          "USA",
+          "Trump",
+          "Détroit d'Ormuz",
+          "Géopolitique",
+          "Actualité internationale",
+          "Pétrole",
+          "Crise diplomatique",
+          "Moyen-Orient",
+          "Économie mondiale",
+          "Tensions internationales",
+          "Politique étrangère",
+          "Conflit Iran USA",
+          "Afrique Actualité",
+          "Analyse géopolitique",
+          "shorts",
+          "actu",
+          "IranUSA",
+          "DétroitOrmuz",
+          "Geopolitique"
+        ],
+        "hashtags": [
+          "#shorts",
+          "#actu",
+          "#IranUSA",
+          "#DétroitOrmuz",
+          "#Geopolitique",
+          "#CrisePetrole",
+          "#AfriqueActu"
+        ]
+      },
+      "title": "Tensions Iran-USA : Trump rejette l'offre d'Ormuz. Pourquoi cette impasse ?",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_e4c3400f65581d04c1362d20",
+      "youtubeId": "bQ3-fUKQv6k",
+      "youtubeUrl": "https://www.youtube.com/watch?v=bQ3-fUKQv6k",
+      "publishedAt": "2026-09-26T18:43:05.595Z"
     }
   ],
-  "lastStartAt": "2026-09-20T18:14:11.271Z",
+  "lastStartAt": "2026-09-26T18:39:03.042Z",
   "lastQuoteAt": null,
   "conseilsFolderId": "1bfh0iJuEdPKeI3uOCrMIVRPl1uqaJY4v"
 }
