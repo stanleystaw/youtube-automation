@@ -1080,9 +1080,79 @@
         "fetchedAt": "2026-10-01T22:42:36.262Z"
       },
       "learnedAt": "2026-10-01T22:42:48.594Z"
+    },
+    {
+      "taskId": "fv_d9029e4048b32c524e9758ca",
+      "ideaId": "buzz-1791053091973",
+      "idea": "Début de la vidéo : une carte du monde avec des flèches montrant la hausse des prix du pétrole. Gros plan sur des pompes à essence affichant des prix élevés dans une ville africaine. Un journaliste (voix-off) explique la situation. Infographie simple montrant les réserves de pétrole et la quantité libérée par le G7. Des images d'archives des réunions du G7. Des visuels de camions et de motos en Afrique de l'Ouest, soulignant l'impact sur le transport et le commerce local. La voix-off conclut sur les implications concrètes pour l'économie et les consommateurs.",
+      "headline": "Le G7 libère des réserves de pétrole face à la flambée des prix",
+      "topic": {
+        "id": "buzz-1791053091973",
+        "headline": "Le G7 libère des réserves de pétrole face à la flambée des prix",
+        "whyItWillBuzz": "Ce sujet aura un impact direct et immédiat sur le quotidien de notre audience en Afrique de l'Ouest, car la fluctuation des prix du carburant affecte directement le coût des transports, des biens et l'économie générale des ménages. La décision d'un groupe de grandes puissances comme le G7 pour stabiliser ces prix est une actualité mondiale concrète et pertinente.",
+        "angle": "Nous expliquerons pourquoi les nations du G7 ont décidé de libérer leurs réserves stratégiques de pétrole et de diesel, et comment cette action pourrait influencer les prix mondiaux du carburant, avec des répercussions pour les consommateurs en Afrique de l'Ouest.",
+        "facts": [
+          "Les nations du G7 ont annoncé la libération de 100 millions de barils de pétrole et de diesel de leurs réserves stratégiques.",
+          "Cette décision intervient alors que les prix mondiaux du pétrole et du diesel connaissent une forte augmentation.",
+          "L'Europe a également décidé de libérer ses réserves de pétrole et de diesel, suite à des pressions et menaces rapportées de l'administration Trump."
+        ],
+        "sources": [
+          "CBS Detroit",
+          "Global News",
+          "NDTV World"
+        ],
+        "hook": "La flambée des prix du carburant vous inquiète ? Voici pourquoi le G7 agit maintenant !",
+        "magiclightIdea": "Début de la vidéo : une carte du monde avec des flèches montrant la hausse des prix du pétrole. Gros plan sur des pompes à essence affichant des prix élevés dans une ville africaine. Un journaliste (voix-off) explique la situation. Infographie simple montrant les réserves de pétrole et la quantité libérée par le G7. Des images d'archives des réunions du G7. Des visuels de camions et de motos en Afrique de l'Ouest, soulignant l'impact sur le transport et le commerce local. La voix-off conclut sur les implications concrètes pour l'économie et les consommateurs."
+      },
+      "kind": "news",
+      "status": "published",
+      "startedAt": "2026-10-03T18:44:54.135Z",
+      "createdAt": "2026-10-03T18:44:54.135Z",
+      "updatedAt": "2026-10-03T18:47:05.191Z",
+      "seo": {
+        "title": "Crise du carburant : le G7 libère son pétrole ! Conséquences en Afrique.",
+        "description": "Les nations du G7 annoncent la libération de 100 millions de barils de pétrole et diesel de leurs réserves stratégiques. Cette décision vise à contrecarrer la flambée mondiale des prix du carburant et du diesel. Découvrez pourquoi cette mesure a été prise et ses potentielles répercussions sur les prix à la pompe en Afrique de l'Ouest, impactant directement votre quotidien. Notre analyse, générée avec l'aide d'une IA, vous éclaire sur les enjeux économiques de cette actualité mondiale. Abonnez-vous pour ne manquer aucune explication sur les sujets qui vous touchent directement ! #shorts #G7 #petrole #carburant #AfriqueDeLOuest #EconomieAfricaine #Actualite #PrixCarburant 🎬 Contenu généré par intelligence artificielle.",
+        "tags": [
+          "G7",
+          "pétrole",
+          "carburant",
+          "prix",
+          "Afrique de l'Ouest",
+          "économie",
+          "énergie",
+          "réserves stratégiques",
+          "diesel",
+          "inflation",
+          "impact",
+          "actualité",
+          "analyse",
+          "marché pétrolier",
+          "consommation",
+          "shorts",
+          "petrole",
+          "AfriqueDeLOuest",
+          "EconomieAfricaine",
+          "Actualite"
+        ],
+        "hashtags": [
+          "#shorts",
+          "#G7",
+          "#petrole",
+          "#carburant",
+          "#AfriqueDeLOuest",
+          "#EconomieAfricaine",
+          "#Actualite",
+          "#PrixCarburant"
+        ]
+      },
+      "title": "Crise du carburant : le G7 libère son pétrole ! Conséquences en Afrique.",
+      "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_d9029e4048b32c524e9758ca",
+      "youtubeId": "wJZCrDA-wmA",
+      "youtubeUrl": "https://www.youtube.com/watch?v=wJZCrDA-wmA",
+      "publishedAt": "2026-10-03T18:47:05.191Z"
     }
   ],
-  "lastStartAt": "2026-09-28T18:39:03.417Z",
+  "lastStartAt": "2026-10-03T18:44:54.135Z",
   "lastQuoteAt": null,
   "conseilsFolderId": "1bfh0iJuEdPKeI3uOCrMIVRPl1uqaJY4v"
 }
