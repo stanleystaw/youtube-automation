@@ -1149,7 +1149,14 @@
       "videoUrl": "https://magiclight-api-gamma.vercel.app/stanleystawa/video-download?task_id=fv_d9029e4048b32c524e9758ca",
       "youtubeId": "wJZCrDA-wmA",
       "youtubeUrl": "https://www.youtube.com/watch?v=wJZCrDA-wmA",
-      "publishedAt": "2026-10-03T18:47:05.191Z"
+      "publishedAt": "2026-10-03T18:47:05.191Z",
+      "stats": {
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "fetchedAt": "2026-10-06T22:40:05.459Z"
+      },
+      "learnedAt": "2026-10-06T22:40:18.553Z"
     }
   ],
   "lastStartAt": "2026-10-03T18:44:54.135Z",
